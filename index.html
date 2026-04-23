@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uri Derelicti — A Religious Ministry</title>
+<meta name="description" content="Uri Derelicti is a religious ministry devoted to the scriptural study of conscience, desire, and divine mercy. Based in South Carolina.">
+<meta property="og:title" content="Uri Derelicti">
+<meta property="og:description" content="A religious ministry devoted to the scriptural study of conscience, desire, and divine mercy.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://uriderelicti.org">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ART DIRECTION: ancient manuscript · sacred flame · Latin gravitas
+   Palette: near-black surfaces · warm parchment text · amber accent
+   Typography: Cormorant Garamond (display) + Jost (body/UI)
+   Density: spacious, reverent
+   ============================================================ */
+
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    7rem);
+
+  --space-1:  0.25rem;  --space-2:  0.5rem;   --space-3:  0.75rem;
+  --space-4:  1rem;     --space-6:  1.5rem;   --space-8:  2rem;
+  --space-10: 2.5rem;   --space-12: 3rem;     --space-16: 4rem;
+  --space-20: 5rem;     --space-24: 6rem;     --space-32: 8rem;
+
+  --radius-sm: 0.25rem; --radius-md: 0.5rem; --radius-lg: 0.75rem;
+  --transition: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --content-narrow: 640px; --content-default: 900px; --content-wide: 1140px;
+
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body:    'Jost', 'Helvetica Neue', sans-serif;
+}
+
+/* DARK (default) */
+:root, [data-theme="dark"] {
+  --color-bg:              #0e0d0b;
+  --color-surface:         #141310;
+  --color-surface-2:       #1a1815;
+  --color-surface-offset:  #201e1a;
+  --color-divider:         #2a2720;
+  --color-border:          #33302a;
+  --color-text:            #e8e0d0;
+  --color-text-muted:      #9a9080;
+  --color-text-faint:      #5c5548;
+  --color-text-inverse:    #0e0d0b;
+  --color-primary:         #c8872a;
+  --color-primary-hover:   #dfa040;
+  --color-primary-active:  #b87420;
+  --color-primary-highlight: #2e2318;
+  --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.4);
+  --shadow-md: 0 4px 16px oklch(0 0 0 / 0.5);
+  --shadow-lg: 0 12px 40px oklch(0 0 0 / 0.6);
+}
+
+/* LIGHT */
+[data-theme="light"] {
+  --color-bg:              #f5f0e8;
+  --color-surface:         #f9f6f0;
+  --color-surface-2:       #fdfcf9;
+  --color-surface-offset:  #ede8df;
+  --color-divider:         #ddd6c8;
+  --color-border:          #cfc8b8;
+  --color-text:            #1e1a12;
+  --color-text-muted:      #6b6050;
+  --color-text-faint:      #a89880;
+  --color-text-inverse:    #f9f6f0;
+  --color-primary:         #9e6418;
+  --color-primary-hover:   #b87820;
+  --color-primary-active:  #7a4e10;
+  --color-primary-highlight: #f0e4cc;
+  --shadow-sm: 0 1px 2px oklch(0.2 0.03 70 / 0.08);
+  --shadow-md: 0 4px 12px oklch(0.2 0.03 70 / 0.10);
+  --shadow-lg: 0 12px 32px oklch(0.2 0.03 70 / 0.14);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --color-bg:#f5f0e8;--color-surface:#f9f6f0;--color-surface-2:#fdfcf9;
+    --color-surface-offset:#ede8df;--color-divider:#ddd6c8;--color-border:#cfc8b8;
+    --color-text:#1e1a12;--color-text-muted:#6b6050;--color-text-faint:#a89880;
+    --color-text-inverse:#f9f6f0;--color-primary:#9e6418;--color-primary-hover:#b87820;
+    --color-primary-active:#7a4e10;--color-primary-highlight:#f0e4cc;
+    --shadow-sm:0 1px 2px oklch(0.2 0.03 70/.08);
+    --shadow-md:0 4px 12px oklch(0.2 0.03 70/.10);
+    --shadow-lg:0 12px 32px oklch(0.2 0.03 70/.14);
+  }
+}
+
+/* BASE */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-16);
+}
+body {
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.65;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+img, picture, svg { display: block; max-width: 100%; }
+ul[role="list"] { list-style: none; }
+input, button, textarea, select { font: inherit; color: inherit; }
+h1,h2,h3,h4,h5,h6 { text-wrap: balance; line-height: 1.15; font-family: var(--font-display); }
+p, li { text-wrap: pretty; max-width: 72ch; }
+::selection { background: oklch(from var(--color-primary) l c h / 0.25); }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+button { cursor: pointer; background: none; border: none; }
+a { color: inherit; text-decoration: none; transition: color var(--transition); }
+
+/* SKIP LINK */
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4);
+  background: var(--color-primary); color: var(--color-text-inverse);
+  padding: var(--space-2) var(--space-4); border-radius: var(--radius-md);
+  font-size: var(--text-sm); z-index: 1000;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* HEADER / NAV */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--space-4) clamp(var(--space-6), 5vw, var(--space-16));
+  background: oklch(from var(--color-bg) l c h / 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid oklch(from var(--color-text) l c h / 0.08);
+  transition: background var(--transition), border-color var(--transition);
+}
+.site-logo {
+  display: flex; align-items: center; gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+}
+.site-logo svg { width: 32px; height: 32px; flex-shrink: 0; }
+.site-nav { display: flex; align-items: center; gap: var(--space-8); }
+.nav-links { display: flex; gap: var(--space-6); list-style: none; }
+.nav-links a {
+  font-family: var(--font-body); font-size: var(--text-sm);
+  font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+}
+.nav-links a:hover, .nav-links a.active { color: var(--color-primary); }
+.theme-toggle {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-md);
+  transition: color var(--transition), background var(--transition);
+}
+.theme-toggle:hover { color: var(--color-primary); background: var(--color-surface-offset); }
+
+/* HAMBURGER */
+.hamburger { display: none; flex-direction: column; gap: 5px; padding: var(--space-2); }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--color-text-muted); transition: all 0.3s; }
+.mobile-nav {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--color-bg); z-index: 99; flex-direction: column;
+  align-items: center; justify-content: center; gap: var(--space-10);
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: var(--font-display); font-size: var(--text-xl);
+  color: var(--color-text); letter-spacing: 0.06em;
+}
+.mobile-nav a:hover { color: var(--color-primary); }
+.mobile-close {
+  position: absolute; top: var(--space-6); right: clamp(var(--space-6), 5vw, var(--space-16));
+  font-size: var(--text-xl); color: var(--color-text-muted);
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* PAGE SECTIONS */
+.page-section { display: none; }
+.page-section.active { display: block; }
+
+/* HERO */
+.hero {
+  min-height: 100dvh;
+  display: grid; place-items: center;
+  padding: clamp(var(--space-16), 10vw, var(--space-32)) clamp(var(--space-6), 5vw, var(--space-16));
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 60%,
+      oklch(from var(--color-primary) l c h / 0.06) 0%,
+      transparent 70%),
+    radial-gradient(ellipse 40% 30% at 30% 20%,
+      oklch(from var(--color-primary) l c h / 0.03) 0%,
+      transparent 60%);
+}
+.hero-content { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+.hero-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body); font-size: var(--text-xs);
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--color-primary); margin-bottom: var(--space-8);
+}
+.hero-title {
+  font-family: var(--font-display); font-size: var(--text-hero);
+  font-weight: 300; font-style: italic;
+  color: var(--color-text); margin-bottom: var(--space-4);
+  line-height: 1.05;
+}
+.hero-subtitle {
+  font-family: var(--font-display); font-size: var(--text-xl);
+  font-weight: 300; color: var(--color-text-muted);
+  margin-bottom: var(--space-10); font-style: italic;
+}
+.hero-divider {
+  width: 48px; height: 1px; background: var(--color-primary);
+  margin: var(--space-8) auto; opacity: 0.6;
+}
+.hero-body {
+  font-family: var(--font-body); font-size: var(--text-base);
+  color: var(--color-text-muted); max-width: 52ch; margin: 0 auto var(--space-10);
+  line-height: 1.75;
+}
+.hero-cta {
+  display: inline-flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center;
+}
+.btn {
+  display: inline-block;
+  padding: var(--space-3) var(--space-8);
+  font-family: var(--font-body); font-size: var(--text-sm);
+  letter-spacing: 0.12em; text-transform: uppercase; font-weight: 400;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  min-height: 44px; display: inline-flex; align-items: center;
+}
+.btn-primary {
+  background: var(--color-primary); color: var(--color-text-inverse);
+  border: 1px solid var(--color-primary);
+}
+.btn-primary:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
+.btn-ghost {
+  background: transparent; color: var(--color-text-muted);
+  border: 1px solid oklch(from var(--color-text) l c h / 0.18);
+}
+.btn-ghost:hover { color: var(--color-text); border-color: oklch(from var(--color-text) l c h / 0.35); }
+
+/* SCROLL CUE */
+.scroll-cue {
+  position: absolute; bottom: var(--space-8); left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-2);
+  color: var(--color-text-faint); font-family: var(--font-body);
+  font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase;
+  animation: float 2.5s ease-in-out infinite;
+}
+@keyframes float { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+.scroll-cue svg { width: 16px; height: 16px; }
+
+/* SECTIONS */
+.content-section {
+  padding: clamp(var(--space-16), 8vw, var(--space-32)) clamp(var(--space-6), 5vw, var(--space-16));
+}
+.section-inner { max-width: var(--content-default); margin: 0 auto; }
+.section-label {
+  display: block; font-family: var(--font-body);
+  font-size: var(--text-xs); letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--color-primary); margin-bottom: var(--space-6);
+}
+.section-title {
+  font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400;
+  color: var(--color-text); margin-bottom: var(--space-6); line-height: 1.15;
+}
+.section-subtitle {
+  font-family: var(--font-display); font-size: var(--text-lg); font-style: italic;
+  color: var(--color-text-muted); margin-bottom: var(--space-10); font-weight: 300;
+}
+.section-divider {
+  width: 40px; height: 1px; background: var(--color-primary);
+  margin-bottom: var(--space-10); opacity: 0.5;
+}
+
+/* PROOF SECTION */
+.proof-block {
+  background: var(--color-surface);
+  border: 1px solid oklch(from var(--color-text) l c h / 0.08);
+  border-radius: var(--radius-lg);
+  padding: clamp(var(--space-8), 4vw, var(--space-16));
+  margin-bottom: var(--space-12);
+  box-shadow: var(--shadow-sm);
+}
+.proof-latin {
+  font-family: var(--font-display); font-size: var(--text-2xl);
+  font-style: italic; font-weight: 300;
+  color: var(--color-text); margin-bottom: var(--space-4); line-height: 1.2;
+}
+.proof-translation {
+  font-family: var(--font-body); font-size: var(--text-sm);
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: var(--color-primary); margin-bottom: var(--space-8);
+}
+.proof-body {
+  font-family: var(--font-body); font-size: var(--text-base);
+  color: var(--color-text-muted); line-height: 1.8; max-width: 62ch;
+}
+.proof-cite {
+  display: block; margin-top: var(--space-6);
+  font-family: var(--font-display); font-style: italic;
+  font-size: var(--text-sm); color: var(--color-text-faint);
+}
+
+/* TESTAMENT GRID */
+.testament-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  gap: var(--space-4);
+}
+.testament-card {
+  background: var(--color-surface-2);
+  border: 1px solid oklch(from var(--color-text) l c h / 0.07);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+.testament-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: oklch(from var(--color-primary) l c h / 0.3);
+}
+.testament-icon {
+  width: 36px; height: 36px; margin-bottom: var(--space-4);
+  color: var(--color-primary); opacity: 0.8;
+}
+.testament-card h3 {
+  font-family: var(--font-display); font-size: var(--text-lg);
+  font-weight: 400; margin-bottom: var(--space-3);
+  color: var(--color-text);
+}
+.testament-card p {
+  font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7;
+}
+
+/* ABOUT PAGE */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
+  align-items: start;
+}
+@media (max-width: 680px) { .about-grid { grid-template-columns: 1fr; gap: var(--space-10); } }
+.about-body p {
+  font-size: var(--text-base); color: var(--color-text-muted);
+  line-height: 1.8; margin-bottom: var(--space-6); max-width: 60ch;
+}
+.about-aside {
+  background: var(--color-surface);
+  border-left: 2px solid var(--color-primary);
+  padding: var(--space-8);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.about-aside blockquote {
+  font-family: var(--font-display); font-size: var(--text-xl);
+  font-style: italic; font-weight: 300;
+  color: var(--color-text); line-height: 1.4; margin-bottom: var(--space-4);
+}
+.about-aside cite {
+  display: block; font-family: var(--font-body);
+  font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--color-primary);
+}
+.dissolution-note {
+  margin-top: var(--space-12);
+  padding: var(--space-6) var(--space-8);
+  background: var(--color-surface);
+  border: 1px solid oklch(from var(--color-text) l c h / 0.08);
+  border-radius: var(--radius-md);
+}
+.dissolution-note p {
+  font-size: var(--text-sm); color: var(--color-text-muted);
+  line-height: 1.7; max-width: 100%;
+}
+.dissolution-note strong { color: var(--color-text); font-weight: 500; }
+
+/* CONTACT PAGE */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
+  align-items: start;
+}
+@media (max-width: 680px) { .contact-grid { grid-template-columns: 1fr; gap: var(--space-10); } }
+.contact-info p {
+  font-size: var(--text-base); color: var(--color-text-muted);
+  line-height: 1.8; margin-bottom: var(--space-6); max-width: 54ch;
+}
+.contact-detail {
+  display: flex; align-items: flex-start; gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+.contact-detail svg { width: 20px; height: 20px; color: var(--color-primary); flex-shrink: 0; margin-top: 2px; }
+.contact-detail-body { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7; }
+.contact-detail-body strong { display: block; color: var(--color-text); font-weight: 500; margin-bottom: var(--space-1); font-family: var(--font-display); font-size: var(--text-base); font-style: italic; }
+.contact-form { display: flex; flex-direction: column; gap: var(--space-4); }
+.form-group { display: flex; flex-direction: column; gap: var(--space-2); }
+.form-group label {
+  font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--color-text-muted); font-family: var(--font-body);
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: var(--color-surface);
+  border: 1px solid oklch(from var(--color-text) l c h / 0.14);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-base); color: var(--color-text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  min-height: 44px;
+}
+.form-group textarea { min-height: 140px; resize: vertical; }
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px oklch(from var(--color-primary) l c h / 0.15);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--color-text-faint); }
+.form-success {
+  display: none; text-align: center; padding: var(--space-12) var(--space-8);
+  background: var(--color-surface);
+  border: 1px solid oklch(from var(--color-primary) l c h / 0.2);
+  border-radius: var(--radius-lg);
+}
+.form-success h3 {
+  font-family: var(--font-display); font-size: var(--text-xl); font-style: italic;
+  color: var(--color-text); margin-bottom: var(--space-4);
+}
+.form-success p { font-size: var(--text-sm); color: var(--color-text-muted); max-width: 44ch; margin: 0 auto; }
+
+/* FOOTER */
+.site-footer {
+  padding: var(--space-12) clamp(var(--space-6), 5vw, var(--space-16));
+  border-top: 1px solid oklch(from var(--color-text) l c h / 0.08);
+  display: flex; flex-wrap: wrap; gap: var(--space-6);
+  justify-content: space-between; align-items: center;
+}
+.footer-brand {
+  font-family: var(--font-display); font-size: var(--text-base);
+  font-style: italic; color: var(--color-text-muted);
+}
+.footer-links { display: flex; gap: var(--space-6); list-style: none; flex-wrap: wrap; }
+.footer-links a {
+  font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--color-text-faint); transition: color var(--transition);
+}
+.footer-links a:hover { color: var(--color-primary); }
+.footer-legal {
+  font-size: var(--text-xs); color: var(--color-text-faint);
+  letter-spacing: 0.06em; text-align: right;
+}
+@media (max-width: 640px) { .footer-legal { text-align: left; } }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.fade-up-1 { animation-delay: 0.1s; }
+.fade-up-2 { animation-delay: 0.25s; }
+.fade-up-3 { animation-delay: 0.4s; }
+.fade-up-4 { animation-delay: 0.55s; }
+.fade-up-5 { animation-delay: 0.7s; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- HEADER -->
+<header class="site-header" role="banner">
+  <a href="#" class="site-logo" onclick="showPage('home')" aria-label="Uri Derelicti — Home">
+    <!-- INLINE SVG LOGO: flame over open book -->
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 24 Q4 10 16 6 Q28 10 28 24" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.4"/>
+      <path d="M16 6 L16 24" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+      <path d="M4 24 Q16 22 28 24" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.4"/>
+      <path d="M16 17 C15 15 13 14 14 11 C14 11 15.5 13 16 13 C17 11 16.5 8 18 7 C18 10 20 11 19 14 C20 13 20.5 11 21 11 C21.5 14 19 16 19 17 C19 19 17 20 16 20 C15 20 13 19 13 17 C13 15.5 16 17 16 17 Z" fill="var(--color-primary)" opacity="0.9"/>
+    </svg>
+    Uri Derelicti
+  </a>
+  <nav class="site-nav" role="navigation" aria-label="Primary">
+    <ul class="nav-links" role="list">
+      <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+      <li><a href="#" onclick="showPage('proof')" id="nav-proof">The Proof</a></li>
+      <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
+      <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-nav').classList.add('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')" aria-label="Close menu">✕</button>
+  <a href="#" onclick="showPage('home');document.querySelector('.mobile-nav').classList.remove('open')">Home</a>
+  <a href="#" onclick="showPage('proof');document.querySelector('.mobile-nav').classList.remove('open')">The Proof</a>
+  <a href="#" onclick="showPage('about');document.querySelector('.mobile-nav').classList.remove('open')">About</a>
+  <a href="#" onclick="showPage('contact');document.querySelector('.mobile-nav').classList.remove('open')">Contact</a>
+</div>
+
+<main id="main">
+
+<!-- ======================== HOME PAGE ======================== -->
+<section class="page-section active" id="page-home">
+  <div class="hero" role="region" aria-label="Welcome">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow fade-up fade-up-1">A Religious Ministry</span>
+      <h1 class="hero-title fade-up fade-up-2">Uri Derelicti</h1>
+      <p class="hero-subtitle fade-up fade-up-3">Left to Burn</p>
+      <div class="hero-divider fade-up fade-up-3" aria-hidden="true"></div>
+      <p class="hero-body fade-up fade-up-4">
+        A ministry devoted to the scriptural study of conscience, desire, and divine mercy —
+        examining what it means to be abandoned to the flame, and what is refined within it.
+      </p>
+      <div class="hero-cta fade-up fade-up-5">
+        <button class="btn btn-primary" onclick="showPage('proof')">Read the Proof</button>
+        <button class="btn btn-ghost" onclick="showPage('about')">Learn More</button>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M4 9l4 4 4-4"/></svg>
+      Scroll
+    </div>
+  </div>
+
+  <div class="content-section" style="padding-top: var(--space-16);">
+    <div class="section-inner">
+      <span class="section-label">Our Foundation</span>
+      <h2 class="section-title">Three Pillars of the Ministry</h2>
+      <div class="section-divider" aria-hidden="true"></div>
+      <div class="testament-grid">
+        <div class="testament-card">
+          <svg class="testament-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <path d="M6 30 Q6 8 18 4 Q30 8 30 30"/><path d="M18 4 L18 30"/><path d="M6 30 Q18 28 30 30"/>
+          </svg>
+          <h3>Scriptural Study</h3>
+          <p>Deep engagement with sacred texts — examining the tension between human failing and divine patience across both covenants.</p>
+        </div>
+        <div class="testament-card">
+          <svg class="testament-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <circle cx="18" cy="18" r="12"/><path d="M18 6 C18 6 12 12 12 18 C12 24 18 30 18 30 C18 30 24 24 24 18 C24 12 18 6 18 6Z"/><path d="M6 18 H30"/>
+          </svg>
+          <h3>Conscience &amp; Desire</h3>
+          <p>A frank examination of the interior life — where longing, guilt, and mercy intersect in the experience of the sincere believer.</p>
+        </div>
+        <div class="testament-card">
+          <svg class="testament-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <path d="M18 4 L18 4 C13 8 8 12 8 18 C8 25 13 30 18 32 C23 30 28 25 28 18 C28 12 23 8 18 4Z" fill="none"/><path d="M14 16 C14 12 18 10 18 10 C18 14 22 15 21 19 C22 18 23 16 23 16 C23 20 20 22 20 22 C20 24 18 26 18 26 C18 26 16 24 16 22 C16 22 13 20 14 16Z" fill="var(--color-primary)" opacity="0.6"/>
+          </svg>
+          <h3>Divine Mercy</h3>
+          <p>The central proclamation: that no soul is truly forsaken. What appears abandoned may be undergoing its most sacred refinement.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section" style="background: var(--color-surface); border-top: 1px solid oklch(from var(--color-text) l c h / 0.07); border-bottom: 1px solid oklch(from var(--color-text) l c h / 0.07);">
+    <div class="section-inner" style="text-align: center; max-width: 680px;">
+      <span class="section-label">Publication</span>
+      <h2 class="section-title" style="font-style: italic;">Forthcoming</h2>
+      <div class="section-divider" style="margin: 0 auto var(--space-8);" aria-hidden="true"></div>
+      <p style="font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.8; margin: 0 auto var(--space-10); max-width: 54ch;">
+        The first publication of Uri Derelicti is in preparation. It will present a structured scriptural argument on the nature of moral conscience, desire, and the mercy available to the sincere soul. Notification of release is available by request.
+      </p>
+      <button class="btn btn-primary" onclick="showPage('contact')">Request Notification</button>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== PROOF PAGE ======================== -->
+<section class="page-section" id="page-proof" style="padding-top: 80px;">
+  <div class="content-section">
+    <div class="section-inner">
+      <span class="section-label">Scriptural Foundation</span>
+      <h2 class="section-title" style="font-style: italic;">The Proof of the Ministry</h2>
+      <p class="section-subtitle">On what grounds does the name stand?</p>
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <div class="proof-block">
+        <p class="proof-latin">Uri derelicti sumus</p>
+        <p class="proof-translation">We are left to burn · Lamentations 5:20–22</p>
+        <p class="proof-body">
+          The cry of Lamentations is not a cry of abandonment answered by silence — it is a cry preserved
+          in sacred canon, which is itself the answer. The very fact that this anguish was recorded, copied,
+          and carried through centuries of transmission testifies that it was heard. The flame that refines
+          does not destroy what is precious; it reveals it.
+        </p>
+        <cite class="proof-cite">Lamentations 5:20 — "Why dost thou forget us for ever, and forsake us so long time?"</cite>
+      </div>
+
+      <div class="proof-block">
+        <p class="proof-latin">Nonne cor nostrum ardens erat</p>
+        <p class="proof-translation">Was not our heart burning within us · Luke 24:32</p>
+        <p class="proof-body">
+          The disciples on the road to Emmaus did not recognize what was present until the moment of departure.
+          Looking back, they identified the burning — not as destruction but as recognition. The ministry of
+          Uri Derelicti stands on this distinction: the experience of burning is not evidence of God's absence
+          but may be the most intimate sign of His presence, unrecognized in the moment.
+        </p>
+        <cite class="proof-cite">Luke 24:32 — "Did not our heart burn within us, while he talked with us by the way?"</cite>
+      </div>
+
+      <div class="proof-block">
+        <p class="proof-latin">Ignis qui non comburit</p>
+        <p class="proof-translation">The fire that does not consume · Exodus 3:2</p>
+        <p class="proof-body">
+          The burning bush presented to Moses a paradox that the Scriptures do not resolve away — it burns,
+          it is not consumed. This is the paradigm for the ministry's understanding of affliction and conscience:
+          the soul that burns with longing or remorse is not being annihilated. Something holy is present in the flame.
+          The proper response is not to flee it but, as Moses did, to turn aside and see.
+        </p>
+        <cite class="proof-cite">Exodus 3:2 — "The bush burned with fire, and the bush was not consumed."</cite>
+      </div>
+
+      <div style="text-align:center; padding-top: var(--space-8);">
+        <button class="btn btn-primary" onclick="showPage('contact')">Inquire Further</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== ABOUT PAGE ======================== -->
+<section class="page-section" id="page-about" style="padding-top: 80px;">
+  <div class="content-section">
+    <div class="section-inner">
+      <span class="section-label">The Ministry</span>
+      <h2 class="section-title">About Uri Derelicti</h2>
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <div class="about-grid">
+        <div class="about-body">
+          <p>
+            Uri Derelicti is a religious ministry organized as a nonprofit corporation under the laws of
+            South Carolina. Its purpose is the study and proclamation of scriptural truth concerning
+            conscience, desire, and the mercy of God available to the sincere seeker.
+          </p>
+          <p>
+            The name is drawn from the language of Lamentations — <em>uri derelicti</em>, "left to burn" —
+            not as a statement of despair but as an honest acknowledgment of the human condition before God.
+            The ministry holds that this condition, rightly understood, is the beginning of wisdom rather than
+            the end of hope.
+          </p>
+          <p>
+            The ministry's work includes scriptural study, publication, and outreach to those navigating
+            the difficult terrain of conscience and moral failure. It operates without denominational affiliation
+            and draws from the breadth of the scriptural witness.
+          </p>
+        </div>
+
+        <div>
+          <div class="about-aside">
+            <blockquote>
+              "The fire that does not destroy is the one that purifies. What is left burning may be precisely
+              what is most worth keeping."
+            </blockquote>
+            <cite>— Uri Derelicti</cite>
+          </div>
+
+          <div class="dissolution-note" style="margin-top: var(--space-8);">
+            <p>
+              <strong>Legal Notice.</strong> Uri Derelicti is incorporated as a nonprofit religious
+              corporation in South Carolina. Upon dissolution, assets are designated to the
+              <strong>Watchtower Bible and Tract Society of Pennsylvania</strong>, a 501(c)(3)
+              organization, or to another qualifying charitable entity as determined by applicable law.
+              No part of the net earnings of the corporation inures to the benefit of any private individual.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== CONTACT PAGE ======================== -->
+<section class="page-section" id="page-contact" style="padding-top: 80px;">
+  <div class="content-section">
+    <div class="section-inner">
+      <span class="section-label">Correspondence</span>
+      <h2 class="section-title">Contact the Ministry</h2>
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>
+            Questions, correspondence, and requests for notification of publication are welcome.
+            All inquiries are received with care and responded to with discretion.
+          </p>
+
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div class="contact-detail-body">
+              <strong>General Inquiries</strong>
+              <a href="mailto:info@uriderelicti.org" style="color: var(--color-primary);">info@uriderelicti.org</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="contact-detail-body">
+              <strong>Registered Address</strong>
+              6650 Rivers Ave. STE 100<br>Charleston, South Carolina
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div id="contact-form-wrap">
+            <form class="contact-form" onsubmit="handleContactSubmit(event)" novalidate>
+              <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" name="name" placeholder="Full name" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email Address</label>
+                <input type="email" id="contact-email" name="email" placeholder="you@example.com" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label for="contact-subject">Subject</label>
+                <select id="contact-subject" name="subject">
+                  <option value="general">General Inquiry</option>
+                  <option value="notification">Publication Notification</option>
+                  <option value="scriptural">Scriptural Correspondence</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" placeholder="Your message…" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send Message</button>
+            </form>
+          </div>
+          <div class="form-success" id="form-success">
+            <h3>Message Received</h3>
+            <p>Thank you for your correspondence. The ministry will respond with care and discretion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-brand">Uri Derelicti — <em>Left to Burn</em></div>
+  <ul class="footer-links" role="list">
+    <li><a href="#" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" onclick="showPage('proof')">The Proof</a></li>
+    <li><a href="#" onclick="showPage('about')">About</a></li>
+    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+  </ul>
+  <div class="footer-legal">
+    &copy; 2026 Uri Derelicti<br>
+    A South Carolina Religious Nonprofit Corporation
+  </div>
+</footer>
+
+<script>
+// Theme Toggle
+(function(){
+  const toggle = document.querySelector('[data-theme-toggle]');
+  const root = document.documentElement;
+  let theme = root.getAttribute('data-theme') || 'dark';
+  function applyTheme(t) {
+    theme = t;
+    root.setAttribute('data-theme', t);
+    if (toggle) toggle.innerHTML = t === 'dark'
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+  if (toggle) toggle.addEventListener('click', () => applyTheme(theme === 'dark' ? 'light' : 'dark'));
+  applyTheme(theme);
+})();
+
+// Page Navigation
+function showPage(page) {
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const section = document.getElementById('page-' + page);
+  const navLink = document.getElementById('nav-' + page);
+  if (section) { section.classList.add('active'); window.scrollTo({top: 0, behavior: 'smooth'}); }
+  if (navLink) navLink.classList.add('active');
+  // update URL hash without page jump
+  history.replaceState(null, '', '#' + page);
+}
+
+// Load page from hash on arrival
+(function(){
+  const hash = location.hash.replace('#','');
+  const valid = ['home','proof','about','contact'];
+  if (hash && valid.includes(hash)) showPage(hash);
+})();
+
+// Contact Form
+function handleContactSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const name = form.querySelector('#contact-name').value.trim();
+  const email = form.querySelector('#contact-email').value.trim();
+  const msg = form.querySelector('#contact-message').value.trim();
+  if (!name || !email || !msg) return;
+  document.getElementById('contact-form-wrap').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+</script>
+</body>
+</html>
