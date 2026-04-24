@@ -130,10 +130,12 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
 .axiom-logic p{font-size:var(--text-sm);color:var(--color-text-muted);font-style:italic;line-height:1.75;max-width:100%;}
 .ref-list{margin-top:var(--space-12);border-top:1px solid oklch(from var(--color-text) l c h/.1);padding-top:var(--space-10);}
 .ref-list h3{font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;font-weight:400;color:var(--color-text);margin-bottom:var(--space-8);}
-.ref-item{display:grid;grid-template-columns:1fr;gap:var(--space-1);margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid oklch(from var(--color-text) l c h/.06);}
-.ref-item:last-child{border-bottom:none;}
-.ref-item .ref-cite{font-family:var(--font-display);font-style:italic;font-size:var(--text-sm);color:var(--color-primary);}
-.ref-item .ref-text{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;max-width:100%;}
+.ref-grid { display:grid; grid-template-columns:1fr; gap:var(--space-4); list-style:none; padding:0; margin:0; }
+@media(min-width:768px){ .ref-grid { grid-template-columns:1fr 1fr; } }
+.ref-card { background:var(--color-surface-2); border:1px solid oklch(from var(--color-text) l c h/.07); border-radius:var(--radius-md); padding:var(--space-6); display:flex; flex-direction:column; gap:var(--space-2); transition:border-color var(--transition),box-shadow var(--transition); }
+.ref-card:hover { border-color:oklch(from var(--color-primary) l c h/.3); box-shadow:var(--shadow-sm); }
+.ref-card .ref-cite { font-family:var(--font-display); font-style:italic; font-size:var(--text-lg); color:var(--color-primary); }
+.ref-card .ref-text { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.7; max-width:100%; }
 .about-grid{display:grid;grid-template-columns:3fr 2fr;gap:var(--space-16);align-items:start;}
 @media(max-width:720px){.about-grid{grid-template-columns:1fr;gap:var(--space-10);}}
 .about-body p{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.85;margin-bottom:var(--space-6);max-width:64ch;}
@@ -348,29 +350,29 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
           <p>Two men can morally love each other openly and unrestrained, with sexual activity private. To limit this love is immoral.</p>
         </div>
         
-        <h3 style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;color:var(--color-text);margin:var(--space-12) 0 var(--space-6);">NB: The Society's arguments are:</h3>
+        <h3 style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;color:var(--color-text);margin:var(--space-12) 0 var(--space-6);">NB- The Arguments Against Homosexuality Presented by the Watchtower Bible and Tract Society are:</h3>
         
         <div class="belief-grid" style="margin-bottom:var(--space-8);">
           <div class="belief-card">
             <h4 style="color:var(--color-primary); font-family:var(--font-display); font-size:var(--text-lg); margin-bottom:var(--space-4);">Asceticism</h4>
-            <p style="margin-bottom:var(--space-2);">{see Colossians 2:20–23; 1 Timothy 4:1–3}<br>wrapped as the "Edenic standard" philosophy</p>
-            <p style="margin-bottom:var(--space-2);">sex is only for making babies (later abandoned, but still needs to be penile-vaginal)</p>
+            <p style="margin-bottom:var(--space-4);">{see Colossians 2:20–23; 1 Timothy 4:1–3}<br>wrapped as the "Edenic standard" philosophy</p>
+            <p style="margin-bottom:var(--space-4);">sex is only for making babies (later abandoned, but still needs to be penile-vaginal)</p>
             <p style="margin-bottom:0;">sexuality needs to be deadened (Col 3:5)</p>
           </div>
           
           <div class="belief-card">
             <h4 style="color:var(--color-primary); font-family:var(--font-display); font-size:var(--text-lg); margin-bottom:var(--space-4);">By Fiat</h4>
-            <p style="margin-bottom:var(--space-2);">{see Deuteronomy 4:2; 2 Thessalonians 2:3–4}<br>redefining, malakoi, arsenokoitai, and porneia {"only … acts that make an individual “one flesh” with a person of the opposite sex other than his or her legal marriage mate." - w72 1/1 pp. 31-32 Questions From Readers}</p>
-            <p style="margin-bottom:var(--space-2);">oral sex is gross (uncleanness); redefining akatharsia</p>
-            <p style="margin-bottom:var(--space-2);">defining [non-procreative sex] as unnatural, unnatural is immoral (Ro 1)</p>
-            <p style="margin-bottom:var(--space-2);">defining all homosexuality as a taboo, like eating shellfish (Lev 18)</p>
+            <p style="margin-bottom:var(--space-4);">{see Deuteronomy 4:2; 2 Thessalonians 2:3–4}<br>redefining, malakoi, arsenokoitai, and porneia {"only … acts that make an individual “one flesh” with a person of the opposite sex other than his or her legal marriage mate." - w72 1/1 pp. 31-32 Questions From Readers}</p>
+            <p style="margin-bottom:var(--space-4);">oral sex is gross (uncleanness); redefining akatharsia</p>
+            <p style="margin-bottom:var(--space-4);">defining [non-procreative sex] as unnatural, unnatural is immoral (Ro 1)</p>
+            <p style="margin-bottom:var(--space-4);">defining all homosexuality as a taboo, like eating shellfish (Lev 18)</p>
             <p style="margin-bottom:0;">defining homosexuality as strange flesh, therefore immoral; redefining strange flesh to not be angels but be men, who they did not have sex with (w72 1/1 pp. 31-32 Questions From Readers implies it is the same flesh, not strange flesh) (Jude 7)</p>
           </div>
           
           <div class="belief-card">
             <h4 style="color:var(--color-primary); font-family:var(--font-display); font-size:var(--text-lg); margin-bottom:var(--space-4);">By Confluence</h4>
-            <p style="margin-bottom:var(--space-2);">{Acts 17:11}<br>homosexuals chose to be homosexuals, like pedophiles chose to rape children, and are therefore morally the same as pedophiles; men can stop sexually exploiting other men (arsenokoitai) and therefore all homosexuality is a choice. Later clarified that the act is a choice, not the feeling: "While these activities will probably not make wrong desires disappear, they will help us resist the urge to act on those desires. As Galatians 5:16 says, those who walk by spirit “will carry out no fleshly desire.”" - w 1/2023, “Be Transformed by Making Your Mind Over”</p>
-            <p style="margin-bottom:var(--space-2);">homosexuals get AIDS "due to their extensive sexual promiscuity" (g86 4/22 pp. 7-8 AIDS and Morals)</p>
+            <p style="margin-bottom:var(--space-4);">{Acts 17:11}<br>homosexuals chose to be homosexuals, like pedophiles chose to rape children, and are therefore morally the same as pedophiles; men can stop sexually exploiting other men (arsenokoitai) and therefore all homosexuality is a choice. Later clarified that the act is a choice, not the feeling: "While these activities will probably not make wrong desires disappear, they will help us resist the urge to act on those desires. As Galatians 5:16 says, those who walk by spirit “will carry out no fleshly desire.”" - w 1/2023, “Be Transformed by Making Your Mind Over”</p>
+            <p style="margin-bottom:var(--space-4);">homosexuals get AIDS "due to their extensive sexual promiscuity" (g86 4/22 pp. 7-8 AIDS and Morals)</p>
             <p style="margin-bottom:0;">defining homosexuality as the crime of the Benjaminites when they raped a woman</p>
           </div>
         </div>
@@ -381,44 +383,153 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
 
         <h3 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:400;color:var(--color-text);margin:var(--space-10) 0 var(--space-4);">--------- References:  ------------------------------</h3>
         
-        <ul style="list-style:none; padding:0; margin:0;">
-          <li style="margin-bottom:1rem;">"God is not partial, but in every nation the man who fears him and does what is right is acceptable to him.'" — Acts 10:34-35</li>
-          <li style="margin-bottom:1rem;">"For I am convinced that neither death nor life nor angels nor governments nor things now here nor things to come nor powers nor height nor depth nor any other creation will be able to separate us from God's love that is in Christ Jesus our Lord." — Romans 8:38-39</li>
-          <li style="margin-bottom:1rem;">"Were you called when a slave? Do not let it worry you; but if you can also become free, rather seize the opportunity. For the one who was called in the Lord as a slave is the Lord's freed person; likewise the one who was called as a free person is a slave of Christ. ... Brothers, let each one remain in the state in which he was called." — 1 Corinthians 7:21-24</li>
-          <li style="margin-bottom:1rem;">"When he entered Capernaum, an army officer came to him, pleading with him and saying: 'Sir, my servant boy (pais) is laid up at home with paralysis, and he is suffering terribly.' He said to him: 'I will come and cure him.' In reply the officer said: 'Sir, I am not worthy to have you come under my roof, but just say the word and my servant boy (pais) will be healed.' … Then Jesus said to the army officer: 'Go. Just as you have shown faith, so let it come to pass for you.' And the servant boy (pais) was healed in that hour." — Matthew 8:5-8, 13</li>
-          <li style="margin-bottom:1rem;">"For there are eunuchs who were born that way, and there are eunuchs who were made eunuchs by men, and there are eunuchs who have made themselves eunuchs for the sake of the Kingdom of the heavens. Let the one who can make room for it make room for it." — Matthew 19:12</li>
-          <li style="margin-bottom:1rem;">"When Jesus finished these sayings, the effect was that the crowds were astounded at his way of teaching, for he was teaching them as a person having authority, and not as their scribes." - Matthew 7:28–29</li>
-          <li style="margin-bottom:1rem;">"Now look! A man from Ethiopia, a eunuch, a court official of Candace, queen of the Ethiopians, who was in charge of all her treasury, had come to Jerusalem to worship." — Acts 8:27</li>
-          <li style="margin-bottom:1rem;">"No man who has been castrated or whose penis has been cut off may enter the congregation of Jehovah." — Deuteronomy 23:1</li>
-          <li style="margin-bottom:1rem;">"If you observe my commandments, you will remain in my love, just as I have observed the commandments of the Father and remain in his love." — John 15:10</li>
-          <li style="margin-bottom:1rem;">"And this is what love means, that we go on walking according to his commandments. This is the commandment, just as you have heard from the beginning, that you should go on walking in it. For many deceivers have gone out into the world, those not acknowledging Jesus Christ as coming in the flesh." — 2 John 6-7</li>
-          <li style="margin-bottom:1rem;">"Your love for me was more wonderful than the love of women." — 2 Samuel 1:26</li>
-          <li style="margin-bottom:1rem;">"You must not lie down with a male in the same way that you lie down with a woman." — Leviticus 18:22</li>
-          <li style="margin-bottom:1rem;">"You must keep abstaining from things sacrificed to idols, from blood, from what is strangled, and from porneia. If you carefully keep yourselves from these things, you will prosper." — Acts 15:29</li>
-          <li style="margin-bottom:1rem;">"No man among you should approach any of his close relatives to have sexual relations." — Leviticus 18:6</li>
-          <li style="margin-bottom:1rem;">"Or do you not know that unrighteous people will not inherit God's Kingdom? Do not be misled. Those who are [male prostitutes], idolaters, adulterers, [men that sexual exploit men], [moral cowards], thieves, greedy people, drunkards, revilers, and extortioners will not inherit God's Kingdom." — 1 Corinthians 6:9-10</li>
-          <li style="margin-bottom:1rem;">"Recognizing that law is made, not for a righteous man, but for those who are lawless and rebellious, ungodly and sinners, disloyal and profane, murderers of fathers and murderers of mothers, manslayers, [male prostitutes], [moral cowards],kidnappers, liars, perjurers, and everything else that is in opposition to the wholesome teaching." — 1 Timothy 1:9-10</li>
-          <li style="margin-bottom:1rem;">"Should I, then, take the members of the Christ away and join them to a prostitute? By no means! Do you not know that anyone who is joined to a prostitute is one body with her? For the two, says he, will be one flesh." — 1 Corinthians 6:15, 16</li>
-          <li style="margin-bottom:1rem;">"God blessed them and said to them: 'Be fruitful and become many, fill the earth and subdue it.'" — Genesis 1:28</li>
-          <li style="margin-bottom:1rem;">"I say to you that whoever divorces his wife, except on the grounds of [porneia], and marries another commits adultery." — Matthew 19:9</li>
-          <li style="margin-bottom:1rem;">"There was reclining on Jesus' bosom one of his disciples, the one whom Jesus loved." — John 13:23</li>
-          <li style="margin-bottom:1rem;">"If a man has an emission of semen, he should bathe his whole body in water and be unclean until the evening. Any garment or leather on which the semen falls should be washed in water and be unclean until the evening." — Leviticus 15:16-17</li>
-          <li style="margin-bottom:1rem;">"If there is a man among you who is not clean because of a nocturnal emission, he must go outside the camp... Toward evening he should bathe in water, and at sunset he may come back into the camp." — Deuteronomy 23:10-11</li>
-          <li style="margin-bottom:1rem;">"You must not have sexual intercourse with any animal, making yourself unclean with it." — Leviticus 18:23</li>
-          <li style="margin-bottom:1rem;">"Three times a year all your males should appear before Jehovah your God in the place that he chooses." — Deuteronomy 16:16</li>
-          <li style="margin-bottom:1rem;">{This means practically speaking, any of the 13 who had relations earlier that same day would have simply bathed, waited until sunset, and been fully ritually clean in time to participate in the Passover meal that night.}</li>
-          <li style="margin-bottom:1rem;">"The ignorant and unstable are twisting [Paul's letters], as they do the rest of the Scriptures, to their own destruction." — 2 Peter 3:16</li>
-          <li style="margin-bottom:1rem;">"You must not add to the word that I am commanding you, and you must not take away from it." — Deuteronomy 4:2</li>
-          <li style="margin-bottom:1rem;">"Do not add to his words, or he will reprove you, and you will be found a liar." — Proverbs 30:6</li>
-          <li style="margin-bottom:1rem;">"Be on guard that no one takes you captive by means of the philosophy and empty deception according to human tradition." — Colossians 2:8 </li>
-          <li style="margin-bottom:1rem;">"When the boy had gone, David came from beside the mound and fell with his face to the ground, and he bowed down three times. They kissed each other and wept together, but David wept the most." — 1 Samuel 20:41</li>
-          <li style="margin-bottom:1rem;">"The young woman was very beautiful, and she became the king's attendant and ministered to him, but the king had no sexual relations with her." — 1 Kings 1:4</li>
-          <li style="margin-bottom:1rem;">"I am distressed over you, my brother Jonathan; you were very dear to me. Your love for me was more wonderful than the love of women." — 2 Samuel 1:26</li>
-          <li style="margin-bottom:1rem;">"Jonathan, Saul's son, then went to David at Horesh and strengthened his resolve by Jehovah's help. He said to him: 'Do not be afraid, for my father Saul will not find you, and you will be king over Israel, and I will become your second in command. Even my father Saul knows this.' So the two of them made a covenant before Jehovah." — 1 Samuel 23:16-18</li>
-          <li style="margin-bottom:1rem;">"When you are encamped against your enemies, you must keep yourselves from anything bad. If there is a man among you who becomes unclean because of a nocturnal emission, he should go outside the camp; he may not come back into the camp. Toward evening he should wash with water, and at sunset he may come back into the camp." — Deuteronomy 23:9-11</li>
-          <li style="margin-bottom:1rem;">"Now if a man has an emission of semen, he must bathe his whole body in water and be unclean until the evening." — Leviticus 15:16</li>
-          <li style="margin-bottom:1rem;">"You must not add to the word that I am commanding you, and you must not take away from it, in order to observe the commandments of Jehovah your God that I am commanding you." — Deuteronomy 4:2</li>
+        <ul class="ref-grid">
+          <li class="ref-card">
+            <span class="ref-cite">Acts 10:34-35</span>
+            <span class="ref-text">"God is not partial, but in every nation the man who fears him and does what is right is acceptable to him."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Romans 8:38-39</span>
+            <span class="ref-text">"For I am convinced that neither death nor life nor angels nor governments nor things now here nor things to come nor powers nor height nor depth nor any other creation will be able to separate us from God's love that is in Christ Jesus our Lord."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">1 Corinthians 7:21-24</span>
+            <span class="ref-text">"Were you called when a slave? Do not let it worry you; but if you can also become free, rather seize the opportunity. For the one who was called in the Lord as a slave is the Lord's freed person; likewise the one who was called as a free person is a slave of Christ. ... Brothers, let each one remain in the state in which he was called."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Matthew 8:5-8, 13</span>
+            <span class="ref-text">"When he entered Capernaum, an army officer came to him, pleading with him and saying: 'Sir, my servant boy (pais) is laid up at home with paralysis, and he is suffering terribly.' He said to him: 'I will come and cure him.' In reply the officer said: 'Sir, I am not worthy to have you come under my roof, but just say the word and my servant boy (pais) will be healed.' … Then Jesus said to the army officer: 'Go. Just as you have shown faith, so let it come to pass for you.' And the servant boy (pais) was healed in that hour."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Matthew 19:12</span>
+            <span class="ref-text">"For there are eunuchs who were born that way, and there are eunuchs who were made eunuchs by men, and there are eunuchs who have made themselves eunuchs for the sake of the Kingdom of the heavens. Let the one who can make room for it make room for it."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Matthew 7:28–29</span>
+            <span class="ref-text">"When Jesus finished these sayings, the effect was that the crowds were astounded at his way of teaching, for he was teaching them as a person having authority, and not as their scribes."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Acts 8:27</span>
+            <span class="ref-text">"Now look! A man from Ethiopia, a eunuch, a court official of Candace, queen of the Ethiopians, who was in charge of all her treasury, had come to Jerusalem to worship."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Deuteronomy 23:1</span>
+            <span class="ref-text">"No man who has been castrated or whose penis has been cut off may enter the congregation of Jehovah."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">John 15:10</span>
+            <span class="ref-text">"If you observe my commandments, you will remain in my love, just as I have observed the commandments of the Father and remain in his love."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">2 John 6-7</span>
+            <span class="ref-text">"And this is what love means, that we go on walking according to his commandments. This is the commandment, just as you have heard from the beginning, that you should go on walking in it. For many deceivers have gone out into the world, those not acknowledging Jesus Christ as coming in the flesh."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">2 Samuel 1:26</span>
+            <span class="ref-text">"Your love for me was more wonderful than the love of women."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Leviticus 18:22</span>
+            <span class="ref-text">"You must not lie down with a male in the same way that you lie down with a woman."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Acts 15:29</span>
+            <span class="ref-text">"You must keep abstaining from things sacrificed to idols, from blood, from what is strangled, and from porneia. If you carefully keep yourselves from these things, you will prosper."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Leviticus 18:6</span>
+            <span class="ref-text">"No man among you should approach any of his close relatives to have sexual relations."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">1 Corinthians 6:9-10</span>
+            <span class="ref-text">"Or do you not know that unrighteous people will not inherit God's Kingdom? Do not be misled. Those who are [male prostitutes], idolaters, adulterers, [men that sexual exploit men], [moral cowards], thieves, greedy people, drunkards, revilers, and extortioners will not inherit God's Kingdom."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">1 Timothy 1:9-10</span>
+            <span class="ref-text">"Recognizing that law is made, not for a righteous man, but for those who are lawless and rebellious, ungodly and sinners, disloyal and profane, murderers of fathers and murderers of mothers, manslayers, [male prostitutes], [moral cowards], kidnappers, liars, perjurers, and everything else that is in opposition to the wholesome teaching."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">1 Corinthians 6:15-16</span>
+            <span class="ref-text">"Should I, then, take the members of the Christ away and join them to a prostitute? By no means! Do you not know that anyone who is joined to a prostitute is one body with her? For the two, says he, will be one flesh."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Genesis 1:28</span>
+            <span class="ref-text">"God blessed them and said to them: 'Be fruitful and become many, fill the earth and subdue it.'"</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Matthew 19:9</span>
+            <span class="ref-text">"I say to you that whoever divorces his wife, except on the grounds of [porneia], and marries another commits adultery."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">John 13:23</span>
+            <span class="ref-text">"There was reclining on Jesus' bosom one of his disciples, the one whom Jesus loved."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Leviticus 15:16-17</span>
+            <span class="ref-text">"If a man has an emission of semen, he should bathe his whole body in water and be unclean until the evening. Any garment or leather on which the semen falls should be washed in water and be unclean until the evening."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Deuteronomy 23:10-11</span>
+            <span class="ref-text">"If there is a man among you who is not clean because of a nocturnal emission, he must go outside the camp... Toward evening he should bathe in water, and at sunset he may come back into the camp."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Leviticus 18:23</span>
+            <span class="ref-text">"You must not have sexual intercourse with any animal, making yourself unclean with it."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Deuteronomy 16:16</span>
+            <span class="ref-text">"Three times a year all your males should appear before Jehovah your God in the place that he chooses."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Passover Note</span>
+            <span class="ref-text">{This means practically speaking, any of the 13 who had relations earlier that same day would have simply bathed, waited until sunset, and been fully ritually clean in time to participate in the Passover meal that night.}</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">2 Peter 3:16</span>
+            <span class="ref-text">"The ignorant and unstable are twisting [Paul's letters], as they do the rest of the Scriptures, to their own destruction."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Deuteronomy 4:2</span>
+            <span class="ref-text">"You must not add to the word that I am commanding you, and you must not take away from it."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Proverbs 30:6</span>
+            <span class="ref-text">"Do not add to his words, or he will reprove you, and you will be found a liar."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Colossians 2:8</span>
+            <span class="ref-text">"Be on guard that no one takes you captive by means of the philosophy and empty deception according to human tradition."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">1 Samuel 20:41</span>
+            <span class="ref-text">"When the boy had gone, David came from beside the mound and fell with his face to the ground, and he bowed down three times. They kissed each other and wept together, but David wept the most."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">1 Kings 1:4</span>
+            <span class="ref-text">"The young woman was very beautiful, and she became the king's attendant and ministered to him, but the king had no sexual relations with her."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">2 Samuel 1:26</span>
+            <span class="ref-text">"I am distressed over you, my brother Jonathan; you were very dear to me. Your love for me was more wonderful than the love of women."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">1 Samuel 23:16-18</span>
+            <span class="ref-text">"Jonathan, Saul's son, then went to David at Horesh and strengthened his resolve by Jehovah's help. He said to him: 'Do not be afraid, for my father Saul will not find you, and you will be king over Israel, and I will become your second in command. Even my father Saul knows this.' So the two of them made a covenant before Jehovah."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Deuteronomy 23:9-11</span>
+            <span class="ref-text">"When you are encamped against your enemies, you must keep yourselves from anything bad. If there is a man among you who becomes unclean because of a nocturnal emission, he should go outside the camp; he may not come back into the camp. Toward evening he should wash with water, and at sunset he may come back into the camp."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Leviticus 15:16</span>
+            <span class="ref-text">"Now if a man has an emission of semen, he must bathe his whole body in water and be unclean until the evening."</span>
+          </li>
+          <li class="ref-card">
+            <span class="ref-cite">Deuteronomy 4:2</span>
+            <span class="ref-text">"You must not add to the word that I am commanding you, and you must not take away from it, in order to observe the commandments of Jehovah your God that I am commanding you."</span>
+          </li>
         </ul>
+
       </div>
     </div>
   </div>
@@ -606,8 +717,10 @@ Adding such a commandment is itself immoral- as adding to Jehovah's law is a dir
 
 Two men can morally love each other openly and unrestrained, with sexual activity private. To limit this love is immoral.
 
-NB: The Society's arguments are:
-Asceticism {see Colossians 2:20–23; 1 Timothy 4:1–3} wrapped as the "Edenic standard" philosophy
+NB- The Arguments Against Homosexuality Presented by the Watchtower Bible and Tract Society are:
+
+Asceticism {see Colossians 2:20–23; 1 Timothy 4:1–3}
+wrapped as the "Edenic standard" philosophy
 sex is only for making babies (later abandoned, but still needs to be penile-vaginal)
 sexuality needs to be deadened (Col 3:5)
 
