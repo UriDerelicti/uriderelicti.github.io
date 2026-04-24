@@ -279,9 +279,9 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
       <div style="background:var(--color-surface-offset); border:1px solid var(--color-primary); border-radius:var(--radius-lg); padding:var(--space-8); margin-bottom:var(--space-10); text-align:center; box-shadow:var(--shadow-sm);">
           <h3 style="font-family:var(--font-display); font-size:var(--text-xl); color:var(--color-text); margin-bottom:var(--space-4); font-style:italic;">Test This Framework With AI</h3>
           <p style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-6); max-width:64ch; margin-left:auto; margin-right:auto; line-height: 1.7;">
-              Click below to copy a pre-written prompt containing this entire argument. It will automatically open Claude AI in a new tab, where you can paste it and ask the AI to try and construct an alternative scriptural framework that survives every point raised here.
+              Click below to instantly copy a prompt containing this entire argument. It will automatically open Claude AI in a new tab, where you can paste it and ask the AI to try to construct an alternative scriptural framework that survives every point raised here.
           </p>
-          <button onclick="testWithAI(this)" class="btn btn-primary">Copy Prompt & Open Claude</button>
+          <button onclick="testWithAI(this)" id="ai-btn" class="btn btn-primary">Copy Prompt & Open Claude</button>
       </div>
 
       <div class="axiom-block">
@@ -812,48 +812,24 @@ function handleContactSubmit(e){
 function testWithAI(btn) {
   const originalText = btn.innerText;
   
-  // Create prompt locally from hidden JS string variable
+  // 1. Open Claude immediately (synchronously with click) to bypass popup blockers
+  const aiWindow = window.open('https://claude.ai/new', '_blank');
+  
+  // 2. Grab the text
   const promptText = `Please review the following argument from the perspective of its stated axiom: "All Scripture is inspired of God and beneficial" (2 Timothy 3:16, 17). Your reasoning should follow the principle that if no other conclusion can survive the argument, then it must be the correct conclusion. Your task is to attempt to construct an alternative scriptural framework that survives every element of the argument. To do this successfully, you must find a clear biblical commandment (not just commentary) that condemns all homosexuality (including between women), and you must address every other line of reasoning presented in the argument. If no other framework can successfully survive without contradicting the scriptures provided or the axiom, explain why.\n\nHere is the argument:\n\n` + AI_PROMPT_DATA;
   
-  // Try standard clipboard API first
-  if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(promptText).then(() => {
-          btn.innerText = "Prompt Copied! Redirecting...";
-          setTimeout(() => {
-              window.open('https://claude.ai/new', '_blank');
-              btn.innerText = originalText;
-          }, 500);
-      }).catch(err => {
-          fallbackCopy(promptText, btn, originalText);
-      });
-  } else {
-      fallbackCopy(promptText, btn, originalText);
-  }
-}
-
-function fallbackCopy(text, btn, originalText) {
-  const textArea = document.createElement("textarea");
-  textArea.value = text;
-  textArea.style.top = "0";
-  textArea.style.left = "0";
-  textArea.style.position = "fixed";
-  document.body.appendChild(textArea);
-  textArea.focus();
-  textArea.select();
-  try {
-    document.execCommand('copy');
+  // 3. Write to clipboard and update button UI silently
+  navigator.clipboard.writeText(promptText).then(function() {
     btn.innerText = "Prompt Copied! Redirecting...";
     setTimeout(() => {
-        window.open('https://claude.ai/new', '_blank');
         btn.innerText = originalText;
-    }, 500);
-  } catch (err) {
-    // If absolutely everything fails, open a tab with the text printed out
-    const aiWindow = window.open('', '_blank');
-    aiWindow.document.write('<html><body style="font-family:sans-serif; background:#f9f6f0; color:#1e1a12; padding:2rem;"><h2 style="margin-top:0;">Manual Copy Required</h2><p>Your browser blocked the automatic copy feature. Please highlight and copy the text below manually, then proceed to <a href="https://claude.ai/new" style="color:#c8872a;">Claude AI</a>:</p><textarea style="width:100%; height:75vh; padding:1rem; border:1px solid #ccc; font-family:monospace;">' + text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</textarea></body></html>');
+    }, 4000);
+  }).catch(function(err) {
+    // If the clipboard fails, overwrite the already-open window with a fallback screen
+    aiWindow.location.href = 'about:blank';
+    aiWindow.document.write('<html><body style="font-family:sans-serif; background:#f9f6f0; color:#1e1a12; padding:2rem;"><h2 style="margin-top:0;">Manual Copy Required</h2><p>Your browser blocked the automatic copy feature. Please highlight and copy the text below manually, then proceed to <a href="https://claude.ai/new" style="color:#c8872a;">Claude AI</a>:</p><textarea style="width:100%; height:75vh; padding:1rem; border:1px solid #ccc; font-family:monospace;">' + promptText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</textarea></body></html>');
     aiWindow.document.close();
-  }
-  document.body.removeChild(textArea);
+  });
 }
 </script>
 </body>
