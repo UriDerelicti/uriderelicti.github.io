@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://uriderelicti.github.io/sitemap.xml
