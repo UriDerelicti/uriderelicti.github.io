@@ -274,6 +274,14 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
       <h2 class="section-title" style="font-style:italic;">Mini Meta Proof, In Which Any Alternative Framework Would Need to Address All the Points Raised (And Would Still Not Be Clearly Correct)</h2>
       <div class="section-divider" aria-hidden="true"></div>
 
+      <div style="background:var(--color-surface-offset); border:1px solid var(--color-primary); border-radius:var(--radius-lg); padding:var(--space-8); margin-bottom:var(--space-10); text-align:center; box-shadow:var(--shadow-sm);">
+          <h3 style="font-family:var(--font-display); font-size:var(--text-xl); color:var(--color-text); margin-bottom:var(--space-4); font-style:italic;">Test This Framework With AI</h3>
+          <p style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-6); max-width:64ch; margin-left:auto; margin-right:auto; line-height: 1.7;">
+              Click below to copy a pre-written prompt containing this entire argument. It will open Claude AI in a new tab, where you can ask the AI to try and construct an alternative scriptural framework that survives every point raised here.
+          </p>
+          <button onclick="testWithAI()" class="btn btn-primary">Copy Prompt & Open Claude</button>
+      </div>
+
       <div class="axiom-block">
         <p><strong>Axiom:</strong> "All Scripture is inspired of God and beneficial ... for setting things straight ... so that the man of God may be fully competent, completely equipped" - 2 Timothy 3:16, 17.</p>
         <div class="axiom-logic">
@@ -328,33 +336,29 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
         <p>Two men can morally love each other openly and unrestrained, with sexual activity private. To limit this love is immoral.</p>
         
         <h3 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:400;color:var(--color-text);margin:var(--space-10) 0 var(--space-4);">NB:</h3>
-        <p>The Society's arguments are:</p>
-        <ul style="margin-bottom:var(--space-6); padding-left:var(--space-4);">
-            <li style="margin-bottom:var(--space-2);">asceticism {see Colossians 2:20–23; 1 Timothy 4:1–3}<br>wrapped as the "Edenic standard" philosophy</li>
-            <li style="margin-bottom:var(--space-2);">sex is only for making babies (later abandoned, but still needs to be penile-vaginal)</li>
-            <li style="margin-bottom:var(--space-2);">sexuality needs to be deadened (Col 3:5)</li>
-            <li style="margin-bottom:var(--space-2);">by fiat {see Deuteronomy 4:2; 2 Thessalonians 2:3–4; <br>redefining, malakoi, arsenokoitai, and porneia {"only … acts that make an individual “one flesh” with a person of the opposite sex other than his or her legal marriage mate." - w72 1/1 pp. 31-32 Questions From Readers}</li>
-            <li style="margin-bottom:var(--space-2);">oral sex is gross (uncleanness); redefining akatharsia</li>
-            <li style="margin-bottom:var(--space-2);">defining [non-procreative sex] as unnatural, unnatural is immoral (Ro 1)</li>
-            <li style="margin-bottom:var(--space-2);">defining all homosexuality as a taboo, like eating shellfish (Lev 18)</li>
-            <li style="margin-bottom:var(--space-2);">defining homosexuality as strange flesh, therefore immoral; redefining strange flesh to not be angels but be men, who they did not have sex with (w72 1/1 pp. 31-32 Questions From Readers implies it is the same flesh, not strange flesh) (Jude 7)</li>
-            <li style="margin-bottom:var(--space-2);">by confluence {Acts 17:11}<br>homosexuals chose to be homosexuals, like pedophiles chose to rape children, and are therefore morally the same as pedophiles;  men can stop sexually exploiting other men (arsenokoitai) and therefore all homosexuality is a choice. Later clarified that the act is a choice, not the feeling: "While these activities will probably not make wrong desires disappear, they will help us resist the urge to act on those desires. As Galatians 5:16 says, those who walk by spirit “will carry out no fleshly desire.”" - w 1/2023, “Be Transformed by Making Your Mind Over”</li>
-            <li style="margin-bottom:var(--space-2);">homosexuals get AIDS "due to their extensive sexual promiscuity" (g86 4/22 pp. 7-8 AIDS and Morals)</li>
-            <li style="margin-bottom:var(--space-2);">defining homosexuality as the crime of the Benjaminites when they raped a woman</li>
-        </ul>
-        
+        <p>The Society's arguments are:<br>
+        asceticism {see Colossians 2:20–23; 1 Timothy 4:1–3}<br>
+        wrapped as the "Edenic standard" philosophy<br>
+        sex is only for making babies (later abandoned, but still needs to be penile-vaginal)<br>
+        sexuality needs to be deadened (Col 3:5)</p>
+
+        <p>by fiat {see Deuteronomy 4:2; 2 Thessalonians 2:3–4;  <br>
+        redefining, malakoi, arsenokoitai, and porneia {"only … acts that make an individual “one flesh” with a person of the opposite sex other than his or her legal marriage mate." - w72 1/1 pp. 31-32 Questions From Readers}<br>
+        oral sex is gross (uncleanness); redefining akatharsia<br>
+        defining [non-procreative sex] as unnatural, unnatural is immoral (Ro 1)<br>
+        defining all homosexuality as a taboo, like eating shellfish (Lev 18)<br>
+        defining homosexuality as strange flesh, therefore immoral; redefining strange flesh to not be angels but be men, who they did not have sex with (w72 1/1 pp. 31-32 Questions From Readers implies it is the same flesh, not strange flesh) (Jude 7)</p>
+
+        <p>by confluence {Acts 17:11}<br>
+        homosexuals chose to be homosexuals, like pedophiles chose to rape children, and are therefore morally the same as pedophiles;  men can stop sexually exploiting other men (arsenokoitai) and therefore all homosexuality is a choice. Later clarified that the act is a choice, not the feeling: "While these activities will probably not make wrong desires disappear, they will help us resist the urge to act on those desires. As Galatians 5:16 says, those who walk by spirit “will carry out no fleshly desire.”" - w 1/2023, “Be Transformed by Making Your Mind Over”</p>
+
+        <p>homosexuals get AIDS "due to their extensive sexual promiscuity" (g86 4/22 pp. 7-8 AIDS and Morals)<br>
+        defining homosexuality as the crime of the Benjaminites when they raped a woman</p>
+
         <p>For reference: currently grounds for disfellowshipping:<br>
         wife blowing her husband; man blowing his male friend; watching a video of someone getting blown; starting and abandoning a book that has an oral sex scene later; believing any of these aren't scriptural grounds for disfellowshipping</p>
 
-        <div style="background:var(--color-surface-offset); border:1px solid var(--color-primary); border-radius:var(--radius-lg); padding:var(--space-8); margin:var(--space-12) 0; text-align:center;">
-            <h3 style="font-family:var(--font-display); font-size:var(--text-xl); color:var(--color-text); margin-bottom:var(--space-4); font-style:italic;">Test This Framework With AI</h3>
-            <p style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-6); max-width:60ch; margin-left:auto; margin-right:auto; line-height: 1.7;">
-                Click below to copy a pre-written prompt containing this entire argument. It will open Claude AI in a new tab, where you can paste the prompt and ask the AI to try and construct an alternative scriptural framework that survives every point raised here.
-            </p>
-            <button onclick="testWithAI()" class="btn btn-primary">Copy Prompt & Open Claude</button>
-        </div>
-
-        <h3 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:400;color:var(--color-text);margin:var(--space-10) 0 var(--space-4);">--------- References:  ------------------------------</h3>
+        <p style="margin-top:var(--space-10);">--------- References:  ------------------------------</p>
         
         <p>"God is not partial, but in every nation the man who fears him and does what is right is acceptable to him.'" — Acts 10:34-35</p>
         
