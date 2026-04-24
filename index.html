@@ -157,7 +157,7 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
 .contact-detail-body strong{display:block;color:var(--color-text);font-weight:500;margin-bottom:var(--space-1);font-family:var(--font-display);font-size:var(--text-base);font-style:italic;}
 .contact-form{display:flex;flex-direction:column;gap:var(--space-4);}
 .form-group{display:flex;flex-direction:column;gap:var(--space-2);}
-.form-group label{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted);}
+.form-group label{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted);cursor:pointer;}
 .form-group input,.form-group textarea,.form-group select{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/.14);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);font-size:var(--text-base);color:var(--color-text);transition:border-color var(--transition),box-shadow var(--transition);min-height:44px;}
 .form-group textarea{min-height:140px;resize:vertical;}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 3px oklch(from var(--color-primary) l c h/.15);}
@@ -179,7 +179,7 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
-<header class="site-header" role="banner">
+<header class="site-header">
   <a href="#" class="site-logo" onclick="showPage('home')" aria-label="Uri Derelicti Home">
     <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
       <path d="M4 24 Q4 10 16 6 Q28 10 28 24" stroke="currentColor" stroke-width="1.2" opacity=".4"/>
@@ -189,9 +189,9 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
     </svg>
     Uri Derelicti
   </a>
-  <nav class="site-nav" role="navigation" aria-label="Primary">
+  <nav class="site-nav" aria-label="Primary">
     <ul class="nav-links" role="list">
-      <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+      <li><a href="#" onclick="showPage('home')" id="nav-home" class="active" aria-current="page">Home</a></li>
       <li><a href="#" onclick="showPage('proof')" id="nav-proof">The Proof</a></li>
       <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
       <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
@@ -199,17 +199,17 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
     <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark mode">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
-    <button class="hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-nav').classList.add('open')">
+    <button class="hamburger" aria-label="Open menu" onclick="openMobileMenu()">
       <span></span><span></span><span></span>
     </button>
   </nav>
 </header>
 <div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
-  <button class="mobile-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')" aria-label="Close menu">&#x2715;</button>
-  <a href="#" onclick="showPage('home');document.querySelector('.mobile-nav').classList.remove('open')">Home</a>
-  <a href="#" onclick="showPage('proof');document.querySelector('.mobile-nav').classList.remove('open')">The Proof</a>
-  <a href="#" onclick="showPage('about');document.querySelector('.mobile-nav').classList.remove('open')">About</a>
-  <a href="#" onclick="showPage('contact');document.querySelector('.mobile-nav').classList.remove('open')">Contact</a>
+  <button class="mobile-close" onclick="closeMobileMenu()" aria-label="Close menu">&#x2715;</button>
+  <a href="#" onclick="showPage('home');closeMobileMenu()">Home</a>
+  <a href="#" onclick="showPage('proof');closeMobileMenu()">The Proof</a>
+  <a href="#" onclick="showPage('about');closeMobileMenu()">About</a>
+  <a href="#" onclick="showPage('contact');closeMobileMenu()">Contact</a>
 </div>
 <main id="main">
 
@@ -289,15 +289,15 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
         </div>
       </div>
 
-      <div class="about-body" style="max-width: 100%;" id="full-proof-text">
-        <p>Assume sex between men is immoral. The Christian congregation had slaves. The slaves in the Roman empire were property and could be used for sexual gratification by their masters and their masters' friends. Were male slaves used by their masters for sexual gratification not allowed to be part of the congregation? Were they not baptised by Holy Spirit in the first century? Would that not be partial against someone due to his circumstances rather than his heart? Because God is not partial.</p>
+      <div class="about-body" style="max-width: 100%;">
+        <p><strong>Assume sex between men is immoral.</strong> The Christian congregation had slaves. The slaves in the Roman empire were property and could be used for sexual gratification by their masters and their masters' friends. Were male slaves used by their masters for sexual gratification not allowed to be part of the congregation? Were they not baptized by Holy Spirit in the first century? Would that not be partial against someone due to his circumstances rather than his heart? Because God is not partial.</p>
         
-        <p>What if the male slave never had sex with another man and the slave came into the Christian congregation. If he was used, as a slave, for sex by another man, would he be removed from the congregation? Neither height nor depth nor any other creation can separate us from God's love. The master is part of God's creation, So how could he separate the slave from God's love? and the congregation? and the Kingdom?</p>
+        <p>What if the male slave never had sex with another man and the slave came into the Christian congregation. If he was used, as a slave, for sex by another man, would he be removed from the congregation? Neither height nor depth nor any other creation can separate us from God's love. The master is part of God's creation, so how could he separate the slave from God's love? and the congregation? and the Kingdom?</p>
         
         <p>Male slaves were encouraged to not run away; therefore, to submit to homosexuality if asked of them by their master.<br>
-        Therefore some men in the Christian congregation had sex with other men, with impunity.</p>
+        <strong>Therefore some men in the Christian congregation had sex with other men, with impunity.</strong></p>
         
-        <p>Assume then that the restriction on men having sex with men was narrower than an absolute prohibition. Where was the line drawn then? Was the sex allowed by virtue of the man being a slave? Because a slave could very much have been loved by his master, as the Centurion loved his boy friend. There was nothing legally preventing the Centurion from making love with him. The slave could very much enjoy and want a sexual relationship with his master; certainly some slaves were homosexual in nature. Does then slavery bestow on two wanting lovers a righteousness not found in the loving relationship of two men that does not include slavery?</p>
+        <p><strong>Assume then that the restriction on men having sex with men was narrower than an absolute prohibition.</strong> Where was the line drawn then? Was the sex allowed by virtue of the man being a slave? Because a slave could very much have been loved by his master, as the Centurion loved his boy friend. There was nothing legally preventing the Centurion from making love with him. The slave could very much enjoy and want a sexual relationship with his master; certainly some slaves were homosexual in nature. Does then slavery bestow on two wanting lovers a righteousness not found in the loving relationship of two men that does not include slavery?</p>
         
         <p>Jesus provided the illustration of the men who would choose to be eunuchs for the Kingdom. He compared them to men born eunuchs (who may not have had a sexual appetite or ability to have procreative sex with a woman and thus remained unmarried). But Jesus also included a second group- those who were made eunuchs by men. These men were castrated or crushed in the testicles outside of the Roman empire (as it was illegal in Rome) and imported with high tariffs for sexual purposes. These men were created as a group for sex; they were not celibate. Jesus said some men chose to be eunuchs for the Kingdom after referencing celibate and homosexual eunuchs. What was the illustrative purpose for including this second, sexual group? Surely the master illustrator was not simply yapping. Why did Jesus say some would choose to be eunuchs after mentioning eunuchs that had sex with men if men were to NOT be like those Eunuchs but like the other eunuchs? This would have been the time to add a commandment prohibiting all or, as demonstrated, some homosexuality if any was to be avoided to be pleasing to God.</p>
         
@@ -307,14 +307,14 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
         <p>Saying, "some men are twinks that can never marry and some will choose to be like them, for the Kingdom" implies some men righteously choosing a homosexual life without a marriage.<br>
         So why did Jesus not give a clear commandment here or elsewhere against homosexuality when he referenced men specifically kept for sex, knowing that some men could only have their sexual needs satisfied by another man?</p>
         
-        <p>Instead, Jesus did say those following his commandments would be loved by him. The first century congregation did include male slaves, which could be used for sex at any point. Jesus added to his illustration a group of men used for sex with other men but did NOT add any commandment limiting homosexuality after he brought it up, instead, he said some men would chose to be like these eunuchs- in the congregation, loved by Jehovah, and having sex with men.</p>
+        <p><strong>Instead, Jesus did say those following his commandments would be loved by him.</strong> The first century congregation did include male slaves, which could be used for sex at any point. Jesus added to his illustration a group of men used for sex with other men but did NOT add any commandment limiting homosexuality after he brought it up, instead, he said some men would choose to be like these eunuchs- in the congregation, loved by Jehovah, and having sex with men.</p>
         
         <p>The generalization is not that some men would need to make themselves slaves of men for the Kingdom since men born eunuchs were not slaves as a group. Both men who were born eunuchs and men made eunuchs could (and did) have sex with men. The generalization is that some men do not marry with the option of either celibacy or sex with men. They were following Jesus's commandments, part of the congregation, and having sex with other men. And they were loved according to Jesus.</p>
         
         <div style="background:var(--color-surface); border-left:3px solid var(--color-primary); padding:var(--space-8); border-radius:var(--radius-md); margin:var(--space-10) 0; box-shadow:var(--shadow-sm);">
           <h3 style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;color:var(--color-text);margin:0 0 var(--space-4);">2 John 6, 7</h3>
           <p style="margin-bottom:var(--space-2);">Love is following Jehovah's commandments. Jehovah's commandments are to love. The commandment, from the beginning, is to love.</p>
-          <p style="margin-bottom:var(--space-4);">Therefore, two men making love is following the law.</p>
+          <p style="margin-bottom:var(--space-4);"><strong>Therefore, two men making love is following the law.</strong></p>
           <p style="font-style:italic; color:var(--color-text-muted); margin-bottom:var(--space-2);">"Pleasing God is not complicated. All that he requires of us can be summed up in a single word: love. That has always been—and will always be—the essence of true worship. But love is not just a matter of words or feelings; it is expressed in action. (1 John 3:18) "</p>
           <p style="font-size:var(--text-sm); font-weight:500; color:var(--color-text); margin:0;">- DRAW CLOSE TO GOD, “Which Commandment Is First of All?”</p>
         </div>
@@ -326,12 +326,12 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
         <p>I believe that the love between two men can be greater than the love between a man and a woman, like David said. David's words were that Jonathan's love was greater than the love of women - not that David loved Jonathan more than all of his wives and concubines, or even all women- but that Jonathan's love was greater than the love women can provide, which is largely sexual. It was "more than" because it was sexual and more.<br>
         And the sexual aspect was not commented on because it was not a matter of law. If it was unlawful, it would have been stated one way or another if they had sex, the same as it was commented that he did not have sex with Abishag, which affected her legal rights to marry or be taken by the next king. The Biblical pattern was for sex to not be commented on if not a matter of law, which was public. That pattern was followed by Jonathan and David in that there was no comment one way or the other about sex between them as there was no law to violate, no wronged party to bring a case, no compensation to be had.</p>
         
-        <p>Since Jonathan and David had a love exemplary for husbands and their romance detailed to be greater than the love of any man in the Scriptures towards a woman- and more than the sexual love of women- there would have been some statement of legality of their relationship if all sex between them was prohibited since the record has no law against it:  Jonathan did not take David as he could a virgin (woman), it was not the Canaanite prostitution custom condemned in the Scriptures, it was not the porneia/arsenokoitai penile vaginal sex without marriage mentioned in the NT, it was not the rape of a man that would mirror the incest laws in Lev 18; there was no broad prohibition on all homosexuality written to parallel the prohibition on sex with animals- broad and clear. The Bible has no law on all homosexuality- none that has been applied to any sex between women and none that covers non-anal sex between men. Any commentary in the Scripture on those who can't be in the Kingdom needs to be understood in light of the commandments that exist and not any that do not exist, especially when logically invalid. The word "soft," for example, is not related to men who love men by anything other than pure imagination. If "soft" was the commandment (which it isn't, it's a description), then Jonathan and David were innocent, as are many men who have sex with men. "Man bedder" can only be understood in its reference to porneia- penile vaginal sex without the commitment, which violates the rights of a potential child born from the union to have a family at his conception. That porneia does not include men that hire female prostitutes is clear from the explanation to that point in the Scriptures- an explanation that references "one flesh," which is penile vaginal sex- the only procreative sex, which is what Adam and Eve were commanded to have (to fill the Earth)- the only sex that forms a marriage. Violating the responsibility of marriage while keeping the right of sex is porneia- the breaking of this arrangement from God. This Biblical framework for marriage/porneia- from Eve, through the adultery/incest laws, Jesus's commandments about divorce, porneia/idolatry/misuse of blood/misuse of life and no further burden- does not involve sex between men. Immorally broadening porneia to include homosexuality causes adultery (from second marriages without legitimate grounds for divorce).</p>
+        <p><strong>Since Jonathan and David had a love exemplary for husbands and their romance detailed to be greater than the love of any man in the Scriptures towards a woman- and more than the sexual love of women- there would have been some statement of legality of their relationship if all sex between them was prohibited since the record has no law against it:</strong>  Jonathan did not take David as he could a virgin (woman), it was not the Canaanite prostitution custom condemned in the Scriptures, it was not the porneia/arsenokoitai penile vaginal sex without marriage mentioned in the NT, it was not the rape of a man that would mirror the incest laws in Lev 18; there was no broad prohibition on all homosexuality written to parallel the prohibition on sex with animals- broad and clear. The Bible has no law on all homosexuality- none that has been applied to any sex between women and none that covers non-anal sex between men. Any commentary in the Scripture on those who can't be in the Kingdom needs to be understood in light of the commandments that exist and not any that do not exist, especially when logically invalid. The word "soft," for example, is not related to men who love men by anything other than pure imagination. If "soft" was the commandment (which it isn't, it's a description), then Jonathan and David were innocent, as are many men who have sex with men. "Man bedder" can only be understood in its reference to porneia- penile vaginal sex without the commitment, which violates the rights of a potential child born from the union to have a family at his conception. That porneia does not include men that hire female prostitutes is clear from the explanation to that point in the Scriptures- an explanation that references "one flesh," which is penile vaginal sex- the only procreative sex, which is what Adam and Eve were commanded to have (to fill the Earth)- the only sex that forms a marriage. Violating the responsibility of marriage while keeping the right of sex is porneia- the breaking of this arrangement from God. This Biblical framework for marriage/porneia- from Eve, through the adultery/incest laws, Jesus's commandments about divorce, porneia/idolatry/misuse of blood/misuse of life and no further burden- does not involve sex between men. Immorally broadening porneia to include homosexuality causes adultery (from second marriages without legitimate grounds for divorce).</p>
         
         <p>While it's certainly not clear to everyone that reads the account of David that he had no sex with men, it also is not clear the second David, Jesus, didn't. He publicly had a beloved as did David. John was not recorded to have ever had a wife. Evidently he was a eunuch for the Kingdom, as was Jesus. Did these men regulate ejaculating without wives? They would have regulated pissing to not piss a bed at night. Regulating ejaculating was more relevant to prevent leaking these fluids during the night as this activity was regulated by the Law code.  If they regulated themselves to not piss the bed it follows that it would have been even more important to regulate themselves to not ejaculate the bed. Were thirteen young men all ceremonially clean by happenstance when they needed to be? For entering the temple and for the festivals? Or did Jews regulate ejaculation, as it is known the Jews did with their wives to optimize within the Law code?<br>
         God did not make a mistake in not adding a regulation to discourage men from masturbating each other rather than themselves when He added regulatory burdens for sex with a woman, and sex with an animal, and for not regulating ejaculation (wet dreams). There is not even a commandment or regulation that has been twisted by the unfaithful which they claim discouraged a man from masturbating his friend any more than masturbating alone.</p>
         
-        <p>Adding such a commandment is itself immoral- as adding to Jehovah's law is a direct violation of a commandment not to. Just as sacrificing the love for another man to the altar of some false religious teaching, some ascetic philosophy, some gnostic belief, some self-righteousness is immoral as an act of idolatry. It is immoral to limit your love for another man due to these false religious teachings or these immoral additions to the law. Or two female friends making love, since that activity is not a violation of a clear command for Christians (nor in the Old Testament). For example, what law would prevent a man from having sex with both of his wives in the OT? Or from two of Solomon's wives from having sex with each other? Or what command in the NT for a man with two wives prevents it?</p>
+        <p><strong>Adding such a commandment is itself immoral- as adding to Jehovah's law is a direct violation of a commandment not to.</strong> Just as sacrificing the love for another man to the altar of some false religious teaching, some ascetic philosophy, some gnostic belief, some self-righteousness is immoral as an act of idolatry. It is immoral to limit your love for another man due to these false religious teachings or these immoral additions to the law. Or two female friends making love, since that activity is not a violation of a clear command for Christians (nor in the Old Testament). For example, what law would prevent a man from having sex with both of his wives in the OT? Or from two of Solomon's wives from having sex with each other? Or what command in the NT for a man with two wives prevents it?</p>
         
         <p>Two men can morally love each other openly and unrestrained, with sexual activity private. To limit this love is immoral.</p>
         
@@ -368,78 +368,44 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
 
         <h3 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:400;color:var(--color-text);margin:var(--space-10) 0 var(--space-4);">--------- References:  ------------------------------</h3>
         
-        <p>"God is not partial, but in every nation the man who fears him and does what is right is acceptable to him.'" — Acts 10:34-35</p>
-        
-        <p>"For I am convinced that neither death nor life nor angels nor governments nor things now here nor things to come nor powers nor height nor depth nor any other creation will be able to separate us from God's love that is in Christ Jesus our Lord." — Romans 8:38-39</p>
-        
-        <p>"Were you called when a slave? Do not let it worry you; but if you can also become free, rather seize the opportunity. For the one who was called in the Lord as a slave is the Lord's freed person; likewise the one who was called as a free person is a slave of Christ. ... Brothers, let each one remain in the state in which he was called." — 1 Corinthians 7:21-24</p>
-        
-        <p>"When he entered Capernaum, an army officer came to him, pleading with him and saying: 'Sir, my servant boy (pais) is laid up at home with paralysis, and he is suffering terribly.' He said to him: 'I will come and cure him.' In reply the officer said: 'Sir, I am not worthy to have you come under my roof, but just say the word and my servant boy (pais) will be healed.' … Then Jesus said to the army officer: 'Go. Just as you have shown faith, so let it come to pass for you.' And the servant boy (pais) was healed in that hour." — Matthew 8:5-8, 13</p>
-        
-        <p>"For there are eunuchs who were born that way, and there are eunuchs who were made eunuchs by men, and there are eunuchs who have made themselves eunuchs for the sake of the Kingdom of the heavens. Let the one who can make room for it make room for it." — Matthew 19:12</p>
-        
-        <p>"When Jesus finished these sayings, the effect was that the crowds were astounded at his way of teaching, for he was teaching them as a person having authority, and not as their scribes." - Matthew 7:28–29</p>
-        
-        <p>"Now look! A man from Ethiopia, a eunuch, a court official of Candace, queen of the Ethiopians, who was in charge of all her treasury, had come to Jerusalem to worship." — Acts 8:27</p>
-        
-        <p>"No man who has been castrated or whose penis has been cut off may enter the congregation of Jehovah." — Deuteronomy 23:1</p>
-        
-        <p>"If you observe my commandments, you will remain in my love, just as I have observed the commandments of the Father and remain in his love." — John 15:10</p>
-        
-        <p>"And this is what love means, that we go on walking according to his commandments. This is the commandment, just as you have heard from the beginning, that you should go on walking in it. For many deceivers have gone out into the world, those not acknowledging Jesus Christ as coming in the flesh." — 2 John 6-7</p>
-        
-        <p>"Your love for me was more wonderful than the love of women." — 2 Samuel 1:26</p>
-        
-        <p>"You must not lie down with a male in the same way that you lie down with a woman." — Leviticus 18:22</p>
-        
-        <p>"You must keep abstaining from things sacrificed to idols, from blood, from what is strangled, and from porneia. If you carefully keep yourselves from these things, you will prosper." — Acts 15:29</p>
-        
-        <p>"No man among you should approach any of his close relatives to have sexual relations." — Leviticus 18:6</p>
-        
-        <p>"Or do you not know that unrighteous people will not inherit God's Kingdom? Do not be misled. Those who are [male prostitutes], idolaters, adulterers, [men that sexual exploit men], [moral cowards], thieves, greedy people, drunkards, revilers, and extortioners will not inherit God's Kingdom." — 1 Corinthians 6:9-10</p>
-        
-        <p>"Recognizing that law is made, not for a righteous man, but for those who are lawless and rebellious, ungodly and sinners, disloyal and profane, murderers of fathers and murderers of mothers, manslayers, [male prostitutes], [moral cowards],kidnappers, liars, perjurers, and everything else that is in opposition to the wholesome teaching." — 1 Timothy 1:9-10</p>
-        
-        <p>"Should I, then, take the members of the Christ away and join them to a prostitute? By no means! Do you not know that anyone who is joined to a prostitute is one body with her? For the two, says he, will be one flesh." — 1 Corinthians 6:15, 16</p>
-        
-        <p>"God blessed them and said to them: 'Be fruitful and become many, fill the earth and subdue it.'" — Genesis 1:28</p>
-        
-        <p>"I say to you that whoever divorces his wife, except on the grounds of [porneia], and marries another commits adultery." — Matthew 19:9</p>
-        
-        <p>"There was reclining on Jesus' bosom one of his disciples, the one whom Jesus loved." — John 13:23</p>
-        
-        <p>"If a man has an emission of semen, he should bathe his whole body in water and be unclean until the evening. Any garment or leather on which the semen falls should be washed in water and be unclean until the evening." — Leviticus 15:16-17</p>
-        
-        <p>"If there is a man among you who is not clean because of a nocturnal emission, he must go outside the camp... Toward evening he should bathe in water, and at sunset he may come back into the camp." — Deuteronomy 23:10-11</p>
-        
-        <p>"You must not have sexual intercourse with any animal, making yourself unclean with it." — Leviticus 18:23</p>
-        
-        <p>"Three times a year all your males should appear before Jehovah your God in the place that he chooses." — Deuteronomy 16:16</p>
-        
-        <p>{This means practically speaking, any of the 13 who had relations earlier that same day would have simply bathed, waited until sunset, and been fully ritually clean in time to participate in the Passover meal that night.}</p>
-        
-        <p>"The ignorant and unstable are twisting [Paul's letters], as they do the rest of the Scriptures, to their own destruction." — 2 Peter 3:16</p>
-        
-        <p>"You must not add to the word that I am commanding you, and you must not take away from it." — Deuteronomy 4:2</p>
-        
-        <p>"Do not add to his words, or he will reprove you, and you will be found a liar." — Proverbs 30:6</p>
-        
-        <p>"Be on guard that no one takes you captive by means of the philosophy and empty deception according to human tradition." — Colossians 2:8 </p>
-        
-        <p>"When the boy had gone, David came from beside the mound and fell with his face to the ground, and he bowed down three times. They kissed each other and wept together, but David wept the most." — 1 Samuel 20:41</p>
-        
-        <p>"The young woman was very beautiful, and she became the king's attendant and ministered to him, but the king had no sexual relations with her." — 1 Kings 1:4</p>
-        
-        <p>"I am distressed over you, my brother Jonathan; you were very dear to me. Your love for me was more wonderful than the love of women." — 2 Samuel 1:26</p>
-        
-        <p>"Jonathan, Saul's son, then went to David at Horesh and strengthened his resolve by Jehovah's help. He said to him: 'Do not be afraid, for my father Saul will not find you, and you will be king over Israel, and I will become your second in command. Even my father Saul knows this.' So the two of them made a covenant before Jehovah." — 1 Samuel 23:16-18</p>
-        
-        <p>"When you are encamped against your enemies, you must keep yourselves from anything bad. If there is a man among you who becomes unclean because of a nocturnal emission, he should go outside the camp; he may not come back into the camp. Toward evening he should wash with water, and at sunset he may come back into the camp." — Deuteronomy 23:9-11</p>
-        
-        <p>"Now if a man has an emission of semen, he must bathe his whole body in water and be unclean until the evening." — Leviticus 15:16</p>
-        
-        <p>"You must not add to the word that I am commanding you, and you must not take away from it, in order to observe the commandments of Jehovah your God that I am commanding you." — Deuteronomy 4:2</p>
-
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li style="margin-bottom:1rem;">"God is not partial, but in every nation the man who fears him and does what is right is acceptable to him.'" — Acts 10:34-35</li>
+          <li style="margin-bottom:1rem;">"For I am convinced that neither death nor life nor angels nor governments nor things now here nor things to come nor powers nor height nor depth nor any other creation will be able to separate us from God's love that is in Christ Jesus our Lord." — Romans 8:38-39</li>
+          <li style="margin-bottom:1rem;">"Were you called when a slave? Do not let it worry you; but if you can also become free, rather seize the opportunity. For the one who was called in the Lord as a slave is the Lord's freed person; likewise the one who was called as a free person is a slave of Christ. ... Brothers, let each one remain in the state in which he was called." — 1 Corinthians 7:21-24</li>
+          <li style="margin-bottom:1rem;">"When he entered Capernaum, an army officer came to him, pleading with him and saying: 'Sir, my servant boy (pais) is laid up at home with paralysis, and he is suffering terribly.' He said to him: 'I will come and cure him.' In reply the officer said: 'Sir, I am not worthy to have you come under my roof, but just say the word and my servant boy (pais) will be healed.' … Then Jesus said to the army officer: 'Go. Just as you have shown faith, so let it come to pass for you.' And the servant boy (pais) was healed in that hour." — Matthew 8:5-8, 13</li>
+          <li style="margin-bottom:1rem;">"For there are eunuchs who were born that way, and there are eunuchs who were made eunuchs by men, and there are eunuchs who have made themselves eunuchs for the sake of the Kingdom of the heavens. Let the one who can make room for it make room for it." — Matthew 19:12</li>
+          <li style="margin-bottom:1rem;">"When Jesus finished these sayings, the effect was that the crowds were astounded at his way of teaching, for he was teaching them as a person having authority, and not as their scribes." - Matthew 7:28–29</li>
+          <li style="margin-bottom:1rem;">"Now look! A man from Ethiopia, a eunuch, a court official of Candace, queen of the Ethiopians, who was in charge of all her treasury, had come to Jerusalem to worship." — Acts 8:27</li>
+          <li style="margin-bottom:1rem;">"No man who has been castrated or whose penis has been cut off may enter the congregation of Jehovah." — Deuteronomy 23:1</li>
+          <li style="margin-bottom:1rem;">"If you observe my commandments, you will remain in my love, just as I have observed the commandments of the Father and remain in his love." — John 15:10</li>
+          <li style="margin-bottom:1rem;">"And this is what love means, that we go on walking according to his commandments. This is the commandment, just as you have heard from the beginning, that you should go on walking in it. For many deceivers have gone out into the world, those not acknowledging Jesus Christ as coming in the flesh." — 2 John 6-7</li>
+          <li style="margin-bottom:1rem;">"Your love for me was more wonderful than the love of women." — 2 Samuel 1:26</li>
+          <li style="margin-bottom:1rem;">"You must not lie down with a male in the same way that you lie down with a woman." — Leviticus 18:22</li>
+          <li style="margin-bottom:1rem;">"You must keep abstaining from things sacrificed to idols, from blood, from what is strangled, and from porneia. If you carefully keep yourselves from these things, you will prosper." — Acts 15:29</li>
+          <li style="margin-bottom:1rem;">"No man among you should approach any of his close relatives to have sexual relations." — Leviticus 18:6</li>
+          <li style="margin-bottom:1rem;">"Or do you not know that unrighteous people will not inherit God's Kingdom? Do not be misled. Those who are [male prostitutes], idolaters, adulterers, [men that sexual exploit men], [moral cowards], thieves, greedy people, drunkards, revilers, and extortioners will not inherit God's Kingdom." — 1 Corinthians 6:9-10</li>
+          <li style="margin-bottom:1rem;">"Recognizing that law is made, not for a righteous man, but for those who are lawless and rebellious, ungodly and sinners, disloyal and profane, murderers of fathers and murderers of mothers, manslayers, [male prostitutes], [moral cowards],kidnappers, liars, perjurers, and everything else that is in opposition to the wholesome teaching." — 1 Timothy 1:9-10</li>
+          <li style="margin-bottom:1rem;">"Should I, then, take the members of the Christ away and join them to a prostitute? By no means! Do you not know that anyone who is joined to a prostitute is one body with her? For the two, says he, will be one flesh." — 1 Corinthians 6:15, 16</li>
+          <li style="margin-bottom:1rem;">"God blessed them and said to them: 'Be fruitful and become many, fill the earth and subdue it.'" — Genesis 1:28</li>
+          <li style="margin-bottom:1rem;">"I say to you that whoever divorces his wife, except on the grounds of [porneia], and marries another commits adultery." — Matthew 19:9</li>
+          <li style="margin-bottom:1rem;">"There was reclining on Jesus' bosom one of his disciples, the one whom Jesus loved." — John 13:23</li>
+          <li style="margin-bottom:1rem;">"If a man has an emission of semen, he should bathe his whole body in water and be unclean until the evening. Any garment or leather on which the semen falls should be washed in water and be unclean until the evening." — Leviticus 15:16-17</li>
+          <li style="margin-bottom:1rem;">"If there is a man among you who is not clean because of a nocturnal emission, he must go outside the camp... Toward evening he should bathe in water, and at sunset he may come back into the camp." — Deuteronomy 23:10-11</li>
+          <li style="margin-bottom:1rem;">"You must not have sexual intercourse with any animal, making yourself unclean with it." — Leviticus 18:23</li>
+          <li style="margin-bottom:1rem;">"Three times a year all your males should appear before Jehovah your God in the place that he chooses." — Deuteronomy 16:16</li>
+          <li style="margin-bottom:1rem;">{This means practically speaking, any of the 13 who had relations earlier that same day would have simply bathed, waited until sunset, and been fully ritually clean in time to participate in the Passover meal that night.}</li>
+          <li style="margin-bottom:1rem;">"The ignorant and unstable are twisting [Paul's letters], as they do the rest of the Scriptures, to their own destruction." — 2 Peter 3:16</li>
+          <li style="margin-bottom:1rem;">"You must not add to the word that I am commanding you, and you must not take away from it." — Deuteronomy 4:2</li>
+          <li style="margin-bottom:1rem;">"Do not add to his words, or he will reprove you, and you will be found a liar." — Proverbs 30:6</li>
+          <li style="margin-bottom:1rem;">"Be on guard that no one takes you captive by means of the philosophy and empty deception according to human tradition." — Colossians 2:8 </li>
+          <li style="margin-bottom:1rem;">"When the boy had gone, David came from beside the mound and fell with his face to the ground, and he bowed down three times. They kissed each other and wept together, but David wept the most." — 1 Samuel 20:41</li>
+          <li style="margin-bottom:1rem;">"The young woman was very beautiful, and she became the king's attendant and ministered to him, but the king had no sexual relations with her." — 1 Kings 1:4</li>
+          <li style="margin-bottom:1rem;">"I am distressed over you, my brother Jonathan; you were very dear to me. Your love for me was more wonderful than the love of women." — 2 Samuel 1:26</li>
+          <li style="margin-bottom:1rem;">"Jonathan, Saul's son, then went to David at Horesh and strengthened his resolve by Jehovah's help. He said to him: 'Do not be afraid, for my father Saul will not find you, and you will be king over Israel, and I will become your second in command. Even my father Saul knows this.' So the two of them made a covenant before Jehovah." — 1 Samuel 23:16-18</li>
+          <li style="margin-bottom:1rem;">"When you are encamped against your enemies, you must keep yourselves from anything bad. If there is a man among you who becomes unclean because of a nocturnal emission, he should go outside the camp; he may not come back into the camp. Toward evening he should wash with water, and at sunset he may come back into the camp." — Deuteronomy 23:9-11</li>
+          <li style="margin-bottom:1rem;">"Now if a man has an emission of semen, he must bathe his whole body in water and be unclean until the evening." — Leviticus 15:16</li>
+          <li style="margin-bottom:1rem;">"You must not add to the word that I am commanding you, and you must not take away from it, in order to observe the commandments of Jehovah your God that I am commanding you." — Deuteronomy 4:2</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -572,9 +538,9 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
 </section>
 </main>
 
-<footer class="site-footer" role="contentinfo">
+<footer class="site-footer">
   <div class="footer-brand">Uri Derelicti &#8212; <em>Left to Burn</em></div>
-  <ul class="footer-links" role="list">
+  <ul class="footer-links">
     <li><a href="#" onclick="showPage('home')">Home</a></li>
     <li><a href="#" onclick="showPage('proof')">The Proof</a></li>
     <li><a href="#" onclick="showPage('about')">About</a></li>
@@ -582,6 +548,71 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
   </ul>
   <div class="footer-legal">&copy; 2026 Uri Derelicti &nbsp;&#183;&nbsp; South Carolina Religious Nonprofit</div>
 </footer>
+
+<script type="text/plain" id="ai-prompt-data">
+Assume sex between men is immoral. The Christian congregation had slaves. The slaves in the Roman empire were property and could be used for sexual gratification by their masters and their masters' friends. Were male slaves used by their masters for sexual gratification not allowed to be part of the congregation? Were they not baptized by Holy Spirit in the first century? Would that not be partial against someone due to his circumstances rather than his heart? Because God is not partial.
+
+What if the male slave never had sex with another man and the slave came into the Christian congregation. If he was used, as a slave, for sex by another man, would he be removed from the congregation? Neither height nor depth nor any other creation can separate us from God's love. The master is part of God's creation, so how could he separate the slave from God's love? and the congregation? and the Kingdom?
+
+Male slaves were encouraged to not run away; therefore, to submit to homosexuality if asked of them by their master.
+Therefore some men in the Christian congregation had sex with other men, with impunity.
+
+Assume then that the restriction on men having sex with men was narrower than an absolute prohibition. Where was the line drawn then? Was the sex allowed by virtue of the man being a slave? Because a slave could very much have been loved by his master, as the Centurion loved his boy friend. There was nothing legally preventing the Centurion from making love with him. The slave could very much enjoy and want a sexual relationship with his master; certainly some slaves were homosexual in nature. Does then slavery bestow on two wanting lovers a righteousness not found in the loving relationship of two men that does not include slavery?
+
+Jesus provided the illustration of the men who would choose to be eunuchs for the Kingdom. He compared them to men born eunuchs (who may not have had a sexual appetite or ability to have procreative sex with a woman and thus remained unmarried). But Jesus also included a second group- those who were made eunuchs by men. These men were castrated or crushed in the testicles outside of the Roman empire (as it was illegal in Rome) and imported with high tariffs for sexual purposes. These men were created as a group for sex; they were not celibate. Jesus said some men chose to be eunuchs for the Kingdom after referencing celibate and homosexual eunuchs. What was the illustrative purpose for including this second, sexual group? Surely the master illustrator was not simply yapping. Why did Jesus say some would choose to be eunuchs after mentioning eunuchs that had sex with men if men were to NOT be like those Eunuchs but like the other eunuchs? This would have been the time to add a commandment prohibiting all or, as demonstrated, some homosexuality if any was to be avoided to be pleasing to God.
+
+NB- Jesus was not suggesting the men were made eunuchs by men when they were appointed to secular offices, as if men should choose to administer the government's treasury for the Kingdom since men born eunuchs don't map to this point and he was answering a question regarding marriage. The answer was about marriage directly, and therefore penile vaginal sex, and also homosexuality and abstinence by virtue of using two groups of eunuchs (both of which could have been celibate or practicing homosexuals).
+Jesus blessed two men in love and unrestrained in their sex with each other when he healed the Centurion's boy friend.
+
+Saying, "some men are twinks that can never marry and some will choose to be like them, for the Kingdom" implies some men righteously choosing a homosexual life without a marriage.
+So why did Jesus not give a clear commandment here or elsewhere against homosexuality when he referenced men specifically kept for sex, knowing that some men could only have their sexual needs satisfied by another man?
+
+Instead, Jesus did say those following his commandments would be loved by him. The first century congregation did include male slaves, which could be used for sex at any point. Jesus added to his illustration a group of men used for sex with other men but did NOT add any commandment limiting homosexuality after he brought it up, instead, he said some men would choose to be like these eunuchs- in the congregation, loved by Jehovah, and having sex with men.
+
+The generalization is not that some men would need to make themselves slaves of men for the Kingdom since men born eunuchs were not slaves as a group. Both men who were born eunuchs and men made eunuchs could (and did) have sex with men. The generalization is that some men do not marry with the option of either celibacy or sex with men. They were following Jesus's commandments, part of the congregation, and having sex with other men. And they were loved according to Jesus.
+
+2 John 6, 7
+Love is following Jehovah's commandments. Jehovah's commandments are to love. The commandment, from the beginning, is to love.
+Therefore, two men making love is following the law.
+"Pleasing God is not complicated. All that he requires of us can be summed up in a single word: love. That has always been—and will always be—the essence of true worship. But love is not just a matter of words or feelings; it is expressed in action. (1 John 3:18) "
+- DRAW CLOSE TO GOD, “Which Commandment Is First of All?”
+
+I believe that David and Jonathan had the greatest romance described in the scriptures. And they were both approved by Jehovah, so much so that He described Jesus as the second David. Jonathan chose David (according to Saul) and waited for him for years, planning to be by David's side when David ruled. They risked their lives to hug and kiss each other, after David hid out three days outside Gibeah. Jonathan couldn't even put in a full archery session for the ruse before abandoning it to hold David- who he loved as himself. In the NT, husbands are encouraged to cherish their wives;  they could look to Jonathan as an example of loving someone as you do yourself. NB- David leaving his wife is also recorded, in stark contrast to his leaving Jonathan- details added to the record for a purpose.
+
+Jonathan- knowing priests had been killed for giving the food to David on the run and that his father twice tried to kill him- traveled some distance to find David in the wilderness (which his father could not do) and encourage David. It was only after this restating their vows and they had been separated by about 5 years  that David started  having children. While they were together for about 2 years after Goliath was killed, they lived in the same city, regularly ate dinner at the king's table, and were deployed as soldiers in wars. Seemingly, Jonathan helped David- too young to serve in the militia- learn to command men. He would end up being the overseer of a thousand soldiers. During this time where the two were deployed together, I don't believe they would have risked being removed from the camp because of a wet dream, as the Law required, potentially keeping them from battle. Nor would they ejaculate with women or animals. Nor did they have privacy to be alone. Jehovah constructed the Law to remove the men separating themselves for their fellows sexually for the day and then having them clean up with the soldiers, "seeing each other nakedness"- a bonding that was valuable for soldiers fighting side by side.
+
+I believe that the love between two men can be greater than the love between a man and a woman, like David said. David's words were that Jonathan's love was greater than the love of women - not that David loved Jonathan more than all of his wives and concubines, or even all women- but that Jonathan's love was greater than the love women can provide, which is largely sexual. It was "more than" because it was sexual and more.
+And the sexual aspect was not commented on because it was not a matter of law. If it was unlawful, it would have been stated one way or another if they had sex, the same as it was commented that he did not have sex with Abishag, which affected her legal rights to marry or be taken by the next king. The Biblical pattern was for sex to not be commented on if not a matter of law, which was public. That pattern was followed by Jonathan and David in that there was no comment one way or the other about sex between them as there was no law to violate, no wronged party to bring a case, no compensation to be had.
+
+Since Jonathan and David had a love exemplary for husbands and their romance detailed to be greater than the love of any man in the Scriptures towards a woman- and more than the sexual love of women- there would have been some statement of legality of their relationship if all sex between them was prohibited since the record has no law against it:  Jonathan did not take David as he could a virgin (woman), it was not the Canaanite prostitution custom condemned in the Scriptures, it was not the porneia/arsenokoitai penile vaginal sex without marriage mentioned in the NT, it was not the rape of a man that would mirror the incest laws in Lev 18; there was no broad prohibition on all homosexuality written to parallel the prohibition on sex with animals- broad and clear. The Bible has no law on all homosexuality- none that has been applied to any sex between women and none that covers non-anal sex between men. Any commentary in the Scripture on those who can't be in the Kingdom needs to be understood in light of the commandments that exist and not any that do not exist, especially when logically invalid. The word "soft," for example, is not related to men who love men by anything other than pure imagination. If "soft" was the commandment (which it isn't, it's a description), then Jonathan and David were innocent, as are many men who have sex with men. "Man bedder" can only be understood in its reference to porneia- penile vaginal sex without the commitment, which violates the rights of a potential child born from the union to have a family at his conception. That porneia does not include men that hire female prostitutes is clear from the explanation to that point in the Scriptures- an explanation that references "one flesh," which is penile vaginal sex- the only procreative sex, which is what Adam and Eve were commanded to have (to fill the Earth)- the only sex that forms a marriage. Violating the responsibility of marriage while keeping the right of sex is porneia- the breaking of this arrangement from God. This Biblical framework for marriage/porneia- from Eve, through the adultery/incest laws, Jesus's commandments about divorce, porneia/idolatry/misuse of blood/misuse of life and no further burden- does not involve sex between men. Immorally broadening porneia to include homosexuality causes adultery (from second marriages without legitimate grounds for divorce).
+
+While it's certainly not clear to everyone that reads the account of David that he had no sex with men, it also is not clear the second David, Jesus, didn't. He publicly had a beloved as did David. John was not recorded to have ever had a wife. Evidently he was a eunuch for the Kingdom, as was Jesus. Did these men regulate ejaculating without wives? They would have regulated pissing to not piss a bed at night. Regulating ejaculating was more relevant to prevent leaking these fluids during the night as this activity was regulated by the Law code.  If they regulated themselves to not piss the bed it follows that it would have been even more important to regulate themselves to not ejaculate the bed. Were thirteen young men all ceremonially clean by happenstance when they needed to be? For entering the temple and for the festivals? Or did Jews regulate ejaculation, as it is known the Jews did with their wives to optimize within the Law code?
+God did not make a mistake in not adding a regulation to discourage men from masturbating each other rather than themselves when He added regulatory burdens for sex with a woman, and sex with an animal, and for not regulating ejaculation (wet dreams). There is not even a commandment or regulation that has been twisted by the unfaithful which they claim discouraged a man from masturbating his friend any more than masturbating alone.
+
+Adding such a commandment is itself immoral- as adding to Jehovah's law is a direct violation of a commandment not to. Just as sacrificing the love for another man to the altar of some false religious teaching, some ascetic philosophy, some gnostic belief, some self-righteousness is immoral as an act of idolatry. It is immoral to limit your love for another man due to these false religious teachings or these immoral additions to the law. Or two female friends making love, since that activity is not a violation of a clear command for Christians (nor in the Old Testament). For example, what law would prevent a man from having sex with both of his wives in the OT? Or from two of Solomon's wives from having sex with each other? Or what command in the NT for a man with two wives prevents it?
+
+Two men can morally love each other openly and unrestrained, with sexual activity private. To limit this love is immoral.
+
+NB: The Society's arguments are:
+Asceticism {see Colossians 2:20–23; 1 Timothy 4:1–3} wrapped as the "Edenic standard" philosophy
+sex is only for making babies (later abandoned, but still needs to be penile-vaginal)
+sexuality needs to be deadened (Col 3:5)
+
+By Fiat {see Deuteronomy 4:2; 2 Thessalonians 2:3–4}
+redefining, malakoi, arsenokoitai, and porneia {"only … acts that make an individual “one flesh” with a person of the opposite sex other than his or her legal marriage mate." - w72 1/1 pp. 31-32 Questions From Readers}
+oral sex is gross (uncleanness); redefining akatharsia
+defining [non-procreative sex] as unnatural, unnatural is immoral (Ro 1)
+defining all homosexuality as a taboo, like eating shellfish (Lev 18)
+defining homosexuality as strange flesh, therefore immoral; redefining strange flesh to not be angels but be men, who they did not have sex with (w72 1/1 pp. 31-32 Questions From Readers implies it is the same flesh, not strange flesh) (Jude 7)
+
+By Confluence {Acts 17:11}
+homosexuals chose to be homosexuals, like pedophiles chose to rape children, and are therefore morally the same as pedophiles; men can stop sexually exploiting other men (arsenokoitai) and therefore all homosexuality is a choice. Later clarified that the act is a choice, not the feeling: "While these activities will probably not make wrong desires disappear, they will help us resist the urge to act on those desires. As Galatians 5:16 says, those who walk by spirit “will carry out no fleshly desire.”" - w 1/2023, “Be Transformed by Making Your Mind Over”
+homosexuals get AIDS "due to their extensive sexual promiscuity" (g86 4/22 pp. 7-8 AIDS and Morals)
+defining homosexuality as the crime of the Benjaminites when they raped a woman
+
+For reference: currently grounds for disfellowshipping:
+wife blowing her husband; man blowing his male friend; watching a video of someone getting blown; starting and abandoning a book that has an oral sex scene later; believing any of these aren't scriptural grounds for disfellowshipping
+</script>
 
 <script>
 (function(){
@@ -597,59 +628,80 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
   if(toggle)toggle.addEventListener('click',()=>applyTheme(theme==='dark'?'light':'dark'));
   applyTheme(theme);
 })();
+
 function showPage(page){
   document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.classList.remove('active');
+    a.removeAttribute('aria-current');
+  });
   const section=document.getElementById('page-'+page);
   const navLink=document.getElementById('nav-'+page);
   if(section){section.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
-  if(navLink)navLink.classList.add('active');
+  if(navLink){
+    navLink.classList.add('active');
+    navLink.setAttribute('aria-current', 'page');
+  }
   history.replaceState(null,'','#'+page);
 }
+
 (function(){
   const hash=location.hash.replace('#','');
   if(['home','proof','about','contact'].includes(hash))showPage(hash);
 })();
 
-// Updated contact form submission handling
+function openMobileMenu() {
+  const menu = document.querySelector('.mobile-nav');
+  menu.classList.add('open');
+  menu.querySelector('.mobile-close').focus();
+}
+
+function closeMobileMenu() {
+  document.querySelector('.mobile-nav').classList.remove('open');
+}
+
 function handleContactSubmit(e){
   e.preventDefault();
   const f=e.target;
+  
+  if (!f.checkValidity()) {
+      f.reportValidity();
+      return;
+  }
   
   const nameInput = f.querySelector('#cn').value.trim();
   const emailInput = f.querySelector('#ce').value.trim();
   const messageInput = f.querySelector('#cm').value.trim();
   
-  // Validate fields
-  if(!nameInput || !emailInput || !messageInput) {
-      alert("Please fill out all required fields before sending.");
-      return;
-  }
-  
   const subjectInput = f.querySelector('#cs');
   const subjectText = subjectInput.options[subjectInput.selectedIndex].text;
   
-  // Construct a mailto link using the user's inputs
-  const mailtoLink = `mailto:info@uriderelicti.org?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent("From: " + nameInput + "\n\n" + messageInput)}`;
+  // Format line breaks securely for desktop clients
+  const formattedMessage = "From: " + nameInput + "\r\n\r\n" + messageInput.replace(/\n/g, '\r\n');
   
-  // Trigger the mailto link to open the user's mail client
+  const mailtoLink = `mailto:info@uriderelicti.org?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(formattedMessage)}`;
+  
   window.location.href = mailtoLink;
   
-  // Show the success UI
   document.getElementById('contact-form-wrap').style.display='none';
   document.getElementById('form-success').style.display='block';
 }
 
 function testWithAI() {
-  const proofText = document.getElementById('full-proof-text').innerText;
+  const proofText = document.getElementById('ai-prompt-data').textContent.trim();
   const promptText = `Please review the following argument from the perspective of its stated axiom: "All Scripture is inspired of God and beneficial" (2 Timothy 3:16, 17). Your reasoning should follow the principle that if no other conclusion can survive the argument, then it must be the correct conclusion. Your task is to attempt to construct an alternative scriptural framework that survives every element of the argument. To do this successfully, you must find a clear biblical commandment (not just commentary) that condemns all homosexuality (including between women), and you must address every other line of reasoning presented in the argument. If no other framework can successfully survive without contradicting the scriptures provided or the axiom, explain why.\n\nHere is the argument:\n\n` + proofText;
   
+  // Open window synchronously on click to bypass aggressive popup blockers
+  const aiWindow = window.open('', '_blank');
+  
   navigator.clipboard.writeText(promptText).then(function() {
-    alert("The prompt and full proof have been copied to your clipboard!\n\nClick 'OK' to open Claude AI. Once there, just paste (Ctrl+V or Cmd+V) into the chat box to begin the test.");
-    window.open('https://claude.ai/new', '_blank');
+    alert("The prompt and full proof have been copied to your clipboard!\n\nClick 'OK' to proceed to Claude AI. Once there, just paste (Ctrl+V or Cmd+V) into the chat box to begin the test.");
+    aiWindow.location.href = 'https://claude.ai/new';
   }).catch(function(err) {
-    alert("Your browser blocked the automatic copy. Opening Claude AI anyway.");
-    window.open('https://claude.ai/new', '_blank');
+    // Fallback if the user's browser denies clipboard permission
+    alert("Your browser blocked the automatic copy feature. On the next screen, you can copy the prompt manually to test it with AI.");
+    aiWindow.document.write('<html><body style="font-family:sans-serif; background:#f9f6f0; color:#1e1a12; padding:2rem;"><h2 style="margin-top:0;">Manual Copy Fallback</h2><p>Please highlight and copy the text below, then proceed to <a href="https://claude.ai/new" style="color:#c8872a;">Claude AI</a>:</p><textarea style="width:100%; height:75vh; padding:1rem; border:1px solid #ccc; font-family:monospace;">' + promptText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</textarea></body></html>');
+    aiWindow.document.close();
   });
 }
 </script>
