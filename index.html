@@ -1,542 +1,80 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uri Derelicti — A Religious Ministry</title>
-<meta name="description" content="Uri Derelicti is a religious ministry devoted to honest scriptural inquiry on conscience, desire, and divine mercy.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
-  --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
-  --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
-  --text-lg:clamp(1.125rem,1rem + 0.75vw,1.5rem);
-  --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
-  --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
-  --text-hero:clamp(3rem,0.5rem + 7vw,7rem);
-  --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;
-  --space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;
-  --space-16:4rem;--space-20:5rem;--space-24:6rem;
-  --radius-sm:.25rem;--radius-md:.5rem;--radius-lg:.75rem;--radius-xl:1rem;
-  --transition:200ms cubic-bezier(0.16,1,0.3,1);
-  --content-narrow:640px;--content-default:900px;--content-wide:1140px;
-  --font-display:'Cormorant Garamond','Georgia',serif;
-  --font-body:'Jost','Helvetica Neue',sans-serif;
-}
-:root,[data-theme="dark"]{
-  --color-bg:#0e0d0b;--color-surface:#141310;--color-surface-2:#1a1815;
-  --color-surface-offset:#201e1a;--color-divider:#2a2720;--color-border:#33302a;
-  --color-text:#e8e0d0;--color-text-muted:#9a9080;--color-text-faint:#5c5548;
-  --color-text-inverse:#0e0d0b;--color-primary:#c8872a;--color-primary-hover:#dfa040;
-  --color-primary-highlight:#2e2318;
-  --shadow-sm:0 1px 3px oklch(0 0 0/.4);--shadow-md:0 4px 16px oklch(0 0 0/.5);--shadow-lg:0 12px 40px oklch(0 0 0/.6);
-}
-[data-theme="light"]{
-  --color-bg:#f5f0e8;--color-surface:#f9f6f0;--color-surface-2:#fdfcf9;
-  --color-surface-offset:#ede8df;--color-divider:#ddd6c8;--color-border:#cfc8b8;
-  --color-text:#1e1a12;--color-text-muted:#6b6050;--color-text-faint:#a89880;
-  --color-text-inverse:#f9f6f0;--color-primary:#9e6418;--color-primary-hover:#b87820;
-  --color-primary-highlight:#f0e4cc;
-  --shadow-sm:0 1px 2px oklch(0.2 0.03 70/.08);--shadow-md:0 4px 12px oklch(0.2 0.03 70/.10);--shadow-lg:0 12px 32px oklch(0.2 0.03 70/.14);
-}
-@media(prefers-color-scheme:light){:root:not([data-theme]){
-  --color-bg:#f5f0e8;--color-surface:#f9f6f0;--color-surface-2:#fdfcf9;
-  --color-surface-offset:#ede8df;--color-divider:#ddd6c8;--color-border:#cfc8b8;
-  --color-text:#1e1a12;--color-text-muted:#6b6050;--color-text-faint:#a89880;
-  --color-text-inverse:#f9f6f0;--color-primary:#9e6418;--color-primary-hover:#b87820;
-  --color-primary-highlight:#f0e4cc;
-  --shadow-sm:0 1px 2px oklch(0.2 0.03 70/.08);--shadow-md:0 4px 12px oklch(0.2 0.03 70/.10);--shadow-lg:0 12px 32px oklch(0.2 0.03 70/.14);
-}}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth;scroll-padding-top:var(--space-16);}
-body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;transition:background-color .3s,color .3s;}
-img,picture,svg{display:block;max-width:100%;}
-ul[role="list"]{list-style:none;}
-input,button,textarea,select{font:inherit;color:inherit;}
-h1,h2,h3,h4,h5,h6{text-wrap:balance;line-height:1.15;font-family:var(--font-display);}
-p,li{text-wrap:pretty;max-width:72ch;}
-::selection{background:oklch(from var(--color-primary) l c h/.25);}
-:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm);}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
-button{cursor:pointer;background:none;border:none;}
-a{color:inherit;text-decoration:none;transition:color var(--transition);}
-.skip-link{position:absolute;top:-100%;left:var(--space-4);background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-2) var(--space-4);border-radius:var(--radius-md);font-size:var(--text-sm);z-index:1000;}
-.skip-link:focus{top:var(--space-4);}
-.site-header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) clamp(var(--space-6),5vw,var(--space-16));background:oklch(from var(--color-bg) l c h/.9);backdrop-filter:blur(12px);border-bottom:1px solid oklch(from var(--color-text) l c h/.08);transition:background var(--transition);}
-.site-logo{display:flex;align-items:center;gap:var(--space-3);font-family:var(--font-display);font-size:var(--text-lg);font-weight:500;letter-spacing:.04em;color:var(--color-text);}
-.site-logo svg{width:30px;height:30px;flex-shrink:0;}
-.site-nav{display:flex;align-items:center;gap:var(--space-8);}
-.nav-links{display:flex;gap:var(--space-6);list-style:none;}
-.nav-links a{font-family:var(--font-body);font-size:var(--text-sm);font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted);transition:color var(--transition);}
-.nav-links a:hover,.nav-links a.active{color:var(--color-primary);}
-.theme-toggle{display:flex;align-items:center;justify-content:center;width:36px;height:36px;color:var(--color-text-muted);border-radius:var(--radius-md);transition:color var(--transition),background var(--transition);}
-.theme-toggle:hover{color:var(--color-primary);background:var(--color-surface-offset);}
-.hamburger{display:none;flex-direction:column;gap:5px;padding:var(--space-2);}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--color-text-muted);}
-.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--color-bg);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-10);}
-.mobile-nav.open{display:flex;}
-.mobile-nav a{font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text);}
-.mobile-nav a:hover{color:var(--color-primary);}
-.mobile-close{position:absolute;top:var(--space-6);right:clamp(var(--space-6),5vw,var(--space-16));font-size:var(--text-xl);color:var(--color-text-muted);}
-@media(max-width:640px){.nav-links{display:none;}.hamburger{display:flex;}}
-.page-section{display:none;}
-.page-section.active{display:block;}
-.hero{min-height:100dvh;display:grid;place-items:center;padding:clamp(var(--space-16),10vw,var(--space-24)) clamp(var(--space-6),5vw,var(--space-16));text-align:center;position:relative;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 60% 50% at 50% 60%,oklch(from var(--color-primary) l c h/.06) 0%,transparent 70%);}
-.hero-content{position:relative;z-index:1;max-width:780px;margin:0 auto;}
-.hero-eyebrow{display:inline-block;font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:.22em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-8);}
-.hero-title{font-family:var(--font-display);font-size:var(--text-hero);font-weight:300;font-style:italic;color:var(--color-text);margin-bottom:var(--space-4);line-height:1.05;}
-.hero-subtitle{font-family:var(--font-display);font-size:var(--text-xl);font-weight:300;color:var(--color-text-muted);font-style:italic;margin-bottom:var(--space-10);}
-.hero-divider{width:48px;height:1px;background:var(--color-primary);margin:var(--space-6) auto;opacity:.6;}
-.hero-body{font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text-muted);max-width:52ch;margin:0 auto var(--space-10);line-height:1.75;}
-.hero-cta{display:inline-flex;gap:var(--space-4);flex-wrap:wrap;justify-content:center;}
-.btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-8);font-family:var(--font-body);font-size:var(--text-sm);letter-spacing:.12em;text-transform:uppercase;font-weight:400;border-radius:var(--radius-sm);transition:all var(--transition);min-height:44px;}
-.btn-primary{background:var(--color-primary);color:var(--color-text-inverse);border:1px solid var(--color-primary);}
-.btn-primary:hover{background:var(--color-primary-hover);border-color:var(--color-primary-hover);}
-.btn-ghost{background:transparent;color:var(--color-text-muted);border:1px solid oklch(from var(--color-text) l c h/.18);}
-.btn-ghost:hover{color:var(--color-text);border-color:oklch(from var(--color-text) l c h/.35);}
-.scroll-cue{position:absolute;bottom:var(--space-8);left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:var(--space-2);color:var(--color-text-faint);font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;animation:float 2.5s ease-in-out infinite;}
-@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
-.content-section{padding:clamp(var(--space-16),8vw,var(--space-24)) clamp(var(--space-6),5vw,var(--space-16));}
-.section-inner{max-width:var(--content-default);margin:0 auto;}
-.section-label{display:block;font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:.22em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-6);}
-.section-title{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;color:var(--color-text);margin-bottom:var(--space-6);line-height:1.15;}
-.section-subtitle{font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;color:var(--color-text-muted);margin-bottom:var(--space-10);font-weight:300;}
-.section-divider{width:40px;height:1px;background:var(--color-primary);margin-bottom:var(--space-10);opacity:.5;}
-.belief-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:var(--space-4);}
-.belief-card{background:var(--color-surface-2);border:1px solid oklch(from var(--color-text) l c h/.07);border-radius:var(--radius-md);padding:var(--space-8);transition:box-shadow var(--transition),border-color var(--transition);}
-.belief-card:hover{box-shadow:var(--shadow-md);border-color:oklch(from var(--color-primary) l c h/.3);}
-.belief-card h3{font-family:var(--font-display);font-size:var(--text-lg);font-weight:400;margin-bottom:var(--space-3);color:var(--color-text);}
-.belief-card p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;max-width:100%;}
-.belief-card .ref{display:inline-block;margin-top:var(--space-3);font-size:var(--text-xs);letter-spacing:.1em;text-transform:uppercase;color:var(--color-primary);}
-.proof-block{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/.08);border-radius:var(--radius-lg);padding:clamp(var(--space-8),4vw,var(--space-12));margin-bottom:var(--space-10);box-shadow:var(--shadow-sm);}
-.proof-latin{font-family:var(--font-display);font-size:var(--text-2xl);font-style:italic;font-weight:300;color:var(--color-text);margin-bottom:var(--space-3);line-height:1.2;}
-.proof-translation{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-6);}
-.proof-body{font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text-muted);line-height:1.85;max-width:66ch;}
-.proof-body em{font-family:var(--font-display);font-style:italic;color:var(--color-text);}
-.proof-body p{margin-bottom:var(--space-4);max-width:66ch;}
-.proof-body p:last-child{margin-bottom:0;}
-.proof-cite{display:block;margin-top:var(--space-6);padding-top:var(--space-6);border-top:1px solid oklch(from var(--color-text) l c h/.08);font-family:var(--font-display);font-style:italic;font-size:var(--text-sm);color:var(--color-text-faint);}
-.proof-nb{background:var(--color-surface-offset);border-left:2px solid var(--color-primary);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:var(--space-4) var(--space-6);margin-top:var(--space-6);}
-.proof-nb p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.75;max-width:100%;}
-.proof-nb strong{color:var(--color-text);font-weight:500;}
-.axiom-block{background:var(--color-surface);border:1px solid oklch(from var(--color-primary) l c h/.25);border-radius:var(--radius-lg);padding:clamp(var(--space-8),4vw,var(--space-12));margin-bottom:var(--space-10);}
-.axiom-block blockquote{font-family:var(--font-display);font-size:var(--text-xl);font-style:italic;font-weight:300;color:var(--color-text);line-height:1.45;margin-bottom:var(--space-4);}
-.axiom-block cite{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary);}
-.axiom-logic{margin-top:var(--space-6);padding-top:var(--space-6);border-top:1px solid oklch(from var(--color-text) l c h/.08);}
-.axiom-logic p{font-size:var(--text-sm);color:var(--color-text-muted);font-style:italic;line-height:1.75;max-width:100%;}
-.ref-list{margin-top:var(--space-12);border-top:1px solid oklch(from var(--color-text) l c h/.1);padding-top:var(--space-10);}
-.ref-list h3{font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;font-weight:400;color:var(--color-text);margin-bottom:var(--space-8);}
-.ref-item{display:grid;grid-template-columns:1fr;gap:var(--space-1);margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid oklch(from var(--color-text) l c h/.06);}
-.ref-item:last-child{border-bottom:none;}
-.ref-item .ref-cite{font-family:var(--font-display);font-style:italic;font-size:var(--text-sm);color:var(--color-primary);}
-.ref-item .ref-text{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;max-width:100%;}
-.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:var(--space-16);align-items:start;}
-@media(max-width:720px){.about-grid{grid-template-columns:1fr;gap:var(--space-10);}}
-.about-body p{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.85;margin-bottom:var(--space-6);max-width:64ch;}
-.about-body em{font-family:var(--font-display);font-style:italic;color:var(--color-text);}
-.blockquote-card{background:var(--color-surface);border-left:2px solid var(--color-primary);padding:var(--space-8);border-radius:0 var(--radius-md) var(--radius-md) 0;margin-bottom:var(--space-8);}
-.blockquote-card blockquote{font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;font-weight:300;color:var(--color-text);line-height:1.45;margin-bottom:var(--space-3);}
-.blockquote-card cite{display:block;font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary);}
-.belief-table{width:100%;border-collapse:collapse;margin-bottom:var(--space-8);}
-.belief-table td{padding:var(--space-4) var(--space-2);border-bottom:1px solid oklch(from var(--color-text) l c h/.07);font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.65;vertical-align:top;max-width:100%;}
-.belief-table td:first-child{font-family:var(--font-display);font-style:italic;color:var(--color-text);padding-right:var(--space-6);white-space:nowrap;min-width:150px;}
-.belief-table tr:last-child td{border-bottom:none;}
-.dissolution-note{padding:var(--space-6) var(--space-8);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/.08);border-radius:var(--radius-md);}
-.dissolution-note p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;max-width:100%;}
-.dissolution-note strong{color:var(--color-text);font-weight:500;}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:start;}
-@media(max-width:680px){.contact-grid{grid-template-columns:1fr;gap:var(--space-10);}}
-.contact-info p{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.8;margin-bottom:var(--space-6);max-width:54ch;}
-.contact-detail{display:flex;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-6);}
-.contact-detail svg{width:20px;height:20px;color:var(--color-primary);flex-shrink:0;margin-top:2px;}
-.contact-detail-body{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;}
-.contact-detail-body strong{display:block;color:var(--color-text);font-weight:500;margin-bottom:var(--space-1);font-family:var(--font-display);font-size:var(--text-base);font-style:italic;}
-.contact-form{display:flex;flex-direction:column;gap:var(--space-4);}
-.form-group{display:flex;flex-direction:column;gap:var(--space-2);}
-.form-group label{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted);}
-.form-group input,.form-group textarea,.form-group select{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/.14);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);font-size:var(--text-base);color:var(--color-text);transition:border-color var(--transition),box-shadow var(--transition);min-height:44px;}
-.form-group textarea{min-height:140px;resize:vertical;}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 3px oklch(from var(--color-primary) l c h/.15);}
-.form-group input::placeholder,.form-group textarea::placeholder{color:var(--color-text-faint);}
-.form-success{display:none;text-align:center;padding:var(--space-12) var(--space-8);background:var(--color-surface);border:1px solid oklch(from var(--color-primary) l c h/.2);border-radius:var(--radius-lg);}
-.form-success h3{font-family:var(--font-display);font-size:var(--text-xl);font-style:italic;color:var(--color-text);margin-bottom:var(--space-4);}
-.form-success p{font-size:var(--text-sm);color:var(--color-text-muted);max-width:44ch;margin:0 auto;}
-.site-footer{padding:var(--space-12) clamp(var(--space-6),5vw,var(--space-16));border-top:1px solid oklch(from var(--color-text) l c h/.08);display:flex;flex-wrap:wrap;gap:var(--space-6);justify-content:space-between;align-items:center;}
-.footer-brand{font-family:var(--font-display);font-size:var(--text-base);font-style:italic;color:var(--color-text-muted);}
-.footer-links{display:flex;gap:var(--space-6);list-style:none;flex-wrap:wrap;}
-.footer-links a{font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-faint);transition:color var(--transition);}
-.footer-links a:hover{color:var(--color-primary);}
-.footer-legal{font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:.06em;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{animation:fadeUp .8s cubic-bezier(0.16,1,0.3,1) both;}
-.fade-up-1{animation-delay:.1s}.fade-up-2{animation-delay:.25s}.fade-up-3{animation-delay:.4s}
-.fade-up-4{animation-delay:.55s}.fade-up-5{animation-delay:.7s}
-</style>
-</head>
-<body>
-<a href="#main" class="skip-link">Skip to content</a>
-<header class="site-header" role="banner">
-  <a href="#" class="site-logo" onclick="showPage('home')" aria-label="Uri Derelicti Home">
-    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <path d="M4 24 Q4 10 16 6 Q28 10 28 24" stroke="currentColor" stroke-width="1.2" opacity=".4"/>
-      <path d="M16 6 L16 24" stroke="currentColor" stroke-width=".8" opacity=".3"/>
-      <path d="M4 24 Q16 22 28 24" stroke="currentColor" stroke-width="1.2" opacity=".4"/>
-      <path d="M16 17 C15 15 13 14 14 11 C14 11 15.5 13 16 13 C17 11 16.5 8 18 7 C18 10 20 11 19 14 C20 13 20.5 11 21 11 C21.5 14 19 16 19 17 C19 19 17 20 16 20 C15 20 13 19 13 17 C13 15.5 16 17 16 17Z" fill="var(--color-primary)" opacity=".9"/>
-    </svg>
-    Uri Derelicti
-  </a>
-  <nav class="site-nav" role="navigation" aria-label="Primary">
-    <ul class="nav-links" role="list">
-      <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-      <li><a href="#" onclick="showPage('proof')" id="nav-proof">The Proof</a></li>
-      <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
-      <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
-    </ul>
-    <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark mode">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-    <button class="hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-nav').classList.add('open')">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-</header>
-<div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
-  <button class="mobile-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')" aria-label="Close menu">&#x2715;</button>
-  <a href="#" onclick="showPage('home');document.querySelector('.mobile-nav').classList.remove('open')">Home</a>
-  <a href="#" onclick="showPage('proof');document.querySelector('.mobile-nav').classList.remove('open')">The Proof</a>
-  <a href="#" onclick="showPage('about');document.querySelector('.mobile-nav').classList.remove('open')">About</a>
-  <a href="#" onclick="showPage('contact');document.querySelector('.mobile-nav').classList.remove('open')">Contact</a>
-</div>
-<main id="main">
-
-<!-- HOME -->
-<section class="page-section active" id="page-home">
-  <div class="hero" role="region" aria-label="Welcome">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="hero-content">
-      <span class="hero-eyebrow fade-up fade-up-1">A Religious Ministry</span>
-      <h1 class="hero-title fade-up fade-up-2">Uri Derelicti</h1>
-      <p class="hero-subtitle fade-up fade-up-3">Left to Burn</p>
-      <div class="hero-divider fade-up fade-up-3" aria-hidden="true"></div>
-      <p class="hero-body fade-up fade-up-4">A ministry devoted to honest scriptural inquiry&#8202;&#8212;&#8202;examining what Paul actually wrote to those burning with desire, and what Jehovah actually requires of them.</p>
-      <div class="hero-cta fade-up fade-up-5">
-        <button class="btn btn-primary" onclick="showPage('proof')">Read the Proof</button>
-        <button class="btn btn-ghost" onclick="showPage('about')">About the Ministry</button>
-      </div>
-    </div>
-    <div class="scroll-cue" aria-hidden="true">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M4 9l4 4 4-4"/></svg>
-      Scroll
-    </div>
-  </div>
-  <div class="content-section">
-    <div class="section-inner">
-      <span class="section-label">What This Ministry Addresses</span>
-      <h2 class="section-title">Three Questions Left Unanswered</h2>
-      <div class="section-divider" aria-hidden="true"></div>
-      <div class="belief-grid">
-        <div class="belief-card">
-          <h3>What Paul Actually Wrote</h3>
-          <p>A close reading of 1 Corinthians 6&#8211;7 &#8212; what <em>arsenokoitai</em> and <em>malakoi</em> actually reference, and what Paul conspicuously did not prohibit to an audience that explicitly included homosexual men.</p>
-          <span class="ref">1 Cor. 6:9 &#183; Lev. 18, 20</span>
-        </div>
-        <div class="belief-card">
-          <h3>The Gift That Was Not Given</h3>
-          <p>Paul wrote that some burn because they lack the gift of singleness. For those men, that burning is not a sin to suppress &#8212; it is a condition Jehovah created and did not resolve.</p>
-          <span class="ref">1 Cor. 7:9, 17&#8211;20</span>
-        </div>
-        <div class="belief-card">
-          <h3>Jehovah Is Not Partial</h3>
-          <p>A God who creates men with an immutable attraction to other men, denies them the gift of singleness, and condemns them for their existence would be partial. That conclusion is not found in Paul&#8217;s words.</p>
-          <span class="ref">Acts 10:34 &#183; Romans 2:11</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="content-section" style="background:var(--color-surface);border-top:1px solid oklch(from var(--color-text) l c h/.07);border-bottom:1px solid oklch(from var(--color-text) l c h/.07);">
-    <div class="section-inner" style="text-align:center;max-width:660px;">
-      <span class="section-label">Publication</span>
-      <h2 class="section-title" style="font-style:italic;">Forthcoming</h2>
-      <div class="section-divider" style="margin:0 auto var(--space-8);" aria-hidden="true"></div>
-      <p style="font-size:var(--text-base);color:var(--color-text-muted);line-height:1.8;margin:0 auto var(--space-10);max-width:54ch;">The first publication of Uri Derelicti presents a structured scriptural argument on what Paul wrote &#8212; and did not write &#8212; to the homosexuals he explicitly included in his audience at Corinth. Notification of release is available by request.</p>
-      <button class="btn btn-primary" onclick="showPage('contact')">Request Notification</button>
-    </div>
-  </div>
-</section>
-
-<!-- THE PROOF -->
 <section class="page-section" id="page-proof" style="padding-top:80px;">
   <div class="content-section">
     <div class="section-inner">
       <span class="section-label">Scriptural Foundation</span>
       <h2 class="section-title" style="font-style:italic;">Mini Meta Proof</h2>
-      <p class="section-subtitle">In which any alternative framework would need to address all the points raised &#8212; and would still not be clearly correct</p>
+      <p class="section-subtitle">In which any alternative framework would need to address all the points raised—and would still not be clearly correct.</p>
       <div class="section-divider" aria-hidden="true"></div>
 
       <div class="axiom-block">
-        <blockquote>&#8220;All Scripture is inspired of God and beneficial&#8230; for setting things straight&#8230; so that the man of God may be fully competent, completely equipped.&#8221;</blockquote>
-        <cite>2 Timothy 3:16&#8211;17 &nbsp;&#183;&nbsp; Axiom</cite>
+        <blockquote>"All Scripture is inspired of God and beneficial... for setting things straight... so that the man of God may be fully competent, completely equipped."</blockquote>
+        <cite>2 Timothy 3:16–17 &nbsp;•&nbsp; Axiom</cite>
         <div class="axiom-logic">
-          <p><em>Line of Reasoning:</em> If no other conclusion can survive the argument, then it must be the correct conclusion.</p>
+          <p><strong>Line of Reasoning:</strong> If no other conclusion can survive the argument, then it must be the correct conclusion.</p>
         </div>
       </div>
 
       <div class="proof-block">
-        <p class="proof-latin">The Slave in the Congregation</p>
+        <p class="proof-latin">Servus in Congregatione</p>
         <p class="proof-translation">Assume sex between men is immoral</p>
         <div class="proof-body">
-          <p>The Christian congregation had slaves. Slaves in the Roman empire were property and could be used for sexual gratification by their masters and their masters&#8217; friends. Were male slaves used by their masters for sexual gratification not allowed to be part of the congregation? Were they not baptized by Holy Spirit in the first century? Would that not be partial against someone due to his circumstances rather than his heart?</p>
-          <p>If a male slave never had sex with another man before entering the congregation, and then was used &#8212; as a slave &#8212; for sex by another man, would he be removed? <em>&#8220;Neither height nor depth nor any other creation can separate us from God&#8217;s love.&#8221;</em> The master is part of God&#8217;s creation. How could he separate the slave from God&#8217;s love, from the congregation, from the Kingdom?</p>
-          <p>Male slaves were encouraged to not run away (1 Cor. 7:21&#8211;24) &#8212; and therefore to submit to homosexuality if required of them by their master. Therefore some men in the Christian congregation had sex with other men, with impunity. Assume then that the restriction was narrower than an absolute prohibition. Where was the line? Was the sex allowed by virtue of slavery alone? Does slavery bestow on two wanting lovers a righteousness not found in the relationship of two free men who love each other?</p>
+          <p>The Christian congregation had slaves. In the Roman Empire, slaves were property used for sexual gratification by masters. Were these men—used for sex by masters—denied baptism? Would God be partial against them for their circumstances? (Acts 10:34-35).</p>
+          <p>Paul encouraged slaves <em>not</em> to run away (1 Cor. 7:21–24), effectively instructing them to submit to their masters. If a slave was used for sex, could he be removed? <em>"Neither height nor depth nor any other creation can separate us from God’s love."</em> The master is part of creation; he cannot separate the slave from the Kingdom. Thus, some in the congregation had sex with men with impunity.</p>
+          <p>Does slavery bestow a righteousness on lovers not found in the relationship of two free men? Where is the line drawn?</p>
         </div>
-        <cite class="proof-cite">Romans 8:38&#8211;39 &nbsp;&#183;&nbsp; 1 Corinthians 7:21&#8211;24 &nbsp;&#183;&nbsp; Matthew 8:5&#8211;13</cite>
+        <cite class="proof-cite">Romans 8:38–39 &nbsp;•&nbsp; 1 Corinthians 7:21–24 &nbsp;•&nbsp; Acts 10:34</cite>
       </div>
 
       <div class="proof-block">
-        <p class="proof-latin">The Eunuchs Jesus Named</p>
-        <p class="proof-translation">Matthew 19:12 &#183; Three categories, one illustration</p>
-        <div class="proof-body">
-          <p>Jesus provided the illustration of men who would choose to be eunuchs for the Kingdom. He compared them to men born eunuchs and to men who were <em>made eunuchs by men</em> &#8212; a second group imported for sexual purposes. These were not celibate men. They were created as a category for sex with men.</p>
-          <p>Jesus said some men chose to be eunuchs for the Kingdom <em>after</em> referencing this sexually active group. What was the illustrative purpose of including them, if men were to avoid all homosexuality? This was precisely the moment to add a limiting commandment. None was added. Instead: <em>&#8220;Let the one who can make room for it make room for it.&#8221;</em></p>
-          <p>Jesus also blessed two men in a loving relationship when he healed the Centurion&#8217;s <em>pais</em> &#8212; a word denoting a beloved companion, not merely a servant. The Centurion&#8217;s faith was commended. Their relationship was not censured.</p>
+        <p class="proof-latin">Tres Genera Eunuchorum</p>
+        <p class="proof-translation">Matthew 19:12 • The Master Illustrator</p>
+                <div class="proof-body">
+          <p>Jesus identified three groups: those born eunuchs, those made eunuchs by men (often for sexual purposes), and those who choose it for the Kingdom. The second group were not celibate; they were a category created for sex with men. Jesus mentioned them <em>before</em> saying some would choose to be eunuchs for the Kingdom.</p>
+          <p>What was the illustrative purpose of including this sexual group if their lifestyle was to be avoided? This was the moment to add a limiting commandment. None was added. Instead: <em>"Let the one who can make room for it make room for it."</em></p>
+          <p>The generalization is that some do not marry, with the option of either celibacy or sex with men, following Jesus's commandments and remaining loved by him.</p>
         </div>
-        <div class="proof-nb"><p><strong>NB:</strong> Jesus was answering a question about marriage directly &#8212; and by using two groups of eunuchs, both of which could be celibate or practicing homosexuals, he addressed both abstinence and homosexuality. He said some would choose to be like the eunuchs made by men: in the congregation, loved by Jehovah, and having sex with men. The generalization is that some men do not marry, with the option of either celibacy or sex with men &#8212; following his commandments, part of the congregation, and loved according to Jesus.</p></div>
-        <cite class="proof-cite">Matthew 19:12 &nbsp;&#183;&nbsp; Matthew 8:5&#8211;13 &nbsp;&#183;&nbsp; Deuteronomy 23:1 &nbsp;&#183;&nbsp; Acts 8:27</cite>
+        <cite class="proof-cite">Matthew 19:12 &nbsp;•&nbsp; Deuteronomy 23:1 &nbsp;•&nbsp; Acts 8:27</cite>
       </div>
 
       <div class="proof-block">
-        <p class="proof-latin">David and Jonathan</p>
-        <p class="proof-translation">2 Samuel 1:26 &#183; The greatest romance in the Scriptures</p>
+        <p class="proof-latin">Dilectus Meus Mihi</p>
+        <p class="proof-translation">2 Samuel 1:26 • The Greatest Romance</p>
         <div class="proof-body">
-          <p>The ministry holds that David and Jonathan had the greatest romance described in the Scriptures &#8212; and that both were approved by Jehovah, who described Jesus as the second David. Jonathan chose David and waited for him years, planning to stand at his side when he ruled. They risked their lives to embrace and kiss each other. Jonathan could not complete an archery ruse before abandoning it to hold the man he loved as himself.</p>
-          <p>The Biblical pattern was for sex to not be commented upon if it was not a matter of law. It was noted that David did not have sex with Abishag &#8212; because that affected her legal rights. There is no equivalent note about Jonathan, because there was no legal matter to record. No law existed between them: not the Canaanite prostitution custom, not <em>porneia</em>, not the rape laws mirrored in Leviticus 18, and not the broad prohibition on sex with animals &#8212; which was written broadly and clearly. The Bible has no broad prohibition on homosexuality written to parallel that one.</p>
-          <p><em>&#8220;Your love for me was more wonderful than the love of women.&#8221;</em> Not that David loved Jonathan more than his wives &#8212; but that Jonathan&#8217;s love was greater than what women could provide. It was sexual, and more. The record has no law against it.</p>
+          <p>David and Jonathan's love was "more wonderful than the love of women." This was not just a comparison of intensity, but of nature. It was sexual and more. They risked lives to hug and kiss (1 Sam 20:41). Jonathan's love for David is the biblical example of "loving someone as yourself."</p>
+          <p>The Bible notes David did <em>not</em> have sex with Abishag (1 Kings 1:4) because it affected legal rights. It makes no such note regarding Jonathan because there was no law to violate. In the camp of soldiers, "seeing each other's nakedness" was a bonding value. Jehovah constructed the Law to regulate emissions (Lev. 15), but never once prohibited the love between these two men whom He approved.</p>
         </div>
-        <cite class="proof-cite">2 Samuel 1:26 &nbsp;&#183;&nbsp; 1 Samuel 20:41 &nbsp;&#183;&nbsp; 1 Samuel 23:16&#8211;18 &nbsp;&#183;&nbsp; 1 Kings 1:4</cite>
+        <cite class="proof-cite">2 Samuel 1:26 &nbsp;•&nbsp; 1 Samuel 20:41 &nbsp;•&nbsp; 1 Kings 1:4 &nbsp;•&nbsp; 1 Samuel 23:16–18</cite>
       </div>
 
       <div class="proof-block">
-        <p class="proof-latin">Arsenokoitai &#183; Malakoi</p>
-        <p class="proof-translation">1 Corinthians 6:9 &#183; What Paul named, and what he did not</p>
-        <div class="proof-body">
-          <p><em>Arsenokoitai</em> references Leviticus 18 and 20 &#8212; specifically anal sex in the context of idolatry and temple prostitution. Paired with <em>malakoi</em>, the temple prostitutes, it is a precise reference to a specific practice, not a blanket prohibition on all sexual contact between men. For female homosexuals, there is no parallel word at all. If female homosexuality is not condemned by any word, the basis for condemning male homosexuality collapses.</p>
-          <p>Paul&#8217;s Corinthian audience was well familiar with mutual masturbation and intercrural sex between men. He did not name it. He did not name masturbation at all &#8212; not in prostitution, not in idolatry, not in adultery &#8212; even though his audience explicitly included homosexuals. That gap was not oversight. It was the logical necessity of an audience that included homosexual men who lacked the gift of singleness.</p>
-          <p>Paul then said: <em>&#8220;In whatever state each one was called, let him remain in it.&#8221;</em> He added that he was not casting a noose. The freedom he left is the one he did not prohibit.</p>
+        <p class="proof-latin">Lex et Porneia</p>
+        <p class="proof-translation">Redefining the Burden</p>
+                <div class="proof-body">
+          <p><em>Porneia</em> involves the "one flesh" union—penile-vaginal sex outside of marriage. It violates the rights of potential children. This framework does not involve sex between men. To broaden <em>porneia</em> to include homosexuality is to add to the law, which is immoral (Deut. 4:2).</p>
+          <p>If there were regulations against two men masturbating each other, they would be as clear as the regulations for wet dreams or animal sacrifice. None exist. God did not make a mistake by omitting them.</p>
         </div>
-        <div class="proof-nb"><p><strong>NB on common objections:</strong> Arguments against this reading rely on asceticism wrapped as an &#8220;Edenic standard&#8221; (Col. 2:20&#8211;23; 1 Tim. 4:1&#8211;3); redefining <em>malakoi</em>, <em>arsenokoitai</em>, and <em>porneia</em> beyond their textual scope; defining non-procreative sex as &#8220;unnatural&#8221; (Rom. 1); or treating homosexuality as analogous to the Benjaminites who raped a woman. Each of these requires adding to Jehovah&#8217;s law &#8212; which is directly prohibited (Deut. 4:2; Prov. 30:6).</p></div>
-        <cite class="proof-cite">1 Cor. 6:9 &nbsp;&#183;&nbsp; Lev. 18:22, 20:13 &nbsp;&#183;&nbsp; 1 Cor. 7:17&#8211;20, 35 &nbsp;&#183;&nbsp; Deut. 4:2</cite>
+        <cite class="proof-cite">Deuteronomy 4:2 &nbsp;•&nbsp; Proverbs 30:6 &nbsp;•&nbsp; 1 Corinthians 6:15–16</cite>
       </div>
 
-      <div class="proof-block">
-        <p class="proof-latin">The Commandment from the Beginning</p>
-        <p class="proof-translation">2 John 6&#8211;7 &#183; Love is following Jehovah&#8217;s commandments</p>
-        <div class="proof-body">
-          <p>Love is following Jehovah&#8217;s commandments. Jehovah&#8217;s commandments are to love. The commandment, from the beginning, is to love. Two men making love is, therefore, following the law &#8212; where no contrary law exists.</p>
-          <p><em>&#8220;Pleasing God is not complicated. All that he requires of us can be summed up in a single word: love. That has always been &#8212; and will always be &#8212; the essence of true worship.&#8221;</em> (Draw Close to God, &#8220;Which Commandment Is First of All?&#8221;)</p>
-          <p>Jehovah is not partial (Acts 10:34&#8211;35). He does not create men homosexual, deny them the gift of singleness, and then condemn them for their existence. The men who die rather than continue without a mate demonstrate that Jehovah did not grant them that gift. That is not a failure of self-control &#8212; self-control is a fruitage of the Spirit and we are given what we need. It is evidence of a need Jehovah created and did not extinguish. To leave such men burning &#8212; with no mate, no gift of singleness, and no mercy &#8212; is the counsel of men, not of Jehovah.</p>
+      <div class="proof-block" style="border-left: 4px solid var(--color-primary); background: var(--color-surface-offset);">
+        <p class="proof-latin">Nota Bene: The Society's Arguments</p>
+        <p class="proof-translation">An Examination of Traditional Objections</p>
+        <div class="proof-body" style="font-size: var(--text-sm);">
+          <p>Current institutional arguments rely on:</p>
+          <ul style="margin-left: var(--space-6); margin-bottom: var(--space-4);">
+            <li><strong>Asceticism:</strong> Wrapped as the "Edenic standard" (Contra Col. 2:20–23).</li>
+            <li><strong>Redefinition:</strong> Expanding <em>malakoi</em> and <em>porneia</em> by fiat rather than text (w72 1/1).</li>
+            <li><strong>Confluence:</strong> Equating natural attraction with predatory behaviors (g86 4/22).</li>
+          </ul>
+          <p>To limit love based on these additions is an act of idolatry—sacrificing truth on the altar of false religious teaching. Two men can morally love each other openly and unrestrained.</p>
         </div>
-        <cite class="proof-cite">2 John 6&#8211;7 &nbsp;&#183;&nbsp; Acts 10:34&#8211;35 &nbsp;&#183;&nbsp; Romans 2:11 &nbsp;&#183;&nbsp; 1 Cor. 7:9 &nbsp;&#183;&nbsp; John 15:10</cite>
       </div>
 
       <div class="ref-list">
-        <h3>Scripture References</h3>
-        <div class="ref-item"><span class="ref-cite">Acts 10:34&#8211;35</span><span class="ref-text">&#8220;God is not partial, but in every nation the man who fears him and does what is right is acceptable to him.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">Romans 8:38&#8211;39</span><span class="ref-text">&#8220;For I am convinced that neither death nor life nor angels nor governments nor things now here nor things to come nor powers nor height nor depth nor any other creation will be able to separate us from God&#8217;s love that is in Christ Jesus our Lord.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">1 Corinthians 7:21&#8211;24</span><span class="ref-text">&#8220;Were you called when a slave? Do not let it worry you&#8230; Brothers, let each one remain in the state in which he was called.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">Matthew 8:5&#8211;8, 13</span><span class="ref-text">&#8220;When he entered Capernaum, an army officer came to him, pleading&#8230; &#8216;Sir, my servant boy (<em>pais</em>) is laid up at home with paralysis&#8230;&#8217; &#8216;Just say the word and my servant boy (<em>pais</em>) will be healed.&#8217;&#8230; And the servant boy was healed in that hour.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">Matthew 19:12</span><span class="ref-text">&#8220;For there are eunuchs who were born that way, and there are eunuchs who were made eunuchs by men, and there are eunuchs who have made themselves eunuchs for the sake of the Kingdom of the heavens. Let the one who can make room for it make room for it.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">2 Samuel 1:26</span><span class="ref-text">&#8220;I am distressed over you, my brother Jonathan; you were very dear to me. Your love for me was more wonderful than the love of women.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">1 Samuel 20:41</span><span class="ref-text">&#8220;When the boy had gone, David came from beside the mound and fell with his face to the ground&#8230; They kissed each other and wept together, but David wept the most.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">1 Samuel 23:16&#8211;18</span><span class="ref-text">&#8220;Jonathan, Saul&#8217;s son, then went to David at Horesh and strengthened his resolve by Jehovah&#8217;s help&#8230; So the two of them made a covenant before Jehovah.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">2 John 6&#8211;7</span><span class="ref-text">&#8220;And this is what love means, that we go on walking according to his commandments. This is the commandment, just as you have heard from the beginning, that you should go on walking in it.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">John 15:10</span><span class="ref-text">&#8220;If you observe my commandments, you will remain in my love, just as I have observed the commandments of the Father and remain in his love.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">Deuteronomy 4:2</span><span class="ref-text">&#8220;You must not add to the word that I am commanding you, and you must not take away from it.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">Leviticus 15:16&#8211;17 &#183; Deuteronomy 23:9&#8211;11</span><span class="ref-text">Regulations governing emissions of semen &#8212; bathing and waiting until evening. Practically, any of the thirteen at the Passover who had relations earlier that day would have been fully ritually clean in time to participate that evening.</span></div>
-        <div class="ref-item"><span class="ref-cite">2 Peter 3:16</span><span class="ref-text">&#8220;The ignorant and unstable are twisting [Paul&#8217;s letters], as they do the rest of the Scriptures, to their own destruction.&#8221;</span></div>
-        <div class="ref-item"><span class="ref-cite">Colossians 2:8</span><span class="ref-text">&#8220;Be on guard that no one takes you captive by means of the philosophy and empty deception according to human tradition.&#8221;</span></div>
-      </div>
+        <h3>Full Scripture Reference List</h3>
+        <div class="ref-item"><span class="ref-cite">2 John 6–7</span><span class="ref-text">"And this is what love means, that we go on walking according to his commandments... this is the commandment, just as you have heard from the beginning."</span></div>
+        <div class="ref-item"><span class="ref-cite">Leviticus 15:16–17</span><span class="ref-text">Regulations on semen: any of the 13 at the Passover who had relations earlier that day would have been ritually clean by sunset.</span></div>
+        </div>
     </div>
   </div>
 </section>
-
-<!-- ABOUT -->
-<section class="page-section" id="page-about" style="padding-top:80px;">
-  <div class="content-section">
-    <div class="section-inner">
-      <span class="section-label">The Ministry</span>
-      <h2 class="section-title">About Uri Derelicti</h2>
-      <div class="section-divider" aria-hidden="true"></div>
-      <div class="about-grid">
-        <div class="about-body">
-          <p>Uri Derelicti is a religious ministry organized as a nonprofit corporation under the laws of South Carolina. Its work is the honest study and careful presentation of what the scriptures actually say &#8212; not what tradition has assumed them to say &#8212; concerning desire, conscience, and the impartiality of Jehovah.</p>
-          <p>The name is drawn from Lamentations &#8212; <em>uri derelicti</em>, left to burn &#8212; as an acknowledgment of a real condition. Paul wrote to people in that condition. He included homosexual men explicitly in his audience. He constrained them from prostitution, idolatry, and adultery. He told them to remain as they were called. He said he was not casting a noose. The freedom he left is the one he did not prohibit.</p>
-          <p>The ministry holds that two men can morally love each other openly and without restraint &#8212; with sexual activity private. To limit this love on the basis of traditions not found in scripture is itself immoral, as adding to Jehovah&#8217;s law is a direct violation of a commandment not to (Deut. 4:2; Prov. 30:6).</p>
-          <p>The ministry operates without denominational affiliation and draws from the breadth of the scriptural witness. It is not a ministry of permission or license. It is a ministry of precision &#8212; committed to what the text says, no more and no less.</p>
-
-          <h3 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:400;font-style:italic;color:var(--color-text);margin:var(--space-10) 0 var(--space-6);">Core Beliefs</h3>
-          <table class="belief-table" aria-label="Core doctrinal beliefs">
-            <tbody>
-              <tr>
-                <td>Jesus Christ</td>
-                <td>The Son of the Father, Jehovah, and the master worker at creation. He holds divinity as the firstborn of all creation &#8212; not as part of a Trinity, but as distinct from and subordinate to the Father who sent him.</td>
-              </tr>
-              <tr>
-                <td>The Holy Spirit</td>
-                <td>Jehovah&#8217;s active force &#8212; the power by which He accomplishes His purposes &#8212; not a person equal to God in a triune Godhead.</td>
-              </tr>
-              <tr>
-                <td>The Soul</td>
-                <td>The immortality of the soul is a Greek philosophical concept, principally Platonic, adopted by the Catholic Church through syncretism. It is not scriptural. The dead are conscious of nothing (Eccl. 9:5).</td>
-              </tr>
-              <tr>
-                <td>Hellfire</td>
-                <td>Adopted from Greek mythology by the same process of syncretism. It is not scriptural. The wages sin pays is death &#8212; not eternal torment (Rom. 6:23). Gehenna is destruction, not perpetual suffering.</td>
-              </tr>
-              <tr>
-                <td>God Is Love</td>
-                <td>We were made in His image. The Scriptures refine our understanding of how to love, and all the commandments must be understood in that framework. Love is the first and greatest commandment &#8212; from the beginning (2 John 6).</td>
-              </tr>
-              <tr>
-                <td>Basis for Belief</td>
-                <td>Only the Scriptures and reason are a defensible basis for religious belief. Tradition, creed, and institutional authority are not sufficient grounds. What cannot be demonstrated from the text cannot be required of conscience (Acts 17:11; Deut. 4:2).</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div>
-          <div class="blockquote-card">
-            <blockquote>&#8220;He was not restricting their freedoms. The freedom he left is the one he did not prohibit.&#8221;</blockquote>
-            <cite>&#8212; On 1 Corinthians 7:35</cite>
-          </div>
-          <div class="blockquote-card">
-            <blockquote>&#8220;The perverse desire to reach the conclusion &#8216;let them burn&#8217; for homosexuals clearly isn&#8217;t from Jehovah.&#8221;</blockquote>
-            <cite>&#8212; Left to Burn, forthcoming</cite>
-          </div>
-          <div class="blockquote-card">
-            <blockquote>&#8220;If their supposition is false, they make themselves merciless; worse, they present Jehovah as merciless. For such a dangerous belief, they should have a compelling rationale. But it is not one found in Paul&#8217;s words.&#8221;</blockquote>
-            <cite>&#8212; Left to Burn, forthcoming</cite>
-          </div>
-          <div class="dissolution-note">
-            <p><strong>Legal Notice.</strong> Uri Derelicti is incorporated as a nonprofit religious corporation in South Carolina. Upon dissolution, assets are designated to the <strong>Watchtower Bible and Tract Society of Pennsylvania</strong>, a 501(c)(3) organization, or to another qualifying charitable entity as determined by applicable law. No part of the net earnings of the corporation inures to the benefit of any private individual.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="page-section" id="page-contact" style="padding-top:80px;">
-  <div class="content-section">
-    <div class="section-inner">
-      <span class="section-label">Correspondence</span>
-      <h2 class="section-title">Contact the Ministry</h2>
-      <div class="section-divider" aria-hidden="true"></div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <p>Questions, scriptural correspondence, and requests for notification of publication are welcome. All inquiries are received with care and responded to with discretion.</p>
-          <div class="contact-detail">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <div class="contact-detail-body">
-              <strong>General Inquiries</strong>
-              <a href="mailto:info@uriderelicti.org" style="color:var(--color-primary);">info@uriderelicti.org</a>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="contact-detail-body">
-              <strong>Registered Address</strong>
-              6650 Rivers Ave. STE 100<br>Charleston, South Carolina
-            </div>
-          </div>
-        </div>
-        <div>
-          <div id="contact-form-wrap">
-            <form class="contact-form" onsubmit="handleContactSubmit(event)" novalidate>
-              <div class="form-group">
-                <label for="cn">Your Name</label>
-                <input type="text" id="cn" name="name" placeholder="Full name" required autocomplete="name">
-              </div>
-              <div class="form-group">
-                <label for="ce">Email Address</label>
-                <input type="email" id="ce" name="email" placeholder="you@example.com" required autocomplete="email">
-              </div>
-              <div class="form-group">
-                <label for="cs">Subject</label>
-                <select id="cs" name="subject">
-                  <option value="general">General Inquiry</option>
-                  <option value="notification">Publication Notification</option>
-                  <option value="scriptural">Scriptural Correspondence</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="cm">Message</label>
-                <textarea id="cm" name="message" placeholder="Your message&#8230;" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message</button>
-            </form>
-          </div>
-          <div class="form-success" id="form-success">
-            <h3>Message Received</h3>
-            <p>Thank you for your correspondence. The ministry will respond with care and discretion.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer class="site-footer" role="contentinfo">
-  <div class="footer-brand">Uri Derelicti &#8212; <em>Left to Burn</em></div>
-  <ul class="footer-links" role="list">
-    <li><a href="#" onclick="showPage('home')">Home</a></li>
-    <li><a href="#" onclick="showPage('proof')">The Proof</a></li>
-    <li><a href="#" onclick="showPage('about')">About</a></li>
-    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
-  </ul>
-  <div class="footer-legal">&copy; 2026 Uri Derelicti &nbsp;&#183;&nbsp; South Carolina Religious Nonprofit</div>
-</footer>
-
-<script>
-(function(){
-  const toggle=document.querySelector('[data-theme-toggle]');
-  const root=document.documentElement;
-  let theme=root.getAttribute('data-theme')||'dark';
-  function applyTheme(t){
-    theme=t;root.setAttribute('data-theme',t);
-    if(toggle)toggle.innerHTML=t==='dark'
-      ?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-      :'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  }
-  if(toggle)toggle.addEventListener('click',()=>applyTheme(theme==='dark'?'light':'dark'));
-  applyTheme(theme);
-})();
-function showPage(page){
-  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
-  const section=document.getElementById('page-'+page);
-  const navLink=document.getElementById('nav-'+page);
-  if(section){section.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
-  if(navLink)navLink.classList.add('active');
-  history.replaceState(null,'','#'+page);
-}
-(function(){
-  const hash=location.hash.replace('#','');
-  if(['home','proof','about','contact'].includes(hash))showPage(hash);
-})();
-function handleContactSubmit(e){
-  e.preventDefault();
-  const f=e.target;
-  if(!f.querySelector('#cn').value.trim()||!f.querySelector('#ce').value.trim()||!f.querySelector('#cm').value.trim())return;
-  document.getElementById('contact-form-wrap').style.display='none';
-  document.getElementById('form-success').style.display='block';
-}
-</script>
-</body>
-</html>
