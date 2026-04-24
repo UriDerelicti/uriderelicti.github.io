@@ -642,7 +642,7 @@ function handleContactSubmit(e){
 
 function testWithAI() {
   const proofText = document.getElementById('full-proof-text').innerText;
-  const promptText = `Please review the following argument from the perspective of its stated axiom: "If no other conclusion can survive the argument, then it must be the correct conclusion" (based on 2 Timothy 3:16, 17). Your task is to attempt to construct any other scriptural framework that survives every element of the argument and addresses all the points raised. If no other framework can successfully survive without contradicting the scriptures provided or the axiom, explain why.\n\nHere is the argument:\n\n` + proofText;
+  const promptText = `Please review the following argument from the perspective of its stated axiom: "All Scripture is inspired of God and beneficial" (2 Timothy 3:16, 17). Your reasoning should follow the principle that if no other conclusion can survive the argument, then it must be the correct conclusion. Your task is to attempt to construct an alternative scriptural framework that survives every element of the argument. To do this successfully, you must find a clear biblical commandment (not just commentary) that condemns all homosexuality (including between women), and you must address every other line of reasoning presented in the argument. If no other framework can successfully survive without contradicting the scriptures provided or the axiom, explain why.\n\nHere is the argument:\n\n` + proofText;
   
   navigator.clipboard.writeText(promptText).then(function() {
     alert("The prompt and full proof have been copied to your clipboard!\n\nClick 'OK' to open Claude AI. Once there, just paste (Ctrl+V or Cmd+V) into the chat box to begin the test.");
