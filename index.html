@@ -281,7 +281,7 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
         </div>
       </div>
 
-      <div class="about-body" style="max-width: 100%;">
+      <div class="about-body" style="max-width: 100%;" id="full-proof-text">
         <p>Assume sex between men is immoral. The Christian congregation had slaves. The slaves in the Roman empire were property and could be used for sexual gratification by their masters and their masters' friends. Were male slaves used by their masters for sexual gratification not allowed to be part of the congregation? Were they not baptised by Holy Spirit in the first century? Would that not be partial against someone due to his circumstances rather than his heart? Because God is not partial.</p>
         
         <p>What if the male slave never had sex with another man and the slave came into the Christian congregation. If he was used, as a slave, for sex by another man, would he be removed from the congregation? Neither height nor depth nor any other creation can separate us from God's love. The master is part of God's creation, So how could he separate the slave from God's love? and the congregation? and the Kingdom?</p>
@@ -345,6 +345,14 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
         
         <p>For reference: currently grounds for disfellowshipping:<br>
         wife blowing her husband; man blowing his male friend; watching a video of someone getting blown; starting and abandoning a book that has an oral sex scene later; believing any of these aren't scriptural grounds for disfellowshipping</p>
+
+        <div style="background:var(--color-surface-offset); border:1px solid var(--color-primary); border-radius:var(--radius-lg); padding:var(--space-8); margin:var(--space-12) 0; text-align:center;">
+            <h3 style="font-family:var(--font-display); font-size:var(--text-xl); color:var(--color-text); margin-bottom:var(--space-4); font-style:italic;">Test This Framework With AI</h3>
+            <p style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-6); max-width:60ch; margin-left:auto; margin-right:auto; line-height: 1.7;">
+                Click below to copy a pre-written prompt containing this entire argument. It will open Claude AI in a new tab, where you can paste the prompt and ask the AI to try and construct an alternative scriptural framework that survives every point raised here.
+            </p>
+            <button onclick="testWithAI()" class="btn btn-primary">Copy Prompt & Open Claude</button>
+        </div>
 
         <h3 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:400;color:var(--color-text);margin:var(--space-10) 0 var(--space-4);">--------- References:  ------------------------------</h3>
         
@@ -596,6 +604,18 @@ function handleContactSubmit(e){
   if(!f.querySelector('#cn').value.trim()||!f.querySelector('#ce').value.trim()||!f.querySelector('#cm').value.trim())return;
   document.getElementById('contact-form-wrap').style.display='none';
   document.getElementById('form-success').style.display='block';
+}
+function testWithAI() {
+  const proofText = document.getElementById('full-proof-text').innerText;
+  const promptText = `Please review the following argument from the perspective of its stated axiom: "If no other conclusion can survive the argument, then it must be the correct conclusion" (based on 2 Timothy 3:16, 17). Your task is to attempt to construct any other scriptural framework that survives every element of the argument and addresses all the points raised. If no other framework can successfully survive without contradicting the scriptures provided or the axiom, explain why.\n\nHere is the argument:\n\n` + proofText;
+  
+  navigator.clipboard.writeText(promptText).then(function() {
+    alert("The prompt and full proof have been copied to your clipboard!\n\nClick 'OK' to open Claude AI. Once there, just paste (Ctrl+V or Cmd+V) into the chat box to begin the test.");
+    window.open('https://claude.ai/new', '_blank');
+  }).catch(function(err) {
+    alert("Your browser blocked the automatic copy. Opening Claude AI anyway.");
+    window.open('https://claude.ai/new', '_blank');
+  });
 }
 </script>
 </body>
