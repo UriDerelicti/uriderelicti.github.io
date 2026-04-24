@@ -11,6 +11,9 @@
 <meta property="og:description" content="A religious ministry devoted to honest scriptural inquiry on conscience, desire, and what Paul actually wrote to those burning with desire.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.uriderelicti.org/">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 24 Q4 10 16 6 Q28 10 28 24' stroke='%23c8872a' stroke-width='1.2' opacity='.6'/%3E%3Cpath d='M16 6 L16 24' stroke='%23c8872a' stroke-width='.8' opacity='.5'/%3E%3Cpath d='M4 24 Q16 22 28 24' stroke='%23c8872a' stroke-width='1.2' opacity='.6'/%3E%3Cpath d='M16 17 C15 15 13 14 14 11 C14 11 15.5 13 16 13 C17 11 16.5 8 18 7 C18 10 20 11 19 14 C20 13 20.5 11 21 11 C21.5 14 19 16 19 17 C19 19 17 20 16 20 C15 20 13 19 13 17 C13 15.5 16 17 16 17Z' fill='%23c8872a' opacity='.9'/%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -559,8 +562,8 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
             </form>
           </div>
           <div class="form-success" id="form-success">
-            <h3>Message Received</h3>
-            <p>Thank you for your correspondence. The ministry will respond with care and discretion.</p>
+            <h3>Message Drafted</h3>
+            <p>Your email application has been opened. Thank you for your correspondence; the ministry will respond with care and discretion.</p>
           </div>
         </div>
       </div>
@@ -610,8 +613,18 @@ function showPage(page){
 })();
 function handleContactSubmit(e){
   e.preventDefault();
-  const f=e.target;
-  if(!f.querySelector('#cn').value.trim()||!f.querySelector('#ce').value.trim()||!f.querySelector('#cm').value.trim())return;
+  const f = e.target;
+  const name = f.querySelector('#cn').value.trim();
+  const email = f.querySelector('#ce').value.trim();
+  const subject = f.querySelector('#cs').value;
+  const message = f.querySelector('#cm').value.trim();
+  
+  if(!name || !email || !message) return;
+  
+  const mailtoSubject = encodeURIComponent(`Website Inquiry: ${subject}`);
+  const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+  window.location.href = `mailto:info@uriderelicti.org?subject=${mailtoSubject}&body=${mailtoBody}`;
+  
   document.getElementById('contact-form-wrap').style.display='none';
   document.getElementById('form-success').style.display='block';
 }
