@@ -279,9 +279,9 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
       <div style="background:var(--color-surface-offset); border:1px solid var(--color-primary); border-radius:var(--radius-lg); padding:var(--space-8); margin-bottom:var(--space-10); text-align:center; box-shadow:var(--shadow-sm);">
           <h3 style="font-family:var(--font-display); font-size:var(--text-xl); color:var(--color-text); margin-bottom:var(--space-4); font-style:italic;">Test This Framework With AI</h3>
           <p style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-6); max-width:64ch; margin-left:auto; margin-right:auto; line-height: 1.7;">
-              Click below to copy a pre-written prompt containing this entire argument. It will open Claude AI in a new tab, where you can ask the AI to try and construct an alternative scriptural framework that survives every point raised here.
+              Click below to copy a pre-written prompt containing this entire argument. It will automatically open Claude AI in a new tab, where you can paste it and ask the AI to try and construct an alternative scriptural framework that survives every point raised here.
           </p>
-          <button onclick="testWithAI(this)" id="ai-btn" class="btn btn-primary">Copy Prompt & Open Claude</button>
+          <button onclick="testWithAI(this)" class="btn btn-primary">Copy Prompt & Open Claude</button>
       </div>
 
       <div class="axiom-block">
@@ -673,8 +673,8 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
   <div class="footer-legal">&copy; 2026 Uri Derelicti &nbsp;&#183;&nbsp; South Carolina Religious Nonprofit</div>
 </footer>
 
-<script type="text/plain" id="ai-prompt-data">
-Assume sex between men is immoral. The Christian congregation had slaves. The slaves in the Roman empire were property and could be used for sexual gratification by their masters and their masters' friends. Were male slaves used by their masters for sexual gratification not allowed to be part of the congregation? Were they not baptized by Holy Spirit in the first century? Would that not be partial against someone due to his circumstances rather than his heart? Because God is not partial.
+<script>
+const AI_PROMPT_DATA = `Assume sex between men is immoral. The Christian congregation had slaves. The slaves in the Roman empire were property and could be used for sexual gratification by their masters and their masters' friends. Were male slaves used by their masters for sexual gratification not allowed to be part of the congregation? Were they not baptized by Holy Spirit in the first century? Would that not be partial against someone due to his circumstances rather than his heart? Because God is not partial.
 
 What if the male slave never had sex with another man and the slave came into the Christian congregation. If he was used, as a slave, for sex by another man, would he be removed from the congregation? Neither height nor depth nor any other creation can separate us from God's love. The master is part of God's creation, so how could he separate the slave from God's love? and the congregation? and the Kingdom?
 
@@ -737,10 +737,8 @@ homosexuals get AIDS "due to their extensive sexual promiscuity" (g86 4/22 pp. 7
 defining homosexuality as the crime of the Benjaminites when they raped a woman
 
 For reference: currently grounds for disfellowshipping:
-a wife performing oral sex on her husband; a man performing oral sex on his male friend; watching a video depicting oral sex; starting and abandoning a book that contains an oral sex scene later; believing any of these are not scriptural grounds for disfellowshipping
-</script>
+a wife performing oral sex on her husband; a man performing oral sex on his male friend; watching a video depicting oral sex; starting and abandoning a book that contains an oral sex scene later; believing any of these are not scriptural grounds for disfellowshipping`;
 
-<script>
 (function(){
   const toggle=document.querySelector('[data-theme-toggle]');
   const root=document.documentElement;
@@ -802,9 +800,7 @@ function handleContactSubmit(e){
   const subjectInput = f.querySelector('#cs');
   const subjectText = subjectInput.options[subjectInput.selectedIndex].text;
   
-  // Format line breaks securely for desktop clients
   const formattedMessage = "From: " + nameInput + "\r\n\r\n" + messageInput.replace(/\n/g, '\r\n');
-  
   const mailtoLink = `mailto:info@uriderelicti.org?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(formattedMessage)}`;
   
   window.location.href = mailtoLink;
@@ -816,23 +812,48 @@ function handleContactSubmit(e){
 function testWithAI(btn) {
   const originalText = btn.innerText;
   
-  // 1. Open Claude immediately (synchronously with click) to bypass popup blockers
-  const aiWindow = window.open('https://claude.ai/new', '_blank');
+  // Create prompt locally from hidden JS string variable
+  const promptText = `Please review the following argument from the perspective of its stated axiom: "All Scripture is inspired of God and beneficial" (2 Timothy 3:16, 17). Your reasoning should follow the principle that if no other conclusion can survive the argument, then it must be the correct conclusion. Your task is to attempt to construct an alternative scriptural framework that survives every element of the argument. To do this successfully, you must find a clear biblical commandment (not just commentary) that condemns all homosexuality (including between women), and you must address every other line of reasoning presented in the argument. If no other framework can successfully survive without contradicting the scriptures provided or the axiom, explain why.\n\nHere is the argument:\n\n` + AI_PROMPT_DATA;
   
-  // 2. Grab the text
-  const proofText = document.getElementById('ai-prompt-data').textContent.trim();
-  const promptText = `Please review the following argument from the perspective of its stated axiom: "All Scripture is inspired of God and beneficial" (2 Timothy 3:16, 17). Your reasoning should follow the principle that if no other conclusion can survive the argument, then it must be the correct conclusion. Your task is to attempt to construct an alternative scriptural framework that survives every element of the argument. To do this successfully, you must find a clear biblical commandment (not just commentary) that condemns all homosexuality (including between women), and you must address every other line of reasoning presented in the argument. If no other framework can successfully survive without contradicting the scriptures provided or the axiom, explain why.\n\nHere is the argument:\n\n` + proofText;
-  
-  // 3. Write to clipboard and update button UI silently
-  navigator.clipboard.writeText(promptText).then(function() {
-    btn.innerText = "Prompt Copied! Ready to paste.";
-    setTimeout(() => { btn.innerText = originalText; }, 4000);
-  }).catch(function(err) {
-    // If the clipboard fails, overwrite the already-open window with a fallback screen
-    aiWindow.location.href = 'about:blank';
-    aiWindow.document.write('<html><body style="font-family:sans-serif; background:#f9f6f0; color:#1e1a12; padding:2rem;"><h2 style="margin-top:0;">Manual Copy Fallback</h2><p>Your browser blocked the automatic copy feature. Please highlight and copy the text below, then proceed to <a href="https://claude.ai/new" style="color:#c8872a;">Claude AI</a> manually:</p><textarea style="width:100%; height:75vh; padding:1rem; border:1px solid #ccc; font-family:monospace;">' + promptText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</textarea></body></html>');
+  // Try standard clipboard API first
+  if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(promptText).then(() => {
+          btn.innerText = "Prompt Copied! Redirecting...";
+          setTimeout(() => {
+              window.open('https://claude.ai/new', '_blank');
+              btn.innerText = originalText;
+          }, 500);
+      }).catch(err => {
+          fallbackCopy(promptText, btn, originalText);
+      });
+  } else {
+      fallbackCopy(promptText, btn, originalText);
+  }
+}
+
+function fallbackCopy(text, btn, originalText) {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.position = "fixed";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  try {
+    document.execCommand('copy');
+    btn.innerText = "Prompt Copied! Redirecting...";
+    setTimeout(() => {
+        window.open('https://claude.ai/new', '_blank');
+        btn.innerText = originalText;
+    }, 500);
+  } catch (err) {
+    // If absolutely everything fails, open a tab with the text printed out
+    const aiWindow = window.open('', '_blank');
+    aiWindow.document.write('<html><body style="font-family:sans-serif; background:#f9f6f0; color:#1e1a12; padding:2rem;"><h2 style="margin-top:0;">Manual Copy Required</h2><p>Your browser blocked the automatic copy feature. Please highlight and copy the text below manually, then proceed to <a href="https://claude.ai/new" style="color:#c8872a;">Claude AI</a>:</p><textarea style="width:100%; height:75vh; padding:1rem; border:1px solid #ccc; font-family:monospace;">' + text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</textarea></body></html>');
     aiWindow.document.close();
-  });
+  }
+  document.body.removeChild(textArea);
 }
 </script>
 </body>
