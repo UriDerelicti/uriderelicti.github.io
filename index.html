@@ -24,46 +24,51 @@
   --color-bg:#0e0d0b; --color-surface:#141310; --color-text:#e8e0d0;
   --color-text-muted:#9a9080; --color-primary:#c8872a; --color-border:#33302a;
 }
-body{font-family:var(--font-body); background:var(--color-bg); color:var(--color-text); line-height:1.7;}
-.site-header{position:fixed; top:0; width:100%; z-index:100; display:flex; justify-content:space-between; padding:1.5rem 5vw; background:rgba(14,13,11,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--color-border);}
-.nav-links{display:flex; gap:2rem; list-style:none;}
-.nav-links a{text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1em; color:var(--color-text-muted); text-decoration:none;}
-.nav-links a.active{color:var(--color-primary);}
-.page-section{display:none; padding:120px 5vw 60px;}
+body{font-family:var(--font-body); background:var(--color-bg); color:var(--color-text); line-height:1.7; margin:0;}
+.site-header{position:fixed; top:0; width:100%; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:1.5rem 5vw; background:rgba(14,13,11,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--color-border); box-sizing:border-box;}
+.nav-links{display:flex; gap:2rem; list-style:none; margin:0; padding:0;}
+.nav-links a{text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1em; color:var(--color-text-muted); text-decoration:none; transition: color 0.2s;}
+.nav-links a.active, .nav-links a:hover{color:var(--color-primary);}
+.page-section{display:none; padding:140px 5vw 80px;}
 .page-section.active{display:block;}
 .content-narrow{max-width:800px; margin:0 auto;}
 .proof-content p {margin-bottom: 1.5rem; text-wrap: pretty;}
 .axiom-block {border-left: 2px solid var(--color-primary); padding-left: 2rem; margin: 3rem 0;}
-.nb-section {background: #1a1815; padding: 2rem; border-radius: 8px; margin: 2rem 0; border: 1px solid var(--color-border);}
-.ref-list {margin-top: 4rem; border-top: 1px solid var(--color-border); padding-top: 2rem;}
-.ref-item {font-size: 0.9rem; margin-bottom: 1rem; color: var(--color-text-muted);}
-.ref-title {color: var(--color-primary); font-family: var(--font-display); font-style: italic; margin-right: 0.5rem;}
-h1, h2, h3 {font-family: var(--font-display); font-weight: 400; font-style: italic;}
+.nb-section {background: #1a1815; padding: 2rem; border-radius: 8px; margin: 3rem 0; border: 1px solid var(--color-border);}
+.ref-list {margin-top: 5rem; border-top: 1px solid var(--color-border); padding-top: 2rem;}
+.ref-item {font-size: 0.95rem; margin-bottom: 1.2rem; color: var(--color-text-muted);}
+.ref-title {color: var(--color-primary); font-family: var(--font-display); font-style: italic; margin-right: 0.5rem; font-weight: 500;}
+h1, h2, h3 {font-family: var(--font-display); font-weight: 400; font-style: italic; margin-top: 2.5rem;}
+ul { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.75rem; color: var(--color-text-muted); }
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <a href="#" onclick="showPage('home')" style="text-decoration:none; color:inherit; font-family:var(--font-display); font-size:1.5rem;">Uri Derelicti</a>
-  <nav><ul class="nav-links">
-    <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-    <li><a href="#" onclick="showPage('proof')" id="nav-proof">The Proof</a></li>
-    <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
-    <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
-  </ul></nav>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+      <li><a href="#" onclick="showPage('proof')" id="nav-proof">The Proof</a></li>
+      <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
+      <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main>
   <section id="page-home" class="page-section active">
-    <div style="text-align:center; padding: 15vh 0;">
-      <h1 style="font-size: var(--text-hero);">Uri Derelicti</h1>
-      <p style="font-style: italic; font-size: var(--text-xl); color: var(--color-text-muted);">Left to Burn</p>
+    <div style="text-align:center; padding: 10vh 0;">
+      <h1 style="font-size: var(--text-hero); margin-top: 0;">Uri Derelicti</h1>
+      <p style="font-style: italic; font-size: var(--text-xl); color: var(--color-text-muted); margin-bottom: 3rem;">Left to Burn</p>
+      <p style="max-width: 600px; margin: 0 auto; color: var(--color-text-muted); font-size: var(--text-lg);">A ministry devoted to honest scriptural inquiry—examining what Paul actually wrote to those burning with desire, and what Jehovah actually requires of them.</p>
     </div>
   </section>
 
   <section id="page-proof" class="page-section">
     <div class="content-narrow">
-      <h2 style="font-size: var(--text-2xl); margin-bottom: 0.5rem;">Mini Meta Proof</h2>
+      <h2 style="font-size: var(--text-2xl); margin-top: 0; margin-bottom: 0.5rem;">Mini Meta Proof</h2>
       <p style="font-style: italic; color: var(--color-text-muted); margin-bottom: 3rem;">In Which Any Alternative Framework Would Need to Address All the Points Raised (And Would Still Not Be Clearly Correct)</p>
 
       <div class="axiom-block">
@@ -92,11 +97,11 @@ h1, h2, h3 {font-family: var(--font-display); font-weight: 400; font-style: ital
 
         <p>The generalization is not that some men would need to make themselves slaves of men for the Kingdom since men born eunuchs were not slaves as a group. Both men who were born eunuchs and men made eunuchs could (and did) have sex with men. The generalization is that some men do not marry with the option of either celibacy or sex with men. They were following Jesus's commandments, part of the congregation, and having sex with other men. And they were loved according to Jesus.</p>
 
-        <h3 style="margin-top: 3rem;">2 John 6, 7</h3>
+        <h3>2 John 6, 7</h3>
         <p>Love is following Jehovah's commandments. Jehovah's commandments are to love. The commandment, from the beginning, is to love. Therefore, two men making love is following the law.</p>
         <p><em>"Pleasing God is not complicated. All that he requires of us can be summed up in a single word: love. That has always been—and will always be—the essence of true worship. But love is not just a matter of words or feelings; it is expressed in action. (1 John 3:18)"</em> — DRAW CLOSE TO GOD, “Which Commandment Is First of All?”</p>
 
-        <h3 style="margin-top: 3rem;">David and Jonathan</h3>
+        <h3>David and Jonathan</h3>
         <p>I believe that David and Jonathan had the greatest romance described in the scriptures. And they were both approved by Jehovah, so much so that He described Jesus as the second David. Jonathan chose David (according to Saul) and waited for him for years, planning to be by David's side when David ruled. They risked their lives to hug and kiss each other, after David hid out three days outside Gibeah. Jonathan couldn't even put in a full archery session for the ruse before abandoning it to hold David- who he loved as himself. In the NT, husbands are encouraged to cherish their wives; they could look to Jonathan as an example of loving someone as you do yourself. NB- David leaving his wife is also recorded, in stark contrast to his leaving Jonathan- details added to the record for a purpose.</p>
 
         <p>Jonathan- knowing priests had been killed for giving the food to David on the run and that his father twice tried to kill him- traveled some distance to find David in the wilderness (which his father could not do) and encourage David. It was only after this restating their vows and they had been separated by about 5 years that David started having children. While they were together for about 2 years after Goliath was killed, they lived in the same city, regularly ate dinner at the king's table, and were deployed as soldiers in wars. Seemingly, Jonathan helped David- too young to serve in the militia- learn to command men. He would end up being the overseer of a thousand soldiers. During this time where the two were deployed together, I don't believe they would have risked being removed from the camp because of a wet dream, as the Law required, potentially keeping them from battle. Nor would they ejaculate with women or animals. Nor did they have privacy to be alone. Jehovah constructed the Law to remove the men separating themselves for their fellows sexually for the day and then having them clean up with the soldiers, "seeing each other nakedness"- a bonding that was valuable for soldiers fighting side by side.</p>
@@ -112,12 +117,12 @@ h1, h2, h3 {font-family: var(--font-display); font-weight: 400; font-style: ital
         <p>Two men can morally love each other openly and unrestrained, with sexual activity private. To limit this love is immoral.</p>
 
         <div class="nb-section">
-          <h3>NB: The Society's arguments are:</h3>
+          <h3 style="margin-top: 0;">NB: The Society's arguments are:</h3>
           <ul>
             <li><strong>asceticism</strong> {see Colossians 2:20–23; 1 Timothy 4:1–3} wrapped as the "Edenic standard" philosophy.</li>
             <li><strong>sex is only for making babies</strong> (later abandoned, but still needs to be penile-vaginal).</li>
             <li><strong>sexuality needs to be deadened</strong> (Col 3:5).</li>
-            <li><strong>by fiat</strong> {see Deuteronomy 4:2; 2 Thessalonians 2:3–4; redefining, malakoi, arsenokoitai, and porneia}.</li>
+            <li><strong>by fiat</strong> {see Deuteronomy 4:2; 2 Thessalonians 2:3–4; redefining, malakoi, arsenokoitai, and porneia {"only … acts that make an individual “one flesh” with a person of the opposite sex other than his or her legal marriage mate." - w72 1/1 pp. 31-32}}.</li>
             <li><strong>oral sex is gross</strong> (uncleanness); redefining akatharsia.</li>
             <li><strong>defining [non-procreative sex] as unnatural</strong>, unnatural is immoral (Ro 1).</li>
             <li><strong>defining all homosexuality as a taboo</strong>, like eating shellfish (Lev 18).</li>
@@ -126,51 +131,80 @@ h1, h2, h3 {font-family: var(--font-display); font-weight: 400; font-style: ital
             <li><strong>homosexuals get AIDS</strong> "due to their extensive sexual promiscuity" (g86 4/22 pp. 7-8).</li>
             <li><strong>defining homosexuality as the crime of the Benjaminites</strong> when they raped a woman.</li>
           </ul>
-          <p style="margin-top: 1rem; font-size: 0.85rem; border-top: 1px solid #333; padding-top: 1rem;">
+          <p style="margin-top: 1.5rem; font-size: 0.85rem; border-top: 1px solid #333; padding-top: 1rem; color: var(--color-text-muted);">
             <strong>For reference:</strong> currently grounds for disfellowshipping: wife blowing her husband; man blowing his male friend; watching a video of someone getting blown; starting and abandoning a book that has an oral sex scene later; believing any of these aren't scriptural grounds for disfellowshipping.
           </p>
         </div>
       </article>
 
       <div class="ref-list">
-        <h3>References</h3>
+        <h3 style="margin-top: 0;">References</h3>
         <div class="ref-item"><span class="ref-title">Acts 10:34-35</span> "God is not partial, but in every nation the man who fears him and does what is right is acceptable to him.'"</div>
         <div class="ref-item"><span class="ref-title">Romans 8:38-39</span> "For I am convinced that neither death nor life nor angels nor governments nor things now here nor things to come nor powers nor height nor depth nor any other creation will be able to separate us from God's love that is in Christ Jesus our Lord."</div>
-        <div class="ref-item"><span class="ref-title">1 Corinthians 7:21-24</span> "Were you called when a slave? Do not let it worry you; but if you can also become free, rather seize the opportunity. For the one who was called in the Lord as a slave is the Lord's freed person; likewise the one who was called as a free person is a slave of Christ. ... Brothers, let each one remain in the state in which he was called."</div>
-        <div class="ref-item"><span class="ref-title">Matthew 8:5-8, 13</span> "When he entered Capernaum, an army officer came to him, pleading with him and saying: 'Sir, my servant boy (pais) is laid up at home with paralysis, and he is suffering terribly.' ... And the servant boy (pais) was healed in that hour."</div>
-        <div class="ref-item"><span class="ref-title">Matthew 19:12</span> "For there are eunuchs who were born that way, and there are eunuchs who were made eunuchs by men, and there are eunuchs who have made themselves eunuchs for the sake of the Kingdom of the heavens. Let the one who can make room for it make room for it."</div>
+        <div class="ref-item"><span class="ref-title">1 Corinthians 7:21-24</span> "Were you called when a slave? Do not let it worry you... Brothers, let each one remain in the state in which he was called."</div>
+        <div class="ref-item"><span class="ref-title">Matthew 8:5-8, 13</span> "When he entered Capernaum, an army officer came to him, pleading with him and saying: 'Sir, my servant boy (pais) is laid up at home with paralysis...' And the servant boy (pais) was healed in that hour."</div>
+        <div class="ref-item"><span class="ref-title">Matthew 19:12</span> "For there are eunuchs who were born that way, and there are eunuchs who were made eunuchs by men... Let the one who can make room for it make room for it."</div>
         <div class="ref-item"><span class="ref-title">John 15:10</span> "If you observe my commandments, you will remain in my love, just as I have observed the commandments of the Father and remain in his love."</div>
         <div class="ref-item"><span class="ref-title">2 John 6-7</span> "And this is what love means, that we go on walking according to his commandments. This is the commandment, just as you have heard from the beginning, that you should go on walking in it."</div>
         <div class="ref-item"><span class="ref-title">2 Samuel 1:26</span> "Your love for me was more wonderful than the love of women."</div>
         <div class="ref-item"><span class="ref-title">Leviticus 18:22</span> "You must not lie down with a male in the same way that you lie down with a woman."</div>
         <div class="ref-item"><span class="ref-title">Deuteronomy 4:2</span> "You must not add to the word that I am commanding you, and you must not take away from it."</div>
+        <div class="ref-item"><span class="ref-title">Proverbs 30:6</span> "Do not add to his words, or he will reprove you, and you will be found a liar."</div>
       </div>
     </div>
   </section>
 
   <section id="page-about" class="page-section">
     <div class="content-narrow">
-      <h2>About the Ministry</h2>
-      <p>Uri Derelicti is a religious ministry organized as a nonprofit corporation under the laws of South Carolina.</p>
+      <h2 style="margin-top: 0;">About the Ministry</h2>
+      <p>Uri Derelicti is a religious ministry organized as a nonprofit corporation under the laws of South Carolina. Its work is the honest study and careful presentation of what the scriptures actually say—not what tradition has assumed them to say—concerning desire, conscience, and the impartiality of Jehovah.</p>
+      <p>The name is drawn from Lamentations—<em>uri derelicti</em>, left to burn—as an acknowledgment of a real condition. Paul wrote to people in that condition. He included homosexual men explicitly in his audience. He constrained them from prostitution, idolatry, and adultery. He told them to remain as they were called. He said he was not casting a noose. The freedom he left is the one he did not prohibit.</p>
     </div>
   </section>
 
   <section id="page-contact" class="page-section">
     <div class="content-narrow">
-      <h2>Contact</h2>
-      <p>Requests for notification of publication are welcome.</p>
+      <h2 style="margin-top: 0;">Contact</h2>
+      <p>Questions, scriptural correspondence, and requests for notification of publication are welcome. All inquiries are received with care and responded to with discretion.</p>
+      <p style="color: var(--color-primary);">info@uriderelicti.org</p>
     </div>
   </section>
 </main>
 
 <script>
 function showPage(pageId) {
-  document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
-  document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
-  document.getElementById('page-' + pageId).classList.add('active');
-  document.getElementById('nav-' + pageId).classList.add('active');
+  // Hide all sections
+  document.querySelectorAll('.page-section').forEach(section => {
+    section.classList.remove('active');
+  });
+  // Remove active class from all nav links
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.classList.remove('active');
+  });
+  
+  // Show target section
+  const targetSection = document.getElementById('page-' + pageId);
+  if (targetSection) {
+    targetSection.classList.add('active');
+  }
+  
+  // Activate target nav link
+  const targetLink = document.getElementById('nav-' + pageId);
+  if (targetLink) {
+    targetLink.classList.add('active');
+  }
+  
+  // Reset scroll
   window.scrollTo(0, 0);
 }
+
+// Initial hash check
+window.addEventListener('load', () => {
+  const hash = window.location.hash.replace('#', '');
+  if (['home', 'proof', 'about', 'contact'].includes(hash)) {
+    showPage(hash);
+  }
+});
 </script>
 </body>
 </html>
