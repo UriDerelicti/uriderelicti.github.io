@@ -181,6 +181,41 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
 .footer-links a{font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-faint);transition:color var(--transition);}
 .footer-links a:hover{color:var(--color-primary);}
 .footer-legal{font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:.06em;}
+
+/* AI Widget Styles */
+.ai-widget-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-surface-offset);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.ai-widget-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+.ai-widget-btn svg {
+  width: 16px;
+  height: 16px;
+}
+.ai-widget-tooltip {
+  display: none;
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp .8s cubic-bezier(0.16,1,0.3,1) both;}
 .fade-up-1{animation-delay:.1s}.fade-up-2{animation-delay:.25s}.fade-up-3{animation-delay:.4s}
@@ -203,6 +238,7 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
     <ul class="nav-links" role="list">
       <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
       <li><a href="#" onclick="showPage('proof')" id="nav-proof">The Proof</a></li>
+      <li><a href="#" onclick="showPage('glossary')" id="nav-glossary">Glossary</a></li>
       <li><a href="#" onclick="showPage('commentary')" id="nav-commentary">Commentary</a></li>
       <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
       <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
@@ -219,6 +255,7 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
   <button class="mobile-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')" aria-label="Close menu">&#x2715;</button>
   <a href="#" onclick="showPage('home');document.querySelector('.mobile-nav').classList.remove('open')">Home</a>
   <a href="#" onclick="showPage('proof');document.querySelector('.mobile-nav').classList.remove('open')">The Proof</a>
+  <a href="#" onclick="showPage('glossary');document.querySelector('.mobile-nav').classList.remove('open')">Glossary</a>
   <a href="#" onclick="showPage('commentary');document.querySelector('.mobile-nav').classList.remove('open')">Commentary</a>
   <a href="#" onclick="showPage('about');document.querySelector('.mobile-nav').classList.remove('open')">About</a>
   <a href="#" onclick="showPage('contact');document.querySelector('.mobile-nav').classList.remove('open')">Contact</a>
@@ -369,6 +406,99 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
         <div class="ref-item"><span class="ref-cite">2 Peter 3:16</span><span class="ref-text">&#8220;The ignorant and unstable are twisting [Paul&#8217;s letters], as they do the rest of the Scriptures, to their own destruction.&#8221;</span></div>
         <div class="ref-item"><span class="ref-cite">Colossians 2:8</span><span class="ref-text">&#8220;Be on guard that no one takes you captive by means of the philosophy and empty deception according to human tradition.&#8221;</span></div>
       </div>
+      
+      <div style="text-align: center; border-top: 1px solid oklch(from var(--color-text) l c h/.1); padding-top: var(--space-8); margin-top: var(--space-12);">
+        <p style="font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic; margin-bottom: var(--space-4);">Evaluate the scriptural soundness of this framework independently.</p>
+        <button class="ai-widget-btn" onclick="copyProofForAI()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          Copy Proof & Open Claude AI
+        </button>
+        <div id="ai-widget-tooltip" class="ai-widget-tooltip">Prompt copied! Opening Claude...</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="page-section" id="page-glossary" style="padding-top:80px;">
+  <div class="content-section">
+    <div class="section-inner">
+      <span class="section-label">Lexicon & Context</span>
+      <h2 class="section-title">Glossary of Terms</h2>
+      <p class="section-subtitle">Defining the scriptural and historical boundaries of the text</p>
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <div class="proof-block">
+        <p class="proof-latin">Porneia</p>
+        <p class="proof-translation">Penile-vaginal sex without the marriage bond is immoral</p>
+        <div class="proof-body">
+          <p><em>Porneia</em> means "to sell" in the feminine and references a woman selling herself for sex (prostitution). In the Greek Septuagint, the word is used when translating the OT for "whoring." The return can be money, power, position, or nothing (a prostitute for no pay) &#8212; Ezekiel 16:33&#8211;34.</p>
+          <p>It did not refer to the man hiring the prostitute, which is why Paul reasoned that men should not be "one flesh" (have penile-vaginal sex) with a female prostitute if they are part of the body (congregation) of Christ. The two key characteristics are: (1) penile-vaginal sex and (2) outside of a marriage. The narrowness of the word is why Paul had to reason that the man paying her to do wrong was also wrong, although his line of reasoning included the fulcrum of "one flesh."</p>
+        </div>
+        <div class="proof-nb">
+          <p><strong>Note:</strong> Prostitution was not illegal in Israel.</p>
+          <p><strong>Note:</strong> The children of these unions would often be abandoned to either die or be sold as child sex slaves; hence these acts were listed alongside murder and kidnappers/slave traders.</p>
+        </div>
+      </div>
+
+      <div class="proof-block">
+        <p class="proof-latin">Pornos &#183; Arsenokoitai &#183; Malakoi</p>
+        <p class="proof-translation">Neither were applied to homosexuality for more than a millennium</p>
+        <div class="proof-body">
+          <p><em>Pornos</em> (male prostitute) and <em>arsenokoitai</em> ("man bedder") &#8212; male prostitutes and those women who hire them. This parallels female prostitutes and those who hire them. The focus is not prostitution but penile-vaginal sex outside of marriage. Again, they were used to reason around <em>porneia</em> (which is directly condemned) to clarify who was committing immorality, as the word <em>porneia</em> itself does not clearly make the point.</p>
+          <p>Neither are of the many words that referenced homosexuality in Greek. "Homosexuals" is not a defensible translation, even as a footnote; it would be more defensible to translate most of Leviticus 18 as condemning "heterosexuality."</p>
+          <p><em>Malakoi</em> literally means soft, or "moral weakness" in the Liddell-Scott Greek-English Lexicon. Compare to the cowards in the list of condemnable people in Revelation, where John chose a different word than Paul did. It cannot mean "effeminate" and comprehensibly apply to women; nor is it very comprehensible for a man to not inherit the Kingdom because he is effeminate.</p>
+          <p><em>Arsenokoitai</em> is literally "man bedder." In the context of the Scriptures and the abandoning of marriage after penile-vaginal sex, women hiring male prostitutes (generally, women willingly having PV-sex without marriage) would be missing. <em>Arsenokoitai</em> is present, and one clear meaning of it is the one having sex with a man. The Scriptural pivot is around PV-sex: in <em>porneia</em>, in the man hiring her, in the consummation of marriage, and in the dissolution of marriage.</p>
+        </div>
+        <div class="proof-nb">
+          <p><strong>Note:</strong> The symmetry around penile-vaginal sex is clear: it is wrong for male and female, regardless of which was the prostitute and which was the client. As would be expected for one of the immoral acts for Christians, it is made clear that "one flesh" (penile-vaginal sex) by a female prostitute, male client, male prostitute, and female client are all in the wrong.</p>
+        </div>
+      </div>
+
+      <div class="proof-block">
+        <p class="proof-latin">Adultery & The Marriage Covenant</p>
+        <p class="proof-translation">The dissolution of the arrangement</p>
+        <div class="proof-body">
+          <p>Adulterers were added in these lists of condemned because they include other sex acts not otherwise covered, which would be redundant if all sex outside of marriage was condemned. These sex acts "adulterate" the marriage bed. There is overlap, but conceptually they revolve around the marriage covenant which is formed by penile-vaginal sex &#8212; whether the marriage is abandoned after sex or a previous spouse is abandoned by sex with a new party.</p>
+          <p>If a married man had sex with a woman not his wife, he would break their covenant today, but he did not in Israel; he did not commit adultery by hiring a prostitute or taking a concubine. The shift for the Christian congregation in the outlawing of <em>porneia</em> and <em>porneia</em> being grounds for divorce (not adultery) meant that whether the married man or married woman had PV-sex with another person, there was the dissolution of their marriage when this new contract would come in. <em>Porneia</em> is, broadly, the abandoning of the marriage arrangement when PV-sex occurs without the marriage between the two parties, whether or not the previous marriage covenant or the new one formed by the sex were abandoned.</p>
+          <p>It is an oversimplification to say "all sex outside of marriage is immoral." It is more precisely "all one-flesh sex that abandons a marriage covenant formed by one-flesh sex is immoral." A married man having oral sex with someone not his wife may break the agreement they have with each other but it isn't grounds for divorce any more than his murdering someone &#8212; treacherous to be sure, and a violation of the commandments to love, but it does not result in a divorcing. This is consistent with the Mosaic Law, which was moved forward in principle. The man is certainly not being righteous, but it doesn't follow that his marriage is dissolved.</p>
+        </div>
+      </div>
+
+      <div class="proof-block">
+        <p class="proof-latin">Romans 1</p>
+        <p class="proof-translation">"Females changed the natural use of themselves into one contrary to nature"</p>
+        <div class="proof-body">
+          <p>This refers to heterosexual sex in which the women penetrated the castrated men. The castrated male prostitutes longed to be penetrated by other men <em>and women</em>.</p>
+          <p>Paul's commentary was on a group that abandoned Jehovah for creature worship; he was not giving a new commandment nor was one stated. The people were condemnable for idolatry, including covetousness.</p>
+          <p>Lesbianism is neither stated nor implied; the conclusion has to be assumed to get to that rationale, which is in direct contradiction to Jehovah's invisible qualities being clearly seen (homosexuality is widely used in His design, in creatures that never "fell").</p>
+        </div>
+      </div>
+
+      <div class="proof-block">
+        <p class="proof-latin">Leviticus 18:22</p>
+        <p class="proof-translation">Abomination & Taboo</p>
+        <div class="proof-body">
+          <p>This command is not broad like the following commandment against bestiality; it intentionally does not cover sex between women and therefore homosexuality broadly; it does not reference non-anal sex in the almost universal understanding of the text (penetrative sex, as with a woman). It involved taking a man for sex &#8212; a slave, conquered soldier, child, etc. &#8212; the same as these women could be taken for sex. The women were concubines if taken by a master for sex; if the woman was married, he would have been killed for adultery. Men (single or married) had no parallel protection except this commandment.</p>
+          <p>Calling it an "abomination" or taboo softens the commandment by noting it wasn't something they were going to do in their culture. They were to grow the population rather than have sex with men. That was important then but not now. Same with eating shellfish &#8212; these taboos are not relevant today, just as their dress and grooming standards are not.</p>
+        </div>
+        <div class="proof-nb">
+          <p><strong>Note:</strong> The Mosaic Law protected rights (such as Jehovah's right to exclusive devotion). Adultery was committed by a married woman and a man (whether he was married was not relevant) &#8212; what was affected was his right to raise his own children and not another man's, a child to be born to a family of his parents, and a man's correct genealogy. It also protected a man's right to not be sexually exploited.</p>
+        </div>
+      </div>
+
+      <div class="proof-block">
+        <p class="proof-latin">The Sin of Sodom</p>
+        <p class="proof-translation">Strange Flesh</p>
+        <div class="proof-body">
+          <p>To claim the sin of the Sodomites was homosexuality requires believing gang rape was insignificant and not worthy of condemnation, and that the sex of their <em>attempted</em> victims was all that mattered.</p>
+          <p>They went after strange flesh &#8212; the flesh of angels &#8212; not the flesh of men, which was the most familiar flesh. The attempted gang rape of even angels showed how far from hospitality they had strayed, for which they were punished.</p>
+        </div>
+      </div>
+      
     </div>
   </div>
 </section>
@@ -577,6 +707,7 @@ a{color:inherit;text-decoration:none;transition:color var(--transition);}
   <ul class="footer-links" role="list">
     <li><a href="#" onclick="showPage('home')">Home</a></li>
     <li><a href="#" onclick="showPage('proof')">The Proof</a></li>
+    <li><a href="#" onclick="showPage('glossary')">Glossary</a></li>
     <li><a href="#" onclick="showPage('commentary')">Commentary</a></li>
     <li><a href="#" onclick="showPage('about')">About</a></li>
     <li><a href="#" onclick="showPage('contact')">Contact</a></li>
@@ -609,7 +740,7 @@ function showPage(page){
 }
 (function(){
   const hash=location.hash.replace('#','');
-  if(['home','proof','commentary','about','contact'].includes(hash))showPage(hash);
+  if(['home','proof','glossary','commentary','about','contact'].includes(hash))showPage(hash);
 })();
 function handleContactSubmit(e){
   e.preventDefault();
@@ -627,6 +758,35 @@ function handleContactSubmit(e){
   
   document.getElementById('contact-form-wrap').style.display='none';
   document.getElementById('form-success').style.display='block';
+}
+
+function copyProofForAI() {
+  const proofSection = document.getElementById('page-proof');
+  const proofBlocks = Array.from(proofSection.querySelectorAll('.proof-block, .axiom-block'));
+  
+  let proofText = "I would like you to analyze the following theological argument based on Christian scripture. Please evaluate its scriptural soundness, logic, and internal consistency. Point out any weak points, strong points, or logical fallacies.\n\n";
+  
+  proofBlocks.forEach(block => {
+    let title = block.querySelector('.proof-latin') ? block.querySelector('.proof-latin').innerText : '';
+    if (!title && block.querySelector('blockquote')) title = "Axiom";
+    
+    let bodyText = block.innerText;
+    bodyText = bodyText.replace(title, `\n--- ${title} ---\n`);
+    proofText += bodyText + "\n";
+  });
+
+  navigator.clipboard.writeText(proofText).then(() => {
+    const tooltip = document.getElementById('ai-widget-tooltip');
+    tooltip.style.display = 'block';
+    
+    setTimeout(() => {
+      window.open('https://claude.ai/new', '_blank');
+      tooltip.style.display = 'none';
+    }, 1500);
+  }).catch(err => {
+    console.error('Failed to copy text: ', err);
+    alert('Failed to copy the proof to clipboard.');
+  });
 }
 </script>
 </body>
