@@ -967,17 +967,27 @@ function copyProofForAI(pageId) {
   
   const proofBlocks = Array.from(proofSection.querySelectorAll('.proof-block, .axiom-block'));
   
-  let proofText = "I would like you to analyze the following argument.\n" +
-    "It uses one axiom:\n" +
-    "“All Scripture is inspired of God and beneficial… for setting things straight… so that the man of God may be fully competent, completely equipped.” - 2 TIMOTHY 3:16–17\n" +
-    "From there, other scriptures are leaned on.\n" +
-    "Review each line of reasoning used and try to construct an alternative framework that will survive each point. Re-check that you have created a framework that is consistent with the Scriptures, addresses each point in the argument, and is itself internally consistent. Reply with the framework or why you have failed.\n\n" +
-    "If you are supporting a different framework, clearly state in a sentence where the line is where homosexuality is immoral and then follow it with how each of the points in the arguments supports your conclusion rather than the argument's conclusion that the line for homosexuality is drawn at covetousness/idolatry/rape/abuse/etc. If your line fails any one of the tests, state why. Also, state if the presented conclusion is logically consistent.\n\n" +
-    "Proof:\n\n";
+  let proofText = "I require a rigorous logical and theological analysis of the following argument. The argument operates on a single axiom:\n" +
+    "**\"All Scripture is inspired of God and beneficial… for setting things straight… so that the man of God may be fully competent, completely equipped.\" — 2 Timothy 3:16–17**\n" +
+    "The task is to construct an alternative framework that successfully refutes the argument's conclusion.\n\n" +
+    "**Rules that MUST be followed to execute this prompt:**\n" +
+    " 1. **Strict Sola Scriptura:** No scholarly opinion, no church tradition, no historical-critical redaction theories, and no external philosophical frameworks. The only valid counter-evidence is the canonical text of the cited Scriptures themselves.\n" +
+    " 2. **The Deuteronomy 4:2 Constraint (No Additions):** If a counter-argument requires a prohibition or a restriction not explicitly stated in a cited scripture, it is immediately disqualified. Inventing a hidden commandment to fill a textual silence proves the argument's premise.\n" +
+    " 3. **The Preemption Check:** Do not present a counter-argument that the proof has already explicitly dismantled (e.g., expanding the definition of *porneia*, or citing the Genesis marriage account as an exclusionary limit) unless directly refuting the proof's specific deconstruction of those points.\n" +
+    " 4. **The Slave Test:** Any proposed prohibition must survive this historical and scriptural reality: male slaves in the first-century congregation were utilized for sex by their masters and were explicitly told not to run away. The proposed framework must explain what specific commandment distinguishes this slave's situation from two free men who choose each other, doing so without violating divine impartiality (Acts 10:34) or the axiom that no creation can separate a believer from God's love (Romans 8:38-39).\n" +
+    " 5. **The Eunuch Test:** The proposed framework must logically account for Jesus's deliberate inclusion of \"eunuchs made by men\"—a demographic historically created and utilized for same-sex acts—as a Kingdom illustration in Matthew 19, without adding unstated exclusionary caveats to his teaching.\n" +
+    " 6. **The Demarcation Line:** Before submitting the framework, state in a single, distinct sentence exactly where the line falls between same-sex acts that are immoral and those that are a conscience matter. This sentence must:\n" +
+    "   * Be derivable from cited scripture alone.\n" +
+    "   * Add no unwritten restrictions to the text.\n" +
+    "   * Survive the slave test.\n" +
+    "   * Account for both male and female homosexuality.\n" +
+    " 7. **The Failure Condition:** The framework must be perfectly internally consistent. If an alternative framework cannot be constructed that clears all these specific hurdles simultaneously without generating a scriptural contradiction, state plainly that the proof's conclusion is logically inescapable and detail exactly where the attempted counters failed.\n\n" +
+    "**The argument follows:**\n\n";
   
   proofBlocks.forEach(block => {
     let title = block.querySelector('.proof-latin') ? block.querySelector('.proof-latin').innerText : '';
-    if (!title && block.querySelector('blockquote')) title = "Axiom";
+    // Since the Axiom is now natively part of the prompt rules, we skip duplicating the Axiom block text
+    if (!title && block.querySelector('blockquote')) return;
     
     let bodyText = block.innerText;
     bodyText = bodyText.replace(title, `\n--- ${title} ---\n`);
